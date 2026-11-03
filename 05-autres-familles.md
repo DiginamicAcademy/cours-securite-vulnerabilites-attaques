@@ -1,3 +1,5 @@
+[← Chapitre précédent](04-owasp-config-deps.md) · [Sommaire](Readme.md) · [Chapitre suivant →](06-lecture-de-code-vulnerable.md)
+
 # Autres familles de failles — le même raisonnement, d'autres portes
 
 > Un document PDF reçu d'un fournisseur fait planter le parseur — puis exécuter
@@ -192,3 +194,7 @@ la journée.*
   l'inutile, exécuter avec peu de droits, surveiller les écarts.
 - Devant un flux entrant, la question à poser est : *ce fichier peut-il me faire
   faire quelque chose ?*
+
+---
+
+[← Chapitre précédent](04-owasp-config-deps.md) · [Sommaire](Readme.md) · [Chapitre suivant →](06-lecture-de-code-vulnerable.md)

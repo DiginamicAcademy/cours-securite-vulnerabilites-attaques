@@ -1,3 +1,5 @@
+[← Chapitre précédent](03-owasp-web.md) · [Sommaire](Readme.md) · [Chapitre suivant →](05-autres-familles.md)
+
 # Configuration, dépendances et failles connues
 
 > Une bibliothèque Python téléchargée dix millions de fois par mois est
@@ -184,3 +186,7 @@ la journée.*
   la course se gagne à la **veille** et à la vitesse de déploiement.
 - La question utile n'est pas « avons-nous des failles ? » mais « connaissons-nous
   nos dépendances, et en combien de temps les corrigeons-nous ? ».
+
+---
+
+[← Chapitre précédent](03-owasp-web.md) · [Sommaire](Readme.md) · [Chapitre suivant →](05-autres-familles.md)

@@ -1,3 +1,5 @@
+[← Chapitre précédent](06-lecture-de-code-vulnerable.md) · [Sommaire](Readme.md) · [Chapitre suivant →](08-kill-chain.md)
+
 # Modèles d'attaquant — Qui attaque, et avec quoi
 
 > Un ancien employé mécontent, un adolescent qui lance un outil trouvé en ligne,
@@ -175,3 +177,7 @@ la journée.*
   masse), pas contre la menace la plus spectaculaire.
 - La sécurité est **proportionnée** : l'objectif est d'aligner les mesures sur
   le profil réellement visé, pas d'empiler des barrières au hasard.
+
+---
+
+[← Chapitre précédent](06-lecture-de-code-vulnerable.md) · [Sommaire](Readme.md) · [Chapitre suivant →](08-kill-chain.md)

@@ -1,8 +1,6 @@
-[← Chapitre précédent](01-Exemple%20de%20cours%20en%20un%20seul%20fichier.md) · [Sommaire](Readme.md) · [Chapitre suivant →](02-Exemple%20de%20cours%20en%20multi-fichier.md)
-
 # Anatomie d'une vulnérabilité — Vie d'une faille
 
-> La fromagerie **DIGICHEESE** (notre fil rouge tout au long du programme) vient
+> La fromagerie **DIGICHEESE** (la fromagerie du fil rouge) vient
 > de passer en ligne. Son développeur a écrit la recherche produits en une ligne
 > de Python. Ça marche, c'est même rapide. Et c'est exactement ça, le problème :
 > les failles les plus graves tiennent souvent dans les lignes les plus simples
@@ -136,7 +134,3 @@ la journée.*
   complexité technique.
 - Les familles de vulnérabilités sont une **carte** pour se parler, pas une liste
   à réciter.
-
----
-
-[← Chapitre précédent](01-Exemple%20de%20cours%20en%20un%20seul%20fichier.md) · [Sommaire](Readme.md) · [Chapitre suivant →](02-Exemple%20de%20cours%20en%20multi-fichier.md)

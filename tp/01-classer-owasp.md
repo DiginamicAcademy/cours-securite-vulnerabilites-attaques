@@ -9,7 +9,7 @@
 
 ## Contexte
 
-La fromagerie **DIGICHEESE** (le fil rouge de ce cours) vient de mettre sa
+La fromagerie **DIGICHEESE** (la fromagerie du fil rouge) vient de mettre sa
 boutique en ligne. Six observations ont été remontées, par l'équipe et par des
 clients. Aucune n'est encore qualifiée : c'est votre travail.
 

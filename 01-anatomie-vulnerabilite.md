@@ -1,3 +1,5 @@
+[← Chapitre précédent](01-Exemple%20de%20cours%20en%20un%20seul%20fichier.md) · [Sommaire](Readme.md) · [Chapitre suivant →](02-Exemple%20de%20cours%20en%20multi-fichier.md)
+
 # Anatomie d'une vulnérabilité — Vie d'une faille
 
 > La fromagerie **DIGICHEESE** (notre fil rouge tout au long du programme) vient
@@ -134,3 +136,7 @@ la journée.*
   complexité technique.
 - Les familles de vulnérabilités sont une **carte** pour se parler, pas une liste
   à réciter.
+
+---
+
+[← Chapitre précédent](01-Exemple%20de%20cours%20en%20un%20seul%20fichier.md) · [Sommaire](Readme.md) · [Chapitre suivant →](02-Exemple%20de%20cours%20en%20multi-fichier.md)

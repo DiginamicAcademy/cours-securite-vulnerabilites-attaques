@@ -1,5 +1,3 @@
-[Sommaire](Readme.md)
-
 # Anatomie d'une vulnérabilité — Vie d'une faille
 
 > La fromagerie **DIGICHEESE** (la fromagerie du fil rouge) vient
@@ -136,7 +134,3 @@ la journée.*
   complexité technique.
 - Les familles de vulnérabilités sont une **carte** pour se parler, pas une liste
   à réciter.
-
----
-
-[Sommaire](Readme.md)

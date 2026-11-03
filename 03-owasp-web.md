@@ -1,5 +1,3 @@
-[← Chapitre précédent](02-owasp-injections.md) · [Sommaire](Readme.md) · [Chapitre suivant →](04-owasp-config-deps.md)
-
 # Les failles web — quand le navigateur se retourne contre vous
 
 > Un commentaire de client sur une fiche produit : `<script>alert(1)</script>`.
@@ -209,7 +207,3 @@ la journée.*
   bouton n'interdit rien.
 - La carte OWASP aide à nommer les failles ; c'est le mécanisme, cause racine
   comprise, qui guide le correctif.
-
----
-
-[← Chapitre précédent](02-owasp-injections.md) · [Sommaire](Readme.md) · [Chapitre suivant →](04-owasp-config-deps.md)

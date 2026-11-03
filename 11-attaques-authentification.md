@@ -1,5 +1,3 @@
-[← Chapitre précédent](10-attaques-appliquees.md) · [Sommaire](Readme.md) · [Chapitre suivant →](12-prevention-et-detection.md)
-
 # Attaques d'authentification — Le premier rempart, et ses failles
 
 > En 2012, la plateforme professionnelle LinkedIn est victime d'un vol de
@@ -52,7 +50,7 @@ service est simplement dans la liste.
 | **Point de départ** | aucune information | des identifiants déjà volés |
 | **Ce qui est essayé** | des mots de passe devinés | les mots de passe réels des personnes |
 | **Volume** | beaucoup d'essais par compte | peu d'essais, beaucoup de comptes |
-| **Ce qui la stoppe** | un mot de passe long et unique | une limite de débit, la MFA, un mot de passe unique par service |
+| **Ce qui la stoppe** | un mot de passe long et unique | une limite de débit, la MFA (authentification multi-facteurs), un mot de passe unique par service |
 
 Le mot « stuffing » vient de l'image : on **remplit** le formulaire avec une
 liste volée. La trace caractéristique est donc l'inverse de celle de la force
@@ -62,7 +60,8 @@ depuis des adresses variées.
 > 🧪 **Atelier rapide (5 min)**
 >
 > Sur le service `vulnerable` du lab local, envoyez plusieurs tentatives de
-> connexion à la suite et observez la réponse :
+> connexion à la suite — la requête utilise le verbe POST (envoi de données) —
+> et observez la réponse :
 >
 > ```bash
 > curl -X POST -F "username=alice" -F "password=incorrect" http://localhost:8080/login
@@ -159,7 +158,3 @@ la journée.*
   expiration, révocation) compte autant que protéger le mot de passe.
 - Les mesures les plus rentables sont celles qui cassent l'automatisation :
   limite de débit, MFA, mot de passe unique par service.
-
----
-
-[← Chapitre précédent](10-attaques-appliquees.md) · [Sommaire](Readme.md) · [Chapitre suivant →](12-prevention-et-detection.md)

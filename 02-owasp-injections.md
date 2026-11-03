@@ -1,5 +1,3 @@
-[← Chapitre précédent](01-anatomie-vulnerabilite.md) · [Sommaire](Readme.md) · [Chapitre suivant →](03-owasp-web.md)
-
 # Les injections — quand les données deviennent des instructions
 
 > `' OR '1'='1` — sept caractères, et la base de données renvoie tout ce qu'elle
@@ -260,7 +258,3 @@ la journée.*
   **requête paramétrée** supprime la confusion, donc la faille.
 - Réduire les droits du compte de base ne corrige pas l'injection, mais réduit
   ce qu'elle coûte.
-
----
-
-[← Chapitre précédent](01-anatomie-vulnerabilite.md) · [Sommaire](Readme.md) · [Chapitre suivant →](03-owasp-web.md)

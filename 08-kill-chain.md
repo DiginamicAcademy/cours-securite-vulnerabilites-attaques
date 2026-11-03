@@ -1,5 +1,3 @@
-[← Chapitre précédent](07-modeles-attaquant.md) · [Sommaire](Readme.md) · [Chapitre suivant →](09-cve-et-course.md)
-
 # La kill chain — Une attaque en sept étapes
 
 > En 2013, la chaîne de compromission d'un grand distributeur américain
@@ -66,8 +64,7 @@ dans un trafic qui ressemble à n'importe quelle sauvegarde.
 > de ces faits sur la kill chain :
 >
 > - les coordonnées du prestataire de maintenance sont récupérées ;
-> - le réseau interne du distributeur est atteint depuis le réseau du
->   prestataire ;
+> - le réseau interne du distributeur est atteint depuis le réseau du prestataire ;
 > - les droits d'un compte sont élargis pour atteindre les serveurs de caisse ;
 > - les numéros de cartes sont copiés depuis les terminaux de paiement ;
 > - les données sortent du réseau pendant plusieurs jours.
@@ -120,18 +117,21 @@ géré.
 *Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
 la journée.*
 
-- **MITRE ATT&CK** : une base de connaissances publique qui recense les modes
-  opératoires observés sur le terrain, classés par tactique (l'objectif
-  poursuivi) et par technique (la manière). Là où la kill chain décrit un
-  déroulé général, ATT&CK décrit des gestes précis — par exemple « comment un
+- **MITRE ATT&CK** : une base de connaissances publique, maintenue par MITRE (organisme de
+  recherche américain), qui recense les modes opératoires observés sur le
+  terrain, classés par tactique (l'objectif poursuivi) et par technique (la
+  manière). Le sigle ATT (Adversarial Tactics, Techniques) & CK (Common
+  Knowledge) en donne le nom complet. Là où la kill chain décrit un déroulé
+  général, ATT&CK décrit des gestes précis — par exemple « comment un
   attaquant se fait passer pour un service légitime ». C'est un vocabulaire de
   travail pour les équipes de détection.
 - **La chaîne de compromission côté données** : dans un système data (entrepôt,
   lac de données, chaîne de traitement), les étapes sont les mêmes mais les
   portes diffèrent — un compte de service, un accès de stockage, un export
   planifié. La grille de lecture reste valable.
-- **Les retours d'expérience publiés** : les rapports d'incident détaillés
-  (ANSSI, éditeurs, CERT) décrivent des chaînes complètes. En lire un en entier
+- **Les retours d'expérience publiés** : les rapports d'incident détaillés, publiés par l'ANSSI (Agence nationale de
+  la sécurité des systèmes d'information), par les éditeurs ou par les CERT
+  (Computer Emergency Response Team), décrivent des chaînes complètes. En lire un en entier
   vaut mieux que dix schémas : on y voit les délais entre chaque étape.
 
 ---
@@ -149,7 +149,3 @@ la journée.*
   l'endroit le plus coûteux de la chaîne.
 - Quand on ne peut pas empêcher une étape, on peut presque toujours la
   **détecter** : c'est le rôle des journaux et de la surveillance.
-
----
-
-[← Chapitre précédent](07-modeles-attaquant.md) · [Sommaire](Readme.md) · [Chapitre suivant →](09-cve-et-course.md)

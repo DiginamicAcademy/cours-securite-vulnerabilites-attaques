@@ -9,17 +9,19 @@
 ## Contexte
 
 Le groupe de distribution **Vial & Fils** exploite une plateforme de reporting
-qui repose sur PHP. L'équipe technique suit la veille de sécurité, mais comme
-beaucoup d'équipes, elle découvre les annonces au fil de l'eau et planifie ses
-mises à jour de production une fois par mois.
+qui repose sur PHP (moteur d'exécution des pages web dynamiques). Les heures
+sont indiquées en UTC (heure universelle coordonnée). L'équipe technique suit la
+veille de sécurité, mais comme beaucoup d'équipes, elle découvre les annonces au
+fil de l'eau et planifie ses mises à jour de production une fois par mois.
 
-Voici les faits dont vous disposez, tels qu'ils ont été documentés.
+Voici les faits dont vous disposez, tels qu'ils ont été documentés. L'avis
+provient du CERT (Computer Emergency Response Team) européen, dit CERT-EU.
 
 **Faits publics — advisory CERT-EU 2026-018 :**
 
 | Date | Fait |
 | --- | --- |
-| 20 octobre 2026 | le projet PHP annonce deux failles d'exécution de code à distance non authentifiées, notées CVSS 9.2 |
+| 20 octobre 2026 | le projet PHP annonce deux failles d'exécution de code à distance non authentifiées, notées 9.2 sur l'échelle CVSS (Common Vulnerability Scoring System) |
 | 21 octobre 2026, 13:30 UTC | le correctif est publié |
 | 21 octobre 2026, fin de journée | des preuves de concept circulent publiquement |
 | 23 octobre 2026 | une troisième faille est annoncée sur le même produit |

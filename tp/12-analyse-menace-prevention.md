@@ -11,7 +11,7 @@
 
 La société **Altis Data** exploite une plateforme de reporting : une API
 (*application programming interface*) alimente un tableau de bord consulté par
-les responsables de magasins. La plateforme expose les points d'entrée suivants :
+les responsables de magasins. Les points d'entrée sont notés avec leur verbe HTTP (protocole de transfert hypertexte) — GET (lecture) et POST (envoi de données). La plateforme expose les points d'entrée suivants :
 
 | Point d'entrée | Rôle | Qui y accède |
 | --- | --- | --- |

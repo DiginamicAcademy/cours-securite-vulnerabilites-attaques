@@ -10,7 +10,7 @@
 ## Partie 1 — Cartographier les menaces
 
 **Éléments attendus :** une cartographie variée, qui ne tourne pas tous autour
-du même point d'entrée. Modèle de référence :
+du même point d'entrée. Les verbes HTTP (protocole de transfert hypertexte) sont rappelés — GET (lecture) et POST (envoi de données). Modèle de référence :
 
 | Scénario | Étape de la kill chain | Point d'entrée |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ quel bouton, et ce qu'il obtient** — sinon il n'est pas actionnable.
 
 | Scénario | Prévention | Détection |
 | --- | --- | --- |
-| Credential stuffing | limite de débit sur `POST /login`, MFA, message d'erreur unique | série d'échecs de connexion sur un même compte, ou depuis une même adresse sur plusieurs comptes |
+| Credential stuffing | limite de débit sur `POST /login`, MFA (authentification multi-facteurs), message d'erreur unique | série d'échecs de connexion sur un même compte, ou depuis une même adresse sur plusieurs comptes |
 | Injection dans le rapport | requête paramétrée, échappement des sorties | erreur technique sur la génération de rapport, requête avec un motif inhabituel |
 | Contournement de `/admin/users` | contrôle de rôle vérifié **côté serveur**, sur chaque route | accès à une route d'administration par un compte non administrateur |
 | Fuite de `/debug/config` | désactiver le mode diagnostic en production, ne jamais y mettre d'identifiants | toute consultation de la route de diagnostic en production |

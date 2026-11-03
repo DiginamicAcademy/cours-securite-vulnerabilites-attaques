@@ -3,7 +3,7 @@
 > Corrigé de [l'exercice « Reconstituer la course patch / exploit »](../09-timeline-cve.md).
 > Comparez d'abord votre travail aux **étapes** ci-dessous : la méthode compte
 > autant que le résultat. Les dates citées sont celles des journaux fournis dans
-> l'énoncé.
+> l'énoncé, et les heures y sont exprimées en UTC (heure universelle coordonnée).
 
 ---
 
@@ -59,16 +59,16 @@ souvent plus cher que la faille qu'il corrige.
 
 ---
 
-## Partie 3 — Écrire un avis d'exposure
+## Partie 3 — Écrire un avis d'exposition
 
 **Éléments attendus** (structure indicative — l'important est que les trois
 questions soient traitées et que le distinguo savoir / supposer soit visible) :
 
 - **Sommes-nous concernés ?** Oui : l'inventaire n'est pas encore fait à cette
-  date, mais la plateforme de reporting repose sur PHP. Ce qui est **su** : le
-  produit est utilisé. Ce qui est **supposé** : l'étendue exacte (quels
-  serveurs, quelles versions) reste à établir — c'est la première action
-  demandée.
+  date, mais la plateforme de reporting repose sur PHP (moteur d'exécution des
+  pages web dynamiques). Ce qui est **su** : le produit est utilisé. Ce qui est
+  **supposé** : l'étendue exacte (quels serveurs, quelles versions) reste à
+  établir — c'est la première action demandée.
 - **Que faites-vous en attendant ?** Réduire l'exposition de ce qui n'a pas
   besoin d'être joignable, surveiller les journaux des serveurs concernés,
   préparer le correctif et son test pour le déployer dès que possible — sans

@@ -1,5 +1,3 @@
-[← Chapitre précédent](11-attaques-authentification.md) · [Sommaire](Readme.md) · [Chapitre suivant →](13-tests-intrusion.md)
-
 # Prévention et détection — Prévenir, détecter, répondre
 
 > Une compromission passe inaperçue pendant des mois — les rapports publics sur
@@ -149,10 +147,10 @@ savoir ce qui s'est passé.
 *Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
 la journée.*
 
-- **EDR et XDR** : l'*Endpoint Detection and Response* surveille les postes et
-  serveurs (processus, fichiers, connexions) ; l'*eXtended Detection and
-  Response* corrèle ces signaux avec ceux du réseau, des identités et du cloud.
-  Ce sont les outils d'un centre de sécurité (*SOC*, *Security Operations
+- **EDR et XDR** : l'EDR (*Endpoint Detection and Response*) surveille les postes et
+  serveurs (processus, fichiers, connexions) ; le XDR (*eXtended Detection and
+  Response*) corrèle ces signaux avec ceux du réseau, des identités et du cloud.
+  Ce sont les outils d'un centre de sécurité, le SOC (*Security Operations
   Center*) — utiles quand le volume de journaux dépasse ce qu'une équipe peut
   lire.
 - **La détection comportementale** : plutôt que de chercher une signature
@@ -177,7 +175,3 @@ la journée.*
   détient pas ne peut pas fuiter.
 - Les premiers gestes de réponse suivent un ordre : conserver, isoler, qualifier,
   informer, corriger — et vérifier que la cause racine a bien été traitée.
-
----
-
-[← Chapitre précédent](11-attaques-authentification.md) · [Sommaire](Readme.md) · [Chapitre suivant →](13-tests-intrusion.md)

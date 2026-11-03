@@ -1,5 +1,3 @@
-[← Chapitre précédent](06-lecture-de-code-vulnerable.md) · [Sommaire](Readme.md) · [Chapitre suivant →](08-kill-chain.md)
-
 # Modèles d'attaquant — Qui attaque, et avec quoi
 
 > Un ancien employé mécontent, un adolescent qui lance un outil trouvé en ligne,
@@ -28,7 +26,7 @@
 Trois histoires, tirées de ce que les équipes de sécurité rencontrent chaque
 année.
 
-Un ancien administrateur système, licencié par une PME de logistique, conserve
+Un ancien administrateur système, licencié par une PME (petite et moyenne entreprise) de logistique, conserve
 un accès qu'on a oublié de lui retirer. Il ne casse rien : il consulte les
 fiches de paie, puis propose ses services à un concurrent. Un adolescent, de
 son côté, télécharge un outil de scan publié sur un forum et le lance contre
@@ -88,13 +86,10 @@ l'espionnage, lui, accepte de revenir pendant des mois.
 > Associez chaque scénario au profil le plus probable, et dites en une phrase
 > quelle motivation le pousse :
 >
-> 1. Un script parcourt toute la nuit les boutiques en ligne pour trouver une
->    version de bibliothèque obsolète, sans viser personne.
-> 2. Un ancien administrateur, parti depuis un mois, utilise encore son compte
->    pour consulter les fiches de paie.
+> 1. Un script parcourt toute la nuit les boutiques en ligne pour trouver une version de bibliothèque obsolète, sans viser personne.
+> 2. Un ancien administrateur, parti depuis un mois, utilise encore son compte pour consulter les fiches de paie.
 > 3. Un concurrent veut les tarifs fournisseurs d'un fabricant de composants.
-> 4. Un adolescent publie sur un forum la capture d'un site qu'il a défait pour
->    s'amuser.
+> 4. Un adolescent publie sur un forum la capture d'un site qu'il a défait pour s'amuser.
 
 ---
 
@@ -148,7 +143,7 @@ priorités ressemble à ceci :
 *Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
 la journée.*
 
-- **Le modèle STRIDE**, développé par Microsoft : une manière systématique de
+- **Le modèle STRIDE** (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege), développé par Microsoft : une manière systématique de
   parcourir les menaces d'une application en six catégories — usurpation
   d'identité (*spoofing*), altération de données (*tampering*), répudiation,
   divulgation d'information, déni de service, élévation de privilège. Chaque
@@ -177,7 +172,3 @@ la journée.*
   masse), pas contre la menace la plus spectaculaire.
 - La sécurité est **proportionnée** : l'objectif est d'aligner les mesures sur
   le profil réellement visé, pas d'empiler des barrières au hasard.
-
----
-
-[← Chapitre précédent](06-lecture-de-code-vulnerable.md) · [Sommaire](Readme.md) · [Chapitre suivant →](08-kill-chain.md)

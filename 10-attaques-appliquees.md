@@ -1,5 +1,3 @@
-[← Chapitre précédent](09-cve-et-course.md) · [Sommaire](Readme.md) · [Chapitre suivant →](11-attaques-authentification.md)
-
 # Attaques appliquées — Trois scénarios, un même raisonnement
 
 > Trois histoires, tirées de retours d'expérience publiés : une recherche
@@ -76,7 +74,8 @@ Où la chaîne se coupait :
 ## II. XSS → vol de session
 
 Un forum d'entraide entre développeurs laisse ses membres commenter les
-publications. Un commentaire y dépose un message anodin, contenant une balise
+publications — c'est le terrain classique du XSS (*cross-site scripting*,
+scriptage intersite). Un commentaire y dépose un message anodin, contenant une balise
 de script. Quelques jours plus tard, deux modérateurs signalent des actions
 qu'ils n'ont pas faites — des publications supprimées, des comptes bannis.
 
@@ -104,7 +103,7 @@ Où la chaîne se coupait :
 | Étape | Ce qui l'aurait coupée |
 | --- | --- |
 | Dépôt | échapper le HTML à l'affichage, ou n'accepter qu'une mise en forme limitée |
-| Exécution | une politique de sécurité de contenu (*CSP*) qui refuse les scripts inline |
+| Exécution | une politique de sécurité de contenu, ou CSP (*content security policy*), qui refuse les scripts inline |
 | Collecte | marquer le cookie de session `HttpOnly` : le script ne peut pas le lire |
 | Usage | une expiration de session courte et une vérification de l'origine des requêtes |
 
@@ -119,7 +118,7 @@ Où la chaîne se coupait :
 
 Un éditeur de logiciels de gestion expose une API (*application programming
 interface*) interne à son application mobile. Aucune faille spectaculaire n'y
-est trouvée. Et pourtant, la base de données clients sort en quelques heures.
+est trouvée. Et pourtant, la BDD (base de données) clients sort en quelques heures.
 
 **La chronologie des faits.**
 
@@ -196,7 +195,3 @@ la journée.*
 - Chaque étape a sa mesure de coupe — et les mesures qui réduisent l'**impact**
   (droits minimaux, `HttpOnly`, journalisation) comptent autant que celles qui
   empêchent.
-
----
-
-[← Chapitre précédent](09-cve-et-course.md) · [Sommaire](Readme.md) · [Chapitre suivant →](11-attaques-authentification.md)

@@ -1,3 +1,5 @@
+[← Chapitre précédent](09-cve-et-course.md) · [Sommaire](Readme.md) · [Chapitre suivant →](11-attaques-authentification.md)
+
 # Attaques appliquées — Trois scénarios, un même raisonnement
 
 > Trois histoires, tirées de retours d'expérience publiés : une recherche
@@ -195,3 +197,7 @@ la journée.*
 - Chaque étape a sa mesure de coupe — et les mesures qui réduisent l'**impact**
   (droits minimaux, `HttpOnly`, journalisation) comptent autant que celles qui
   empêchent.
+
+---
+
+[← Chapitre précédent](09-cve-et-course.md) · [Sommaire](Readme.md) · [Chapitre suivant →](11-attaques-authentification.md)

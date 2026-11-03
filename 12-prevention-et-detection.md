@@ -1,3 +1,5 @@
+[← Chapitre précédent](11-attaques-authentification.md) · [Sommaire](Readme.md) · [Chapitre suivant →](13-tests-intrusion.md)
+
 # Prévention et détection — Prévenir, détecter, répondre
 
 > Une compromission passe inaperçue pendant des mois — les rapports publics sur
@@ -175,3 +177,7 @@ la journée.*
   détient pas ne peut pas fuiter.
 - Les premiers gestes de réponse suivent un ordre : conserver, isoler, qualifier,
   informer, corriger — et vérifier que la cause racine a bien été traitée.
+
+---
+
+[← Chapitre précédent](11-attaques-authentification.md) · [Sommaire](Readme.md) · [Chapitre suivant →](13-tests-intrusion.md)

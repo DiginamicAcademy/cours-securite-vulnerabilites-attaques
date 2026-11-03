@@ -1,3 +1,5 @@
+[← Chapitre précédent](07-modeles-attaquant.md) · [Sommaire](Readme.md) · [Chapitre suivant →](09-cve-et-course.md)
+
 # La kill chain — Une attaque en sept étapes
 
 > En 2013, la chaîne de compromission d'un grand distributeur américain
@@ -149,3 +151,7 @@ la journée.*
   l'endroit le plus coûteux de la chaîne.
 - Quand on ne peut pas empêcher une étape, on peut presque toujours la
   **détecter** : c'est le rôle des journaux et de la surveillance.
+
+---
+
+[← Chapitre précédent](07-modeles-attaquant.md) · [Sommaire](Readme.md) · [Chapitre suivant →](09-cve-et-course.md)

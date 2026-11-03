@@ -1,3 +1,5 @@
+[← Chapitre précédent](12-prevention-et-detection.md) · [Sommaire](Readme.md)
+
 # Tests d'intrusion — Une preuve, pas un exercice de hacking
 
 > Une entreprise commande un test d'intrusion « pour cocher une case » avant un
@@ -152,3 +154,7 @@ la journée.*
   au-delà.
 - La valeur d'un test se mesure au plan de correction qui en sort — pas au
   nombre de failles remontées.
+
+---
+
+[← Chapitre précédent](12-prevention-et-detection.md) · [Sommaire](Readme.md)

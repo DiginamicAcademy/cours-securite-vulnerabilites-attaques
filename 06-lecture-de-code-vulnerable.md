@@ -1,3 +1,5 @@
+[← Chapitre précédent](05-autres-familles.md) · [Sommaire](Readme.md) · [Chapitre suivant →](07-modeles-attaquant.md)
+
 # Lire du code vulnérable — la méthode des trois passes
 
 > Un relecteur expérimenté passe vingt minutes sur un diff de quarante lignes et
@@ -158,3 +160,7 @@ la journée.*
 - La checklist de dix points cadre la revue et en garde la trace.
 - Les outils automatiques accélèrent la recherche des motifs connus ; ils ne
   remplacent pas le raisonnement sur les absences.
+
+---
+
+[← Chapitre précédent](05-autres-familles.md) · [Sommaire](Readme.md) · [Chapitre suivant →](07-modeles-attaquant.md)

@@ -1,3 +1,5 @@
+[← Chapitre précédent](10-attaques-appliquees.md) · [Sommaire](Readme.md) · [Chapitre suivant →](12-prevention-et-detection.md)
+
 # Attaques d'authentification — Le premier rempart, et ses failles
 
 > En 2012, la plateforme professionnelle LinkedIn est victime d'un vol de
@@ -158,3 +160,7 @@ la journée.*
   expiration, révocation) compte autant que protéger le mot de passe.
 - Les mesures les plus rentables sont celles qui cassent l'automatisation :
   limite de débit, MFA, mot de passe unique par service.
+
+---
+
+[← Chapitre précédent](10-attaques-appliquees.md) · [Sommaire](Readme.md) · [Chapitre suivant →](12-prevention-et-detection.md)

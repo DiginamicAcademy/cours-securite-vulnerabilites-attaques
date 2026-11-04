@@ -152,8 +152,9 @@ change pour votre système**. Un advisory se lit comme une fiche — produit,
 versions, gravité, correctif — puis se traduit en avis d'exposition : êtes-vous
 concerné, où, et dans quel délai agir.
 
-L'exercice dédié [Lire un advisory et rédiger un avis
-d'exposition](tp/05-lire-advisory.md) vous fait travailler sur un avis réel du
+L'exercice dédié
+[Lire un advisory et rédiger un avis d'exposition](tp/05-lire-advisory.md) vous
+fait travailler sur un avis réel du
 CERT de l'Union européenne, et sur le cas d'un système d'information data qui
 doit décider quoi traiter en premier.
 

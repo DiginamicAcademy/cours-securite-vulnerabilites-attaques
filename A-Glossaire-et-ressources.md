@@ -1,3 +1,5 @@
+[← Chapitre précédent](13-tests-intrusion.md) · [Sommaire](Readme.md)
+
 # Glossaire et ressources
 
 > **Nature :** annexe de référence · **Usage :** tout au cours
@@ -150,3 +152,7 @@ Dans les chapitres, chaque acronyme est défini à sa première occurrence. Cett
 
 - Les exercices, les TD et le TP intégrateur : le dossier `tp/`.
 - Les manipulations : le lab Docker du cours, sur vos propres conteneurs.
+
+---
+
+[← Chapitre précédent](13-tests-intrusion.md) · [Sommaire](Readme.md)

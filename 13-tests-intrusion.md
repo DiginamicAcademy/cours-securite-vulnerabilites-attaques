@@ -1,4 +1,4 @@
-[← Chapitre précédent](12-prevention-et-detection.md) · [Sommaire](Readme.md)
+[← Chapitre précédent](12-prevention-et-detection.md) · [Sommaire](Readme.md) · [Chapitre suivant →](A-Glossaire-et-ressources.md)
 
 <!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § II « Déroulé d'un pentest » (faire évaluer la qualité d'un rapport — le cas de l'introduction, ou un rapport réel — avant de donner les trois critères : reproductible, priorisé, corrigeable) -->
 
@@ -161,4 +161,4 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
-[← Chapitre précédent](12-prevention-et-detection.md) · [Sommaire](Readme.md)
+[← Chapitre précédent](12-prevention-et-detection.md) · [Sommaire](Readme.md) · [Chapitre suivant →](A-Glossaire-et-ressources.md)

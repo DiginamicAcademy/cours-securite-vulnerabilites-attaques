@@ -1,5 +1,6 @@
 # Exercice — Lire un advisory et rédiger un avis d'exposition
 
+> **Nature :** exercice · **Durée :** 35 min · **Notion :** les failles connues — lire un advisory et rédiger un avis d'exposition
 > 🟡 **Intermédiaire** · **Durée :** 35 min · **Lien :** chapitre [Configuration,
 > dépendances et failles connues](../04-owasp-config-deps.md)
 > **Objectif :** lire un avis de sécurité réel, en extraire les informations qui

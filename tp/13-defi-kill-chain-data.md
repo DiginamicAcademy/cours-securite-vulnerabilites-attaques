@@ -1,5 +1,6 @@
 # Exercice — Modéliser la kill chain d'une fuite de données
 
+> **Nature :** élément intégrable dans le TP · **Durée :** libre (défi facultatif) · **Notion :** la kill chain — modéliser de bout en bout une fuite de données
 > 🔴 **Défi** · **Durée :** libre · **Lien :** chapitre [La kill chain](../08-kill-chain.md)
 > **Objectif :** modéliser de bout en bout la chaîne de compromission d'une
 > fuite de données sur une plateforme data, puis identifier les points de rupture

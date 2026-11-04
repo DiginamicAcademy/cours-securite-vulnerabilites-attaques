@@ -1,5 +1,6 @@
 # Exercice — Repérer une injection SQL dans un extrait Python/SQL
 
+> **Nature :** exercice · **Durée :** 40 min · **Notion :** les injections — quand les données deviennent des instructions (famille A03)
 > 🟡 **Intermédiaire** · **Durée :** 40 min · **Lien :** chapitre [Les injections —
 > quand les données deviennent des instructions](../02-owasp-injections.md)
 > **Objectif :** repérer, dans cinq extraits de code, ceux où une saisie peut

@@ -1,5 +1,6 @@
 # Exercice — Lister les vulnérabilités et leur gravité sur un extrait de code
 
+> **Nature :** TD · **Durée :** 55 min · **Notion :** revue de code sécurité — failles web, configuration et dépendances
 > 🔵 **Intégration** · **Durée :** 55 min · **Lien :** chapitres [Les failles web —
 > quand le navigateur se retourne contre vous](../03-owasp-web.md) et
 > [Configuration, dépendances et failles connues](../04-owasp-config-deps.md)

@@ -1,5 +1,6 @@
 # Exercice — Classer des scénarios dans le Top 10 de l'OWASP
 
+> **Nature :** exercice · **Durée :** 25 min · **Notion :** anatomie d'une vulnérabilité — les dix familles du Top 10 de l'OWASP
 > 🟢 **Débutant** · **Durée :** 25 min · **Lien :** chapitre [Anatomie d'une vulnérabilité](../01-anatomie-vulnerabilite.md)
 > **Objectif :** rattacher des scénarios de la fromagerie aux dix familles de
 > l'**OWASP** (Open Web Application Security Project), puis retracer l'anatomie

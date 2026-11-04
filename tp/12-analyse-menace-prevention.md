@@ -1,5 +1,6 @@
 # Exercice — Écrire une analyse menace / prévention
 
+> **Nature :** élément intégrable dans le TP · **Durée :** 55 min · **Notion :** prévention et détection — analyse menace / prévention / détection
 > 🔵 **Avancé** · **Durée :** 55 min · **Lien :** chapitre [Prévention et détection](../12-prevention-et-detection.md)
 > **Objectif :** produire une analyse menace / prévention exploitable sur une
 > application réelle : scénarios d'attaque, mesures de coupe, signaux de

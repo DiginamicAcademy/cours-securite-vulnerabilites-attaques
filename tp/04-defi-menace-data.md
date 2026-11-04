@@ -1,5 +1,6 @@
 # Défi — Modéliser les vulnérabilités d'un pipeline de données
 
+> **Nature :** élément intégrable dans le TP · **Durée :** libre (défi facultatif) · **Notion :** modélisation des menaces d'une chaîne de traitement de données
 > 🔴 **Défi** · **Sans limite de temps** · **Lien :** chapitre [Autres familles de
 > failles — le même raisonnement, d'autres portes](../05-autres-familles.md)
 > **Objectif :** modéliser, étape par étape, les vulnérabilités propres à une

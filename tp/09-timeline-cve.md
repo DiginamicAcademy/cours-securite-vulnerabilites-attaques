@@ -1,5 +1,6 @@
 # Exercice — Reconstituer la course patch / exploit
 
+> **Nature :** exercice · **Durée :** 40 min · **Notion :** la course patch / exploit — chronologie d'une CVE
 > 🟡 **Intermédiaire** · **Durée :** 40 min · **Lien :** chapitre [Failles connues et course contre la montre](../09-cve-et-course.md)
 > **Objectif :** reconstituer la course entre correctif et exploitation à partir
 > d'un cas réel, puis situer les étapes où l'équipe de défense a perdu du temps.

@@ -1,5 +1,6 @@
 # Exercice — Reconstituer les étapes d'une attaque
 
+> **Nature :** exercice · **Durée :** 25 min · **Notion :** modèles d'attaquant — reconstituer les étapes d'une attaque
 > 🟢 **Débutant** · **Durée :** 25 min · **Lien :** chapitre [Modèles d'attaquant](../07-modeles-attaquant.md)
 > **Objectif :** remettre dans l'ordre les étapes d'une attaque réelle, identifier
 > le profil d'attaquant concerné, puis repérer où la défense pouvait agir.

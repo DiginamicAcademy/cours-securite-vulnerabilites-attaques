@@ -1,5 +1,7 @@
 [← Chapitre précédent](09-cve-et-course.md) · [Sommaire](Readme.md) · [Chapitre suivant →](11-attaques-authentification.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § III « Chaîne API + BDD » (l'atelier des deux `curl` : faire enchaîner les appels et noter la faille de chaque étape avant de dérouler la chronologie) et, plus largement, les trois scénarios (présenter la plainte, faire retracer la chronologie avant de la donner) -->
+
 # Attaques appliquées — Trois scénarios, un même raisonnement
 
 > Trois histoires, tirées de retours d'expérience publiés : une recherche
@@ -9,7 +11,9 @@
 > regarde **en action**, avec la chronologie des faits, pour comprendre comment
 > une ligne mal écrite devient un incident.
 
-**Durée de lecture :** 80 min · **Prérequis :** les chapitres sur les injections, les failles web et la kill chain
+**Durée de lecture :** 40 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +20 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+les chapitres sur les injections, les failles web et la kill chain
 
 ---
 
@@ -167,8 +171,8 @@ l'accès complet. C'est exactement ce que la kill chain décrit : plusieurs
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
 
 - **L'économie des failles** : sur les marchés clandestins, les vulnérabilités
   se vendent, les accès déjà obtenus se revendent, et les rançongiciels se

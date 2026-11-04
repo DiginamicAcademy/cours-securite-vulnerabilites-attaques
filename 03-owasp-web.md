@@ -1,5 +1,7 @@
 [← Chapitre précédent](02-owasp-injections.md) · [Sommaire](Readme.md) · [Chapitre suivant →](04-owasp-config-deps.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I « XSS » (le lab renvoie `<script>alert(1)</script>` : faire constater la balise intacte avant d'expliquer l'échappement de sortie) et § III « Broken Access Control » (l'adresse `/fiches/1042` : faire tester le changement de numéro avant d'énoncer la règle « vérifier côté serveur ») -->
+
 # Les failles web — quand le navigateur se retourne contre vous
 
 > Un commentaire de client sur une fiche produit : `<script>alert(1)</script>`.
@@ -7,8 +9,9 @@
 > qui lit la fiche exécute le code d'un inconnu. Personne n'a piraté le serveur :
 > c'est le navigateur qui a obéi.
 
-**Durée de lecture :** 70 min · **Prérequis :** le chapitre « Les injections —
-quand les données deviennent des instructions »
+**Durée de lecture :** 40 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +25 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+le chapitre « Les injections — quand les données deviennent des instructions »
 
 ---
 
@@ -169,19 +172,28 @@ nombreux :
 
 ### Où se rangent ces failles dans la carte OWASP
 
-La carte n'a pas une case pour tout. Dans la version actuelle du Top 10, le XSS
-se range dans la famille **A03** — Injection, parce que le mécanisme est le même
-que pour les injections : des données traitées comme du code. Le CSRF n'a pas de
-famille propre ; on le rattache le plus souvent à **A01**, car il détourne une
-action que l'utilisateur avait le droit de faire. Classer reste un outil pour se
-parler — c'est le mécanisme qui compte.
+En une ligne : le XSS se range en **A03** — Injection, car le mécanisme est le
+même que pour les injections ; le CSRF se rattache à **A01**, car il détourne
+une action que l'utilisateur avait le droit de faire. Classer reste un outil
+pour se parler — c'est le mécanisme qui compte.
+
+> ⚠️ **À ARBITRER** — suppression envisagée : ce rangement dans la carte OWASP
+> (XSS en A03, CSRF rattaché à A01). Utile pour manipuler la carte, dispensable
+> pour finir la journée. Le détail est repris en « Aller plus loin ».
 
 ---
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
+
+- **Le rangement OWASP en détail** : la carte n'a pas une case pour tout. Dans
+  la version actuelle du Top 10, le XSS se range dans la famille **A03** —
+  Injection, parce que le mécanisme est le même que pour les injections : des
+  données traitées comme du code. Le CSRF n'a pas de famille propre ; on le
+  rattache le plus souvent à **A01**, car il détourne une action que
+  l'utilisateur avait le droit de faire.
 
 - **`SameSite` en détail** : les valeurs `Strict`, `Lax` et `None`, ce qu'elles
   changent pour les liens entrants, les intégrations tierces et les flux de

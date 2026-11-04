@@ -1,5 +1,7 @@
 [← Chapitre précédent](11-attaques-authentification.md) · [Sommaire](Readme.md) · [Chapitre suivant →](13-tests-intrusion.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § II « Détecter » (l'atelier des journaux : faire constater ce qui manque pour qu'un analyste comprenne l'événement après coup, avant d'énoncer la règle du journal utile) et § III « Répondre » (faire ordonner les cinq gestes avant de donner l'ordre retenu) -->
+
 # Prévention et détection — Prévenir, détecter, répondre
 
 > Une compromission passe inaperçue pendant des mois — les rapports publics sur
@@ -9,7 +11,9 @@
 > Prévenir, détecter, répondre : les trois temps de la défense, et aucun ne
 > remplace les deux autres.
 
-**Durée de lecture :** 55 min · **Prérequis :** les chapitres « La kill chain » et « Attaques appliquées »
+**Durée de lecture :** 30 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +15 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+les chapitres « La kill chain » et « Attaques appliquées »
 
 ---
 
@@ -41,18 +45,15 @@ faille, mais par **étape de la chaîne d'attaque** qu'elles coupent.
 | Persistance | contrôle des tâches planifiées et des comptes créés | rendre le retour visible |
 | Exfiltration | chiffrement, limitation des volumes sortants, minimisation des données | réduire ce qui peut sortir utilement |
 
-Deux remarques sur ce tableau.
-
-La **minimisation des données** est la mesure la plus sous-estimée : des données
-qu'on ne détient pas ne peuvent pas être volées. Une application qui conserve
-des adresses de courriel dix ans après la fin de la relation client expose dix
-ans de risque inutile — et le **RGPD** (Règlement général sur la protection des
-données) en fait d'ailleurs une obligation.
-
-Et la prévention a une **limite structurelle** : elle porte sur ce qu'on a
-anticipé. Une faille inconnue, un usage détourné d'une fonction légitime, un
-accès interne mal intentionné passent au travers. C'est pour cela que la
-détection n'est pas un complément de confort.
+Deux remarques sur ce tableau. La **minimisation des données** est la mesure
+la plus sous-estimée : des données qu'on ne détient pas ne peuvent pas être
+volées — conserver des adresses de courriel dix ans après la fin de la
+relation client expose dix ans de risque inutile, et le **RGPD** (Règlement
+général sur la protection des données) en fait une obligation. Et la
+prévention a une **limite structurelle** : elle porte sur ce qu'on a anticipé.
+Une faille inconnue, un usage détourné d'une fonction légitime, un accès
+interne mal intentionné passent au travers — c'est pour cela que la détection
+n'est pas un complément de confort.
 
 > [!TIP]
 > Une mesure de prévention se choisit par ce qu'elle coupe dans la chaîne, pas
@@ -146,8 +147,8 @@ savoir ce qui s'est passé.
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
 
 - **EDR et XDR** : l'EDR (*Endpoint Detection and Response*) surveille les postes et
   serveurs (processus, fichiers, connexions) ; le XDR (*eXtended Detection and

@@ -1,5 +1,7 @@
 [← Chapitre précédent](05-autres-familles.md) · [Sommaire](Readme.md) · [Chapitre suivant →](07-modeles-attaquant.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § I « La méthode en trois passes » (l'atelier sur `lab/vulnerable/app.py` : faire chercher les failles AVANT d'annoncer la méthode, chronométrer, puis confronter les trouvailles aux trois passes) -->
+
 # Lire du code vulnérable — la méthode des trois passes
 
 > Un relecteur expérimenté passe vingt minutes sur un diff de quarante lignes et
@@ -7,8 +9,9 @@
 > il le lit comme un attaquant : non pas « que fait ce programme ? », mais « que
 > peut-on lui faire faire ? ».
 
-**Durée de lecture :** 50 min · **Prérequis :** les chapitres « Les injections » et
-« Les failles web »
+**Durée de lecture :** 30 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +15 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+les chapitres « Les injections » et « Les failles web »
 
 ---
 
@@ -133,8 +136,8 @@ quand la revue est contestée, ou reprise par quelqu'un d'autre.
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
 
 - **Les outils d'analyse automatique** — **SAST** (Static Application Security
   Testing) : `bandit` pour Python, `semgrep` pour de nombreux langages, ou les

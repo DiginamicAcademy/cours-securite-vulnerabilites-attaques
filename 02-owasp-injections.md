@@ -1,13 +1,16 @@
 [← Chapitre précédent](01-anatomie-vulnerabilite.md) · [Sommaire](Readme.md) · [Chapitre suivant →](03-owasp-web.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I (lancer le lab et faire trouver `' OR '1'='1` avant toute explication) et § III « Les barrières qui ne traitent qu'un symptôme » (faire proposer les trois correctifs de la billetterie, laisser défendre chaque option avant de trancher) -->
+
 # Les injections — quand les données deviennent des instructions
 
 > `' OR '1'='1` — sept caractères, et la base de données renvoie tout ce qu'elle
 > contient. Ce n'est pas de la magie, c'est de la grammaire : la requête envoyée
 > par l'application a été **réécrite** par celui qui saisit le formulaire.
 
-**Durée de lecture :** 70 min · **Prérequis :** le chapitre « Anatomie d'une
-vulnérabilité »
+**Durée de lecture :** 40 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +30 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+le chapitre « Anatomie d'une vulnérabilité »
 
 ---
 
@@ -114,24 +117,15 @@ la suppression de données, selon les droits du compte utilisé par l'applicatio
 Les bases **NoSQL** (Not only SQL) — MongoDB et consœurs — interrogent les données
 avec des documents JSON (JavaScript Object Notation) plutôt qu'avec du texte SQL.
 Le mécanisme reste le même : si l'application recopie la saisie dans la requête,
-l'attaquant n'envoie plus une valeur mais un **opérateur**.
+l'attaquant n'envoie plus une valeur mais un **opérateur**. L'opérateur `$ne`
+(« différent de ») transforme alors une recherche de compte en « n'importe quel
+client » : le premier compte de la base convient. Pas de SQL, pas d'apostrophe —
+mais la même confusion entre la donnée attendue et l'instruction exécutée.
 
-```python
-# Connexion d'un client — la saisie est recopiée telle quelle dans la requête
-requete = {"email": corps_json["email"]}
-client = db.clients.find_one(requete)
-```
-
-Envoyé tel quel, un corps de requête peut contenir ceci :
-
-```json
-{"email": {"$ne": ""}}
-```
-
-L'opérateur `$ne` (« différent de ») transforme la recherche en « n'importe quel
-client dont l'email n'est pas vide » : le premier compte de la base convient. Pas
-de SQL, pas d'apostrophe — mais la même confusion entre la donnée attendue et
-l'instruction exécutée.
+> ⚠️ **À ARBITRER** — suppression envisagée : le détail de la famille NoSQL
+> (opérateur `$ne`). Si le volume doit encore baisser, la ligne « NoSQL » du
+> tableau de synthèse qui suit suffit : le mécanisme est déjà établi avec SQL.
+> L'exemple complet est repris en « Aller plus loin ».
 
 ### Injection de commandes
 
@@ -230,8 +224,21 @@ l'objectif est de **voir** la faille : la reconnaissance précède la réparati
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
+
+- **L'exemple NoSQL complet** : la connexion qui recopie la saisie, et le corps
+  de requête qui devient un opérateur.
+
+  ```python
+  # Connexion d'un client — la saisie est recopiée telle quelle dans la requête
+  requete = {"email": corps_json["email"]}
+  client = db.clients.find_one(requete)
+  ```
+
+  ```json
+  {"email": {"$ne": ""}}
+  ```
 
 - **Les outils d'automatisation** : `sqlmap` et ses équivalents testent
   automatiquement des centaines de variantes d'injection. Ils sont utiles pour

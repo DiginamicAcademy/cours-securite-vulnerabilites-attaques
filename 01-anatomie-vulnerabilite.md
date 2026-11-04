@@ -1,6 +1,6 @@
 [Sommaire](Readme.md) · [Chapitre suivant →](02-owasp-injections.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § II « Cause racine ou symptôme ? » (présenter les trois correctifs de DIGICHEESE, laisser choisir et se tromper avant de trancher) -->
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § II « Cause racine ou symptôme ? » — présenter les trois correctifs de DIGICHEESE et laisser choisir (voire se tromper) avant de trancher -->
 
 # Anatomie d'une vulnérabilité — Vie d'une faille
 
@@ -10,7 +10,7 @@
 > les failles les plus graves tiennent souvent dans les lignes les plus simples
 > à écrire.
 
-**Durée de lecture :** 45 min · **Prérequis :** le chapitre « Pourquoi sécuriser ? »
+**Durée de lecture :** 30 min (noyau exigé, atelier compris) · **Aller plus loin :** +10 min (facultatif, pas exigé pour finir la journée) · **Prérequis :** le chapitre « Pourquoi sécuriser ? »
 
 ---
 
@@ -114,8 +114,8 @@ journée.
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
 
 - **L'histoire du Top 10 OWASP** : publiée depuis le début des années 2000 et
   révisée plusieurs fois, la liste montre ce qui a changé dans les pratiques de

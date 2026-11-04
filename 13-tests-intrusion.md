@@ -1,5 +1,7 @@
 [← Chapitre précédent](12-prevention-et-detection.md) · [Sommaire](Readme.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § II « Déroulé d'un pentest » (faire évaluer la qualité d'un rapport — le cas de l'introduction, ou un rapport réel — avant de donner les trois critères : reproductible, priorisé, corrigeable) -->
+
 # Tests d'intrusion — Une preuve, pas un exercice de hacking
 
 > Une entreprise commande un test d'intrusion « pour cocher une case » avant un
@@ -10,7 +12,9 @@
 > de hacking : c'est une **preuve** de l'état de sécurité, avec un rapport — et
 > sa valeur dépend entièrement de ce qu'on en fait.
 
-**Durée de lecture :** 45 min · **Prérequis :** les chapitres « La kill chain » et « Prévention et détection »
+**Durée de lecture :** 25 min (noyau exigé) · **Aller plus loin :** +15 min
+(facultatif, pas exigé pour finir la journée) · **Prérequis :** les chapitres
+« La kill chain » et « Prévention et détection »
 
 ---
 
@@ -56,11 +60,6 @@ un tribunal : c'est le document signé qui vaut.
 > vous découvrez une faille sur un système qui ne vous appartient pas, est la
 > **divulgation responsable** : signaler la faille à son propriétaire, sans
 > l'exploiter.
-
-Ce cadre a un corollaire utile : un prestataire qui accepte de travailler sans
-périmètre écrit vous met en danger autant que lui. La première question à poser
-à un prestataire de test d'intrusion n'est pas son outil favori, c'est ce qu'il
-demande comme cadre.
 
 ---
 
@@ -125,8 +124,13 @@ correction — pas un certificat de sécurité.
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
+
+- **Choisir un prestataire de test d'intrusion** : un prestataire qui accepte
+  de travailler sans périmètre écrit vous met en danger autant que lui. La
+  première question à lui poser n'est pas son outil favori, c'est ce qu'il
+  demande comme cadre.
 
 - **Le bug bounty** : un programme ouvert qui rémunère les chercheurs qui
   signalent des failles, en continu plutôt que par mission. Il complète un test

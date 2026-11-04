@@ -1,5 +1,7 @@
 [← Chapitre précédent](04-owasp-config-deps.md) · [Sommaire](Readme.md) · [Chapitre suivant →](06-lecture-de-code-vulnerable.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § I « SSRF, XXE, désérialisation » (l'atelier du flux XML nocturne : laisser nommer la famille et l'étape d'entrée avant de donner le tableau de synthèse) -->
+
 # Autres familles de failles — le même raisonnement, d'autres portes
 
 > Un document PDF reçu d'un fournisseur fait planter le parseur — puis exécuter
@@ -7,8 +9,9 @@
 > pourtant le mécanisme est le même. Faire exécuter quelque chose qui n'était pas
 > prévu.
 
-**Durée de lecture :** 45 min · **Prérequis :** le chapitre « Les injections —
-quand les données deviennent des instructions »
+**Durée de lecture :** 25 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +20 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+le chapitre « Les injections — quand les données deviennent des instructions »
 
 ---
 
@@ -110,22 +113,19 @@ qu'une simple corruption de données.
 
 ## II. Prototype pollution — pour les applications JavaScript
 
-Les applications web modernes construisent leur page côté navigateur, en
-JavaScript. Certaines acceptent de fusionner un objet reçu du serveur — une
-préférence d'affichage, un thème, une configuration — dans leurs propres objets.
-Si la fusion accepte des clés choisies par l'extérieur, un visiteur peut insérer
-une clé qui modifie le **prototype** partagé par tous les objets de la page.
+Quand une application JavaScript fusionne un objet reçu de l'extérieur dans ses
+propres objets, un visiteur peut insérer une clé qui modifie le **prototype**
+partagé par tous les objets de la page. L'effet est discret et étendu : non pas
+exécuter du code, mais **redéfinir les règles** selon lesquelles l'application
+fonctionne. On la rattache à **A03** — Injection ou à **A08** — Software and
+Data Integrity Failures. L'aperçu suffit ici : fusionner une donnée externe
+dans ses propres structures est un geste à examiner de près.
 
-L'effet est discret et étendu : une valeur modifiée à cet endroit se retrouve
-partout dans l'application — y compris dans des chemins de code que personne
-n'avait pensés dangereux. C'est la **prototype pollution** : non pas exécuter du
-code, mais **redéfinir les règles** selon lesquelles l'application fonctionne.
-
-On la rattache à la famille **A03** — Injection, quand elle permet d'injecter du
-code, ou à **A08** — Software and Data Integrity Failures, quand elle corrompt des
-données que l'application croit fiables. L'aperçu suffit ici : retenir que
-fusionner une donnée externe dans ses propres structures est un geste à examiner
-de près.
+> ⚠️ **À ARBITRER** — suppression envisagée : la **prototype pollution** (§ II),
+> famille spécialisée JavaScript et la plus éloignée des cas traités dans la
+> journée. Le tableau de synthèse § III et la question « ce fichier peut-il me
+> faire faire quelque chose ? » suffisent. Le détail est repris en
+> « Aller plus loin ».
 
 > [!WARNING]
 > Ces trois familles se repèrent moins facilement qu'une injection dans un
@@ -153,7 +153,8 @@ une donnée entrante**. Et les barrières se ressemblent :
 1. **Restreindre ce qui est accepté** — liste autorisée d'adresses, de formats, de
    clés, de types.
 2. **Désactiver ce qui n'est pas nécessaire** — entités externes du parseur,
-   modules de sérialisation puissants, fonctions d'évaluation.3. **Exécuter avec le moins de droits possible** — un importeur de factures n'a
+   modules de sérialisation puissants, fonctions d'évaluation.
+3. **Exécuter avec le moins de droits possible** — un importeur de factures n'a
    pas besoin de lire les fichiers du système, ni d'atteindre le réseau interne.
 4. **Surveiller les écarts** — un import qui se met à faire des requêtes sortantes
    n'est pas normal.
@@ -166,8 +167,17 @@ faire quelque chose ?* Si oui, il faut savoir quoi, et l'empêcher.
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
+
+- **La prototype pollution en détail** : les applications web modernes
+  construisent leur page côté navigateur, en JavaScript. Certaines acceptent de
+  fusionner un objet reçu du serveur — une préférence d'affichage, un thème,
+  une configuration — dans leurs propres objets. Si la fusion accepte des clés
+  choisies par l'extérieur, un visiteur peut insérer une clé qui modifie le
+  **prototype** partagé par tous les objets de la page. Une valeur modifiée à
+  cet endroit se retrouve partout dans l'application — y compris dans des
+  chemins de code que personne n'avait pensés dangereux.
 
 - **Les vulnérabilités de la chaîne logicielle** (supply chain) : ce n'est plus
   l'application qui est visée, mais ce qui la construit — un paquet compromis, un

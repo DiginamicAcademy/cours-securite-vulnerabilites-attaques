@@ -1,5 +1,7 @@
 [← Chapitre précédent](10-attaques-appliquees.md) · [Sommaire](Readme.md) · [Chapitre suivant →](12-prevention-et-detection.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I « Credential stuffing, brute force » (l'atelier des six POST : faire constater l'absence de limite de débit avant de nommer la notion) et § II « Phishing, session hijacking » (faire reconstituer la chronologie du détournement de session à partir du scénario XSS du chapitre 10) -->
+
 # Attaques d'authentification — Le premier rempart, et ses failles
 
 > En 2012, la plateforme professionnelle LinkedIn est victime d'un vol de
@@ -10,7 +12,9 @@
 > application ; ses faiblesses sont souvent humaines, et presque toujours
 > exploitables à grande échelle.
 
-**Durée de lecture :** 60 min · **Prérequis :** les chapitres « Modèles d'attaquant » et « Attaques appliquées »
+**Durée de lecture :** 30 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +15 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+les chapitres « Modèles d'attaquant » et « Attaques appliquées »
 
 ---
 
@@ -106,12 +110,15 @@ possède ce jeton est traité comme la personne. Il peut être volé par un scri
 malveillant injecté dans une page, capturé sur un réseau sans chiffrement, ou
 simplement lu sur un poste laissé ouvert.
 
-La chronologie est courte :
+La chronologie tient en un fil : la personne se connecte et le serveur émet
+un cookie de session ; le cookie est intercepté ou copié ; l'attaquant le
+rejoue et le serveur le prend pour la personne ; la session dure tant que le
+cookie n'est ni expiré ni révoqué.
 
-1. la personne se connecte : le serveur émet un cookie de session ;
-2. le cookie est intercepté ou copié ;
-3. l'attaquant rejoue ce cookie : le serveur le prend pour la personne ;
-4. la session dure tant que le cookie n'est ni expiré ni révoqué.
+> ⚠️ **À ARBITRER** — suppression envisagée : le développement sur le
+> **détournement de session** (§ II), déjà illustré par le scénario XSS → vol
+> de session du chapitre 10. Le tableau de protection se réduirait alors à la
+> ligne « Hameçonnage / MFA ».
 
 Ce qui protège, à chaque étape :
 
@@ -131,8 +138,8 @@ Ce qui protège, à chaque étape :
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
 
 - **Les recommandations du NIST** (*National Institute of Standards and
   Technology*) sur la gestion des identifiants : les rotations obligatoires de

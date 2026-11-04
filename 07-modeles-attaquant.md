@@ -1,5 +1,7 @@
 [← Chapitre précédent](06-lecture-de-code-vulnerable.md) · [Sommaire](Readme.md) · [Chapitre suivant →](08-kill-chain.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § I « Qui attaque ? » (les quatre scénarios de l'atelier : laisser associer profil et motivation, et faire argumenter les écarts avant de donner le tableau des profils) -->
+
 # Modèles d'attaquant — Qui attaque, et avec quoi
 
 > Un ancien employé mécontent, un adolescent qui lance un outil trouvé en ligne,
@@ -8,7 +10,9 @@
 > et la barrière qui les arrête tous les trois d'un seul geste n'existe pas.
 > Savoir qui vous vise, c'est déjà savoir quoi construire en premier.
 
-**Durée de lecture :** 50 min · **Prérequis :** la journée « Vulnérabilités applicatives »
+**Durée de lecture :** 35 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +15 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+la journée « Vulnérabilités applicatives »
 
 ---
 
@@ -108,29 +112,20 @@ votre système d'information (SI).
 | Criminel organisé | jours à semaines | achetés ou loués | moyenne, acquise sur place | segmentation, détection des mouvements latéraux, sauvegardes |
 | Espion industriel ou étatique | mois | sur mesure | ciblée, préparée | défense en profondeur, surveillance, cloisonnement des données sensibles |
 
-Deux enseignements se dégagent de ce tableau.
+Deux enseignements se dégagent de ce tableau. **La connaissance du SI vaut plus
+cher que l'outil** : un script acheté en ligne ne dit pas où sont vos données
+sensibles, un employé, lui, le sait — d'où la revue des accès au départ, une
+des mesures les plus rentables qui existent. Et **la menace probable n'est pas
+la menace possible** : il est théoriquement possible qu'un État vise votre
+petite structure, il est beaucoup plus probable qu'un script automatisé trouve
+votre page d'administration oubliée. On construit sa défense contre la menace
+probable, et on garde un œil sur les autres — c'est le principe de la sécurité
+proportionnée.
 
-Le premier : **la connaissance du SI vaut plus cher que l'outil**. Un script
-acheté en ligne ne dit pas où sont vos données sensibles ; un employé, lui, le
-sait. C'est pour cela que la revue des accès au départ d'un collaborateur est
-une des mesures les plus rentables qui existent.
-
-Le second : **la menace probable n'est pas la menace possible**. Il est
-théoriquement possible qu'un État vise votre petite structure. Il est beaucoup
-plus probable qu'un script automatisé trouve votre page d'administration
-oubliée. On construit sa défense contre la menace probable, et on garde un œil
-sur les autres — c'est le principe de la sécurité proportionnée.
-
-Concrètement, pour une application de gestion interne d'une PME, l'ordre des
-priorités ressemble à ceci :
-
-1. couvrir l'opportuniste (mises à jour, configuration, mots de passe) — c'est
-   le lot le plus courant ;
-2. limiter les dégâts de l'initié (moindre privilège, journaux) ;
-3. prévoir la persistance du criminel organisé (sauvegardes testées, plan de
-   réponse) ;
-4. accepter qu'une menace étatique bien préparée ne se bloque pas à l'écran :
-   on la **détecte** et on réduit ce qu'elle peut emporter.
+> ⚠️ **À ARBITRER** — suppression envisagée : le profil **militant**
+> (*hacktiviste*) et la motivation **idéologie**, les plus éloignés des cas
+> applicatifs de la journée. Les deux tableaux restent lisibles sans ces deux
+> entrées.
 
 > [!WARNING]
 > Une erreur fréquente : calquer sa défense sur la menace la plus spectaculaire
@@ -142,8 +137,16 @@ priorités ressemble à ceci :
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
+
+- **L'ordre des priorités, concrètement** — pour une application de gestion
+  interne d'une PME : 1. couvrir l'opportuniste (mises à jour, configuration,
+  mots de passe), le lot le plus courant ; 2. limiter les dégâts de l'initié
+  (moindre privilège, journaux) ; 3. prévoir la persistance du criminel
+  organisé (sauvegardes testées, plan de réponse) ; 4. accepter qu'une menace
+  étatique bien préparée ne se bloque pas à l'écran : on la **détecte** et on
+  réduit ce qu'elle peut emporter.
 
 - **Le modèle STRIDE** (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege), développé par Microsoft : une manière systématique de
   parcourir les menaces d'une application en six catégories — usurpation

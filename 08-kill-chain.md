@@ -1,5 +1,7 @@
 [← Chapitre précédent](07-modeles-attaquant.md) · [Sommaire](Readme.md) · [Chapitre suivant →](09-cve-et-course.md)
 
+<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I « La chaîne » (l'atelier de l'affaire du distributeur : faire placer les cinq faits sur la chaîne avant d'afficher le tableau des sept étapes) et § II « Où couper la chaîne » (faire remplir la colonne « qu'est-ce qui, chez nous, empêche ou révèle cette étape ? » avant de donner le tableau de défense) -->
+
 # La kill chain — Une attaque en sept étapes
 
 > En 2013, la chaîne de compromission d'un grand distributeur américain
@@ -9,7 +11,9 @@
 > Une attaque réussie n'est presque jamais un coup de génie : c'est une série
 > d'échecs de défense qui s'enchaînent.
 
-**Durée de lecture :** 60 min · **Prérequis :** le chapitre « Modèles d'attaquant »
+**Durée de lecture :** 35 min (noyau exigé, atelier compris) · **Aller plus
+loin :** +15 min (facultatif, pas exigé pour finir la journée) · **Prérequis :**
+le chapitre « Modèles d'attaquant »
 
 ---
 
@@ -89,10 +93,9 @@ plus on coupe tôt, moins ça coûte cher.
 | Actions sur les objectifs | cloisonnement et chiffrement des données sensibles | surveillance des accès en masse aux données |
 | Exfiltration | limitation des volumes sortants, filtrage réseau | alerte sur les transferts volumétriques inhabituels |
 
-Le cas du distributeur de 2013 l'illustre bien : la porte d'entrée était un
-accès prestataire — une mesure banale (un accès distant limité, ou une
-segmentation entre le réseau du fournisseur et le réseau interne) aurait coupé
-la chaîne à sa deuxième étape, avant toute atteinte aux caisses.
+Le cas du distributeur de 2013 l'illustre : un accès distant limité, ou une
+segmentation entre le réseau du fournisseur et le réseau interne, aurait coupé
+la chaîne à sa deuxième étape.
 
 Deux idées à retenir ici.
 
@@ -116,8 +119,8 @@ géré.
 
 ## IV. Aller plus loin
 
-*Ces approfondissements sont facultatifs : ils ne sont jamais exigés pour terminer
-la journée.*
+*Contenu facultatif, pas exigé pour finir la journée : ces approfondissements
+ne sont jamais exigés pour terminer le cours.*
 
 - **MITRE ATT&CK** : une base de connaissances publique, maintenue par MITRE (organisme de
   recherche américain), qui recense les modes opératoires observés sur le

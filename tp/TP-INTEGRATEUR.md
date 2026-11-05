@@ -183,8 +183,8 @@ Ces travaux du dossier `tp/` préparent le TP — ils ne s'y substituent pas :
 | Phase | État |
 | --- | --- |
 | Conception (ce document) | ✅ fait le 04/11/2026 |
-| Rédaction de l'énoncé apprenant | ⬜ à faire |
+| Rédaction de l'énoncé apprenant | ✅ fait le 05/11/2026 |
 | Corrigé (hors dépôt public) | ⬜ à faire |
 | Relecture | ⬜ à faire |
 
-**Journal** — 04/11/2026 : v1, conception initiale.
+**Journal** — 04/11/2026 : v1, conception initiale. · 05/11/2026 : énoncé publié et référencé dans le Readme et le mode d'emploi des TP.

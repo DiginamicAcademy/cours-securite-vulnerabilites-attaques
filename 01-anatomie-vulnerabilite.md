@@ -44,6 +44,10 @@ derrière. Une faille a une **vie**, et cette vie suit toujours les mêmes quatr
 | **Exploitation** | Comment l'attaquant s'en sert-il ? | il fait réécrire la requête avec ses propres critères |
 | **Impact** | Qu'est-ce que l'organisation y perd ? | des comptes, de la confiance, des semaines d'activité |
 
+![La vie d'une faille : cause racine, exposition, exploitation, impact](assets/vie-dune-faille.svg)
+
+*Chaque étape est une occasion de couper la chaîne : corriger la cause, réduire l'exposition, surveiller, préparer la réponse.*
+
 L'intérêt de ces quatre étapes, c'est qu'elles se coupent à plusieurs endroits.
 Une requête paramétrée supprime la cause racine. Un filtre en amont réduit
 l'exposition. Une surveillance réduit la durée de l'exploitation. Une procédure

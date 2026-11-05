@@ -10,6 +10,10 @@ GitHub et le support PDF les affichent.
 |---|---|---|
 | `Logo-diginamic-color.svg` | clair | en-tête du Readme et du support PDF |
 | `Logo-diginamic-color-blk.png` | sombre | en-tête du Readme quand GitHub est en thème sombre |
+| `vie-dune-faille.svg` | clair | chapitre 01 — les quatre étapes d'une faille |
+| `injection-sql-principe.svg` | clair | chapitre 02 — données et instructions dans une requête SQL |
+| `kill-chain-detaillee.svg` | clair | chapitre 08 — les sept étapes et la défense associée |
+| `course-patch-exploit.svg` | clair | chapitre 09 — chronologies de l'attaquant et du défenseur |
 
 Les deux logos sont des copies du dépôt
 [PublicAssets](https://github.com/DiginamicInternal/PublicAssets). Le texte de

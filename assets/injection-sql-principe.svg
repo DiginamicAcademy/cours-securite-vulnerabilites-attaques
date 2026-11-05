@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 390" width="960" height="390" role="img" aria-label="Injection SQL : une donnée saisie devient une instruction ; l'apostrophe ferme la chaîne et la suite est interprétée par la base">
+  <style>
+    .titre { font-family: DejaVu Sans, Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #1f2937; text-anchor: middle; }
+    .panneau { font-family: DejaVu Sans, Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #1f2937; }
+    .code { font-family: DejaVu Sans Mono, Consolas, monospace; font-size: 17px; }
+    .sous { font-family: DejaVu Sans, Arial, sans-serif; font-size: 14px; fill: #4b5563; }
+    .legende { font-family: DejaVu Sans, Arial, sans-serif; font-size: 13px; fill: #4b5563; }
+  </style>
+
+  <text class="titre" x="480" y="30">Injection SQL : la frontière entre donnée et instruction</text>
+
+  <!-- Panneau 1 : requête prévue -->
+  <rect x="30" y="55" width="900" height="120" rx="12" fill="#f7f9fc" stroke="#3b5b8d" stroke-width="2"/>
+  <text class="panneau" x="50" y="84">Ce que le développeur croit envoyer</text>
+  <text class="code" x="50" y="118"><tspan fill="#3b5b8d">SELECT titre, date FROM spectacles WHERE titre LIKE '</tspan><tspan fill="#2f7d4f" font-weight="bold">%jazz%</tspan><tspan fill="#3b5b8d">'</tspan></text>
+  <rect x="50" y="136" width="16" height="16" rx="3" fill="#2f7d4f"/>
+  <text class="legende" x="74" y="149">donnée : un simple critère de recherche, rien d'autre</text>
+
+  <!-- Panneau 2 : requête après saisie -->
+  <rect x="30" y="200" width="900" height="130" rx="12" fill="#fff7f7" stroke="#b34040" stroke-width="2"/>
+  <text class="panneau" x="50" y="229">Ce que la base reçoit après la saisie malveillante</text>
+  <text class="code" x="50" y="263"><tspan fill="#3b5b8d">SELECT titre, date FROM spectacles WHERE titre LIKE '</tspan><tspan fill="#b34040" font-weight="bold">' OR '1'='1</tspan><tspan fill="#3b5b8d">%'</tspan></text>
+  <text class="sous" x="50" y="291">L'apostrophe ferme la chaîne trop tôt : la suite n'est plus une donnée, c'est une condition ajoutée à la requête.</text>
+  <rect x="50" y="303" width="16" height="16" rx="3" fill="#b34040"/>
+  <text class="legende" x="74" y="316">instruction : la base l'exécute comme du code</text>
+
+  <text class="sous" x="480" y="365" text-anchor="middle">Le mot « injection » vient de là : faire entrer une instruction par un canal réservé aux données.</text>
+</svg>

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-label="La kill chain détaillée en sept étapes, avec pour chaque étape la mesure qui la coupe ou la révèle">
+  <defs>
+    <marker id="fleche" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b5b8d"/>
+    </marker>
+  </defs>
+  <style>
+    .titre { font-family: DejaVu Sans, Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #1f2937; text-anchor: middle; }
+    .etape { font-family: DejaVu Sans, Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #1f2937; text-anchor: middle; }
+    .sous { font-family: DejaVu Sans, Arial, sans-serif; font-size: 12px; fill: #4b5563; text-anchor: middle; }
+    .defense { font-family: DejaVu Sans, Arial, sans-serif; font-size: 12px; fill: #1f3f6b; text-anchor: middle; }
+    .defense-titre { font-family: DejaVu Sans, Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #2f7d4f; text-anchor: middle; }
+    .lien { stroke: #3b5b8d; stroke-width: 2.5; fill: none; marker-end: url(#fleche); }
+    .rappel { font-family: DejaVu Sans, Arial, sans-serif; font-size: 13px; fill: #4b5563; text-anchor: middle; }
+  </style>
+
+  <text class="titre" x="600" y="28">La kill chain détaillée</text>
+  <text class="sous" x="600" y="50" style="font-size: 14px">sept étapes, et pour chacune, la mesure qui la coupe ou la révèle</text>
+
+  <!-- Étape 1 -->
+  <rect x="20" y="65" width="155" height="115" rx="10" fill="#eef2f9" stroke="#3b5b8d" stroke-width="2"/>
+  <text class="etape" x="97" y="94">Reconnaissance</text>
+  <text class="sous" x="97" y="122">cartographier</text>
+  <text class="sous" x="97" y="140">la cible</text>
+  <text class="sous" x="97" y="162">surface exposée</text>
+
+  <!-- Étape 2 -->
+  <rect x="185" y="65" width="155" height="115" rx="10" fill="#eef2f9" stroke="#3b5b8d" stroke-width="2"/>
+  <text class="etape" x="262" y="94">Accès initial</text>
+  <text class="sous" x="262" y="122">entrer par</text>
+  <text class="sous" x="262" y="140">une porte</text>
+  <text class="sous" x="262" y="162">compte, faille, tiers</text>
+
+  <!-- Étape 3 -->
+  <rect x="350" y="65" width="155" height="115" rx="10" fill="#dbe6f5" stroke="#1f3f6b" stroke-width="2.5"/>
+  <text class="etape" x="427" y="94">Escalade</text>
+  <text class="sous" x="427" y="122">obtenir plus</text>
+  <text class="sous" x="427" y="140">de droits</text>
+  <text class="sous" x="427" y="162">utilisateur → admin</text>
+
+  <!-- Étape 4 -->
+  <rect x="515" y="65" width="155" height="115" rx="10" fill="#eef2f9" stroke="#3b5b8d" stroke-width="2"/>
+  <text class="etape" x="592" y="94">Mouvement</text>
+  <text class="sous" x="592" y="112">latéral</text>
+  <text class="sous" x="592" y="140">aller d'un système</text>
+  <text class="sous" x="592" y="158">à l'autre</text>
+
+  <!-- Étape 5 -->
+  <rect x="680" y="65" width="155" height="115" rx="10" fill="#eef2f9" stroke="#3b5b8d" stroke-width="2"/>
+  <text class="etape" x="757" y="94">Persistance</text>
+  <text class="sous" x="757" y="122">rester après</text>
+  <text class="sous" x="757" y="140">le redémarrage</text>
+  <text class="sous" x="757" y="162">tâche, compte caché</text>
+
+  <!-- Étape 6 -->
+  <rect x="845" y="65" width="155" height="115" rx="10" fill="#eef2f9" stroke="#3b5b8d" stroke-width="2"/>
+  <text class="etape" x="922" y="94">Objectifs</text>
+  <text class="sous" x="922" y="122">voler, chiffrer,</text>
+  <text class="sous" x="922" y="140">espionner</text>
+  <text class="sous" x="922" y="162">l'action finale</text>
+
+  <!-- Étape 7 -->
+  <rect x="1010" y="65" width="155" height="115" rx="10" fill="#fde8e8" stroke="#b34040" stroke-width="2.5"/>
+  <text class="etape" x="1087" y="94">Exfiltration</text>
+  <text class="sous" x="1087" y="122">faire sortir</text>
+  <text class="sous" x="1087" y="140">les données</text>
+  <text class="sous" x="1087" y="162">trafic déguisé</text>
+
+  <!-- Liens -->
+  <path class="lien" d="M 175 122 L 181 122"/>
+  <path class="lien" d="M 340 122 L 346 122"/>
+  <path class="lien" d="M 505 122 L 511 122"/>
+  <path class="lien" d="M 670 122 L 676 122"/>
+  <path class="lien" d="M 835 122 L 841 122"/>
+  <path class="lien" d="M 1000 122 L 1006 122"/>
+
+  <!-- Connecteurs vers les mesures -->
+  <line x1="97" y1="180" x2="97" y2="221" stroke="#2f7d4f" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="262" y1="180" x2="262" y2="221" stroke="#2f7d4f" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="427" y1="180" x2="427" y2="221" stroke="#2f7d4f" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="592" y1="180" x2="592" y2="221" stroke="#2f7d4f" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="757" y1="180" x2="757" y2="221" stroke="#2f7d4f" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="922" y1="180" x2="922" y2="221" stroke="#2f7d4f" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="1087" y1="180" x2="1087" y2="221" stroke="#2f7d4f" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Mesures défensives -->
+  <rect x="20" y="225" width="155" height="135" rx="10" fill="#f3faf5" stroke="#2f7d4f" stroke-width="2"/>
+  <text class="defense-titre" x="97" y="251">Couper / voir</text>
+  <text class="defense" x="97" y="279">réduire la surface</text>
+  <text class="defense" x="97" y="301">surveiller les scans</text>
+  <text class="defense" x="97" y="323">ne rien publier d'inutile</text>
+
+  <rect x="185" y="225" width="155" height="135" rx="10" fill="#f3faf5" stroke="#2f7d4f" stroke-width="2"/>
+  <text class="defense-titre" x="262" y="251">Couper / voir</text>
+  <text class="defense" x="262" y="279">mises à jour, MFA</text>
+  <text class="defense" x="262" y="301">filtrer les accès</text>
+  <text class="defense" x="262" y="323">alertes connexions</text>
+
+  <rect x="350" y="225" width="155" height="135" rx="10" fill="#f3faf5" stroke="#2f7d4f" stroke-width="2"/>
+  <text class="defense-titre" x="427" y="251">Couper / voir</text>
+  <text class="defense" x="427" y="279">moindre privilège</text>
+  <text class="defense" x="427" y="301">admin cloisonné</text>
+  <text class="defense" x="427" y="323">journaliser les droits</text>
+
+  <rect x="515" y="225" width="155" height="135" rx="10" fill="#f3faf5" stroke="#2f7d4f" stroke-width="2"/>
+  <text class="defense-titre" x="592" y="251">Couper / voir</text>
+  <text class="defense" x="592" y="279">segmentation</text>
+  <text class="defense" x="592" y="301">micro-segmentation</text>
+  <text class="defense" x="592" y="323">détecter l'atypique</text>
+
+  <rect x="680" y="225" width="155" height="135" rx="10" fill="#f3faf5" stroke="#2f7d4f" stroke-width="2"/>
+  <text class="defense-titre" x="757" y="251">Couper / voir</text>
+  <text class="defense" x="757" y="279">contrôler les tâches</text>
+  <text class="defense" x="757" y="301">les comptes créés</text>
+  <text class="defense" x="757" y="323">revue périodique</text>
+
+  <rect x="845" y="225" width="155" height="135" rx="10" fill="#f3faf5" stroke="#2f7d4f" stroke-width="2"/>
+  <text class="defense-titre" x="922" y="251">Couper / voir</text>
+  <text class="defense" x="922" y="279">cloisonner, chiffrer</text>
+  <text class="defense" x="922" y="301">surveiller les accès</text>
+  <text class="defense" x="922" y="323">en masse aux données</text>
+
+  <rect x="1010" y="225" width="155" height="135" rx="10" fill="#f3faf5" stroke="#2f7d4f" stroke-width="2"/>
+  <text class="defense-titre" x="1087" y="251">Couper / voir</text>
+  <text class="defense" x="1087" y="279">limiter les sorties</text>
+  <text class="defense" x="1087" y="301">filtrer le réseau</text>
+  <text class="defense" x="1087" y="323">alerter sur les volumes</text>
+
+  <text class="rappel" x="600" y="405">Plus la chaîne est coupée tôt, moins la défense coûte cher.</text>
+</svg>

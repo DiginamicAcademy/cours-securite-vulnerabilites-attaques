@@ -79,6 +79,10 @@ non publiées.
 Le mot « injection » vient de là : faire entrer une **instruction** par un canal
 réservé aux **données**.
 
+![Injection SQL : une donnée saisie devient une instruction](assets/injection-sql-principe.svg)
+
+*La requête prévue ne contient qu'une donnée ; après la saisie malveillante, la base reçoit une condition qu'elle exécute.*
+
 > [!DANGER]
 > La cause racine n'est pas « l'attaquant a trouvé une astuce ». C'est la
 > concaténation : dès qu'une saisie est collée dans un programme, elle peut

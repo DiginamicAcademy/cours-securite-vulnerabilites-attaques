@@ -52,19 +52,19 @@ Les chapitres se lisent dans l'ordre ; chaque notion est pratiquée juste aprè
 
 | # | Chapitre | Durée de lecture |
 | --- | --- | --- |
-| 01 | [Anatomie d'une vulnérabilité — Vie d'une faille](01-anatomie-vulnerabilite.md) | 45 min |
-| 02 | [Les injections — quand les données deviennent des instructions](02-owasp-injections.md) | 70 min |
-| 03 | [Les failles web — quand le navigateur se retourne contre vous](03-owasp-web.md) | 70 min |
-| 04 | [Configuration, dépendances et failles connues](04-owasp-config-deps.md) | 75 min |
-| 05 | [Autres familles de failles — le même raisonnement, d'autres portes](05-autres-familles.md) | 45 min |
-| 06 | [Lire du code vulnérable — la méthode des trois passes](06-lecture-de-code-vulnerable.md) | 50 min |
-| 07 | [Modèles d'attaquant — Qui attaque, et avec quoi](07-modeles-attaquant.md) | 50 min |
-| 08 | [La kill chain — Une attaque en sept étapes](08-kill-chain.md) | 60 min |
-| 09 | [Failles connues et course contre la montre — La vie d'une CVE](09-cve-et-course.md) | 75 min |
-| 10 | [Attaques appliquées — Trois scénarios, un même raisonnement](10-attaques-appliquees.md) | 80 min |
-| 11 | [Attaques d'authentification — Le premier rempart, et ses failles](11-attaques-authentification.md) | 60 min |
-| 12 | [Prévention et détection — Prévenir, détecter, répondre](12-prevention-et-detection.md) | 55 min |
-| 13 | [Tests d'intrusion — Une preuve, pas un exercice de hacking](13-tests-intrusion.md) | 45 min |
+| 01 | [Anatomie d'une vulnérabilité — Vie d'une faille](01-anatomie-vulnerabilite.md) | 30 min |
+| 02 | [Les injections — quand les données deviennent des instructions](02-owasp-injections.md) | 40 min |
+| 03 | [Les failles web — quand le navigateur se retourne contre vous](03-owasp-web.md) | 40 min |
+| 04 | [Configuration, dépendances et failles connues](04-owasp-config-deps.md) | 35 min |
+| 05 | [Autres familles de failles — le même raisonnement, d'autres portes](05-autres-familles.md) | 25 min |
+| 06 | [Lire du code vulnérable — la méthode des trois passes](06-lecture-de-code-vulnerable.md) | 30 min |
+| 07 | [Modèles d'attaquant — Qui attaque, et avec quoi](07-modeles-attaquant.md) | 35 min |
+| 08 | [La kill chain — Une attaque en sept étapes](08-kill-chain.md) | 35 min |
+| 09 | [Failles connues et course contre la montre — La vie d'une CVE](09-cve-et-course.md) | 40 min |
+| 10 | [Attaques appliquées — Trois scénarios, un même raisonnement](10-attaques-appliquees.md) | 40 min |
+| 11 | [Attaques d'authentification — Le premier rempart, et ses failles](11-attaques-authentification.md) | 30 min |
+| 12 | [Prévention et détection — Prévenir, détecter, répondre](12-prevention-et-detection.md) | 30 min |
+| 13 | [Tests d'intrusion — Une preuve, pas un exercice de hacking](13-tests-intrusion.md) | 25 min |
 
 **Travaux pratiques**
 
@@ -80,6 +80,7 @@ Les chapitres se lisent dans l'ordre ; chaque notion est pratiquée juste aprè
 | 🔵 | [Exploiter, documenter, corriger une faille connue](tp/10-td-exploiter-et-corriger.md) · [corrigé](tp/corrige/10-td-exploiter-et-corriger.md) | 70 min |
 | 🔵 | [Écrire une analyse menace / prévention](tp/12-analyse-menace-prevention.md) · [corrigé](tp/corrige/12-analyse-menace-prevention.md) | 55 min |
 | 🔴 | [Modéliser la kill chain d'une fuite de données](tp/13-defi-kill-chain-data.md) · [corrigé](tp/corrige/13-defi-kill-chain-data.md) | libre |
+| 🛠️ | [TP intégrateur — Dossier d'analyse et de sécurisation](tp/TP-INTEGRATEUR.md) · **noté** | 3 h |
 
 ---
 

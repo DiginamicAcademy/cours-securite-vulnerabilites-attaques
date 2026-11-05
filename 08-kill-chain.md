@@ -93,6 +93,10 @@ plus on coupe tôt, moins ça coûte cher.
 | Actions sur les objectifs | cloisonnement et chiffrement des données sensibles | surveillance des accès en masse aux données |
 | Exfiltration | limitation des volumes sortants, filtrage réseau | alerte sur les transferts volumétriques inhabituels |
 
+![La kill chain détaillée, avec la mesure défensive associée à chaque étape](assets/kill-chain-detaillee.svg)
+
+*Chaque étape peut être coupée ou révélée : la colonne du bas donne la mesure de défense correspondante.*
+
 Le cas du distributeur de 2013 l'illustre : un accès distant limité, ou une
 segmentation entre le réseau du fournisseur et le réseau interne, aurait coupé
 la chaîne à sa deuxième étape.

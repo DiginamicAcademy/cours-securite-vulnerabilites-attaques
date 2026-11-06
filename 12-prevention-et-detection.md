@@ -141,6 +141,194 @@ L'ordre compte : isoler avant de comprendre fait parfois plus de dégâts que
 l'attaque elle-même, et effacer « pour nettoyer » détruit ce qui permettrait de
 savoir ce qui s'est passé.
 
+### Exercice 1 — Écrire une analyse menace / prévention (55 min)
+
+#### Contexte
+
+La société **Altis Data** exploite une plateforme de reporting : une API
+(*application programming interface*) alimente un tableau de bord consulté par
+les responsables de magasins. Les points d'entrée sont notés avec leur verbe HTTP (protocole de transfert hypertexte) — GET (lecture) et POST (envoi de données). La plateforme expose les points d'entrée suivants :
+
+| Point d'entrée | Rôle | Qui y accède |
+| --- | --- | --- |
+| `POST /login` | ouverture de session | tous les utilisateurs |
+| `GET /reports` | consultation des rapports | utilisateurs connectés |
+| `GET /reports/export` | export des données de vente | utilisateurs connectés |
+| `GET /admin/users` | gestion des comptes | administrateurs |
+| `GET /debug/config` | diagnostic technique | équipe technique |
+
+L'équipe vient de mettre la plateforme en production. Personne n'a encore écrit
+ce qui pourrait mal tourner, ni ce qui permettrait de le voir arriver : c'est
+votre travail.
+
+---
+
+#### Consignes
+
+##### Partie 1 — Cartographier les menaces
+
+Listez **six scénarios d'attaque** plausibles sur cette plateforme. Pour chacun,
+donnez :
+
+- le scénario, en une phrase concrète (qui fait quoi, et ce qu'il obtient) ;
+- l'étape de la kill chain concernée (accès initial, escalade, mouvement
+      latéral, exfiltration…) ;
+- le point d'entrée impliqué parmi ceux du tableau ci-dessus.
+
+Visez la variété : tous les scénarios ne doivent pas passer par le même point
+d'entrée ni par la même étape de la chaîne.
+
+##### Partie 2 — Prévenir et détecter
+
+Complétez votre cartographie avec deux colonnes :
+
+- **prévention** : la mesure qui coupe le scénario, formulée comme une action
+  (« paramétrer la requête », « limiter le débit »…) ;
+- **détection** : l'événement qui rendrait le scénario visible, formulé comme
+  une information journalisée (« série d'échecs de connexion sur un même
+  compte »…).
+
+Une mesure peut couvrir plusieurs scénarios : signalez-le plutôt que de la
+recopier.
+
+##### Partie 3 — Répondre et prioriser
+
+Parmi vos six scénarios, choisissez celui que vous traiteriez **en premier**.
+Justifiez votre choix avec un critère explicite (exposition, données touchées,
+nombre de personnes concernées, difficulté de détection…).
+
+Puis écrivez les **premiers gestes de réponse** pour ce scénario, dans l'ordre,
+en vous appuyant sur les cinq temps du cours (conserver, isoler, qualifier,
+informer, corriger).
+
+---
+
+#### ✅ Auto-évaluation
+
+Avant de passer au corrigé, vérifiez que :
+
+- [ ] J'ai **six** scénarios, et ils ne passent pas tous par le même point
+      d'entrée.
+- [ ] Chaque scénario est rattaché à une **étape de la kill chain** nommée.
+- [ ] Chaque scénario a **les deux colonnes** : prévention **et** détection.
+- [ ] Ma priorité affiche un **critère explicite**, pas seulement un classement.
+- [ ] Mes premiers gestes de réponse suivent un **ordre**, et commencent par la
+      conservation des traces.
+
+---
+
+#### Pour aller plus loin
+
+*Facultatif.* Parmi vos mesures de détection, laquelle déclencherait le plus
+d'alertes sans être la plus utile ? Expliquez en quelques lignes comment vous
+réduiriez ce bruit sans perdre le signal.
+
+<details>
+<summary>Voir la correction</summary>
+
+> Comparez d'abord votre travail aux **étapes** ci-dessous : la méthode compte autant que le résultat. Les scénarios proposés sont un **modèle** — d'autres choix se défendent, à condition d'être justifiés.
+
+#### Partie 1 — Cartographier les menaces
+
+**Éléments attendus :** une cartographie variée, qui ne tourne pas tous autour
+du même point d'entrée. Les verbes HTTP (protocole de transfert hypertexte) sont rappelés — GET (lecture) et POST (envoi de données). Modèle de référence :
+
+| Scénario | Étape de la kill chain | Point d'entrée |
+| --- | --- | --- |
+| Un script rejoue des couples identifiant / mot de passe volés ailleurs jusqu'à trouver un compte valide | accès initial | `POST /login` |
+| Une période de rapport mal filtrée fait réécrire la requête de données et renvoie plus que prévu | accès initial | `GET /reports` |
+| Un utilisateur connecté tape l'adresse de gestion des comptes et obtient la liste des comptes | escalade de privilèges | `GET /admin/users` |
+| Une page de diagnostic, laissée active, affiche les identifiants de connexion à la base de données | accès initial (appui) | `GET /debug/config` |
+| Un compte légitime exporte l'historique complet des ventes en une seule opération | exfiltration | `GET /reports/export` |
+| Un script déposé dans un contenu affiché vole le cookie de session d'un responsable | accès initial | `GET /reports` |
+
+**Ce qu'il faut retenir :** la variété est l'objectif de cet exercice. Une
+cartographie où les six scénarios passent par le formulaire de connexion rate
+les risques les plus coûteux — ceux qui viennent des comptes déjà légitimes et
+des fonctions déjà autorisées.
+
+**Erreurs fréquentes :** décrire des conséquences (« la plateforme est
+piratée ») au lieu de scénarios. Un scénario se décrit par **qui fait quoi, par
+quel bouton, et ce qu'il obtient** — sinon il n'est pas actionnable.
+
+---
+
+#### Partie 2 — Prévenir et détecter
+
+**Éléments attendus :**
+
+| Scénario | Prévention | Détection |
+| --- | --- | --- |
+| Credential stuffing | limite de débit sur `POST /login`, MFA (authentification multi-facteurs), message d'erreur unique | série d'échecs de connexion sur un même compte, ou depuis une même adresse sur plusieurs comptes |
+| Injection dans le rapport | requête paramétrée, échappement des sorties | erreur technique sur la génération de rapport, requête avec un motif inhabituel |
+| Contournement de `/admin/users` | contrôle de rôle vérifié **côté serveur**, sur chaque route | accès à une route d'administration par un compte non administrateur |
+| Fuite de `/debug/config` | désactiver le mode diagnostic en production, ne jamais y mettre d'identifiants | toute consultation de la route de diagnostic en production |
+| Export volumétrique | plafond de volume par export, justification métier, chiffrement du fichier exporté | export dont le volume sort de l'habitude du compte |
+| Vol de session | cookie `HttpOnly` et `Secure`, HTTPS, expiration courte | même session utilisée depuis deux endroits différents |
+
+**Ce qu'il faut retenir :** la colonne « détection » est la plus souvent oubliée,
+et c'est elle qui transforme une analyse en outil de travail. Une mesure de
+prévention qui échoue n'est pas une défaite si le scénario devient visible —
+c'est même le cas nominal d'une défense en profondeur.
+
+**Erreurs fréquentes :** écrire « journaliser les requêtes » comme détection.
+C'est une collecte, pas une détection : l'information doit être **comparée à une
+habitude** ou à une règle pour devenir un signal.
+
+---
+
+#### Partie 3 — Répondre et prioriser
+
+**Éléments attendus** (le choix varie — c'est le critère qui est attendu) :
+
+Deux priorités se défendent pour **Altis Data** :
+
+- la **fuite de `/debug/config`**, si l'on juge sur l'exposition : des
+  identifiants de base de données ouvrent l'accès à tout le reste, sans laisser
+  de trace dans l'application ;
+- l'**export volumétrique**, si l'on juge sur les données touchées : c'est le
+  scénario qui met le plus de données personnelles entre de mauvaises mains, et
+  le RGPD en fait un risque à traiter en priorité.
+
+Ce qui est attendu, c'est que le critère soit **dit** : un classement sans
+critère affiché ne se discute pas.
+
+**Premiers gestes de réponse**, dans l'ordre :
+
+1. **Conserver** — capturer les journaux de l'application, de la base et du
+   réseau sur la période concernée, avant toute modification.
+2. **Isoler** — révoquer les identifiants ou les sessions concernés, couper
+   l'accès en cause, sans arrêter la plateforme pour les autres utilisateurs.
+3. **Qualifier** — établir ce qui a été lu ou copié, depuis quand, et par quel
+   compte.
+4. **Informer** — la direction, l'équipe technique, et si des données
+   personnelles sont concernées, l'autorité de protection des données et les
+   personnes, dans les délais prévus par le RGPD.
+5. **Corriger et vérifier** — traiter la cause racine (pas seulement la route
+   en cause), puis confirmer que le scénario ne peut plus être rejoué.
+
+**Ce qu'il faut retenir :** la réponse commence par **conserver**, pas par
+nettoyer. L'instinct consiste à rétablir le service au plus vite ; c'est
+souvent ce qui détruit les seules traces permettant de savoir ce qui a été
+exfiltré — et donc de savoir quoi annoncer.
+
+---
+
+#### Points à retenir
+
+- Une analyse menace / prévention se lit comme un **tableau de travail** :
+  scénario, étape de la chaîne, prévention, détection.
+- La **variété des scénarios** compte plus que leur nombre : les comptes
+  légitimes et les fonctions déjà autorisées sont des voies d'accès à part
+  entière.
+- La détection transforme une analyse en outil : une prévention qui échoue et
+  qui se voit reste une défense.
+- Une priorité n'a de valeur que si son **critère est explicite**.
+- La réponse à incident suit un ordre — conserver, isoler, qualifier, informer,
+  corriger — et le premier geste est la conservation des traces.
+
+</details>
+
 ---
 
 ## IV. Aller plus loin
@@ -181,34 +369,28 @@ ne sont jamais exigés pour terminer le cours.*
 
 ## 🧠 Vérifiez vos acquis
 
-*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis dépliez « Vérifier ses réponses » pour vous corriger : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
 
 **1.** Une faille inconnue, un usage détourné d'une fonction légitime, un accès interne mal intentionné : que montre ce trio ?
 
-- A. Que la prévention est inefficace et qu'il faut tout reporter sur la réponse
+- A. Que la prévention est inefficace et qu'il faut tout reporter sur la réponse, quitte à corriger après coup
 - B. Que la prévention a une limite structurelle : elle porte sur ce qui a été anticipé — la détection n'est donc pas un complément de confort
-- C. Qu'il faut journaliser davantage d'erreurs techniques pour la corriger
-- D. Que la minimisation des données est sans effet sur ces trois cas
-
-- [ ] ✓ je savais
+- C. Qu'il faut journaliser davantage d'erreurs techniques pour finir par corriger ce type de faille
+- D. Que la minimisation des données est sans effet sur ces trois cas, puisqu'ils viennent d'un usage normal
 
 **2.** Un service commercial conserve depuis dix ans les adresses de courriel d'anciens clients. Quelle mesure le chapitre met-il en avant, et pourquoi ?
 
-- A. Le chiffrement au repos, puisque les données sont déjà là
-- B. La journalisation des accès à cette table
+- A. Le chiffrement au repos, puisque les données sont déjà là et qu'il ne reste qu'à les protéger
+- B. La journalisation des accès à cette table, pour voir qui les consulte et depuis où
 - C. La minimisation des données : ce qu'on ne détient pas ne peut pas être volé, et le **RGPD** (Règlement général sur la protection des données) en fait une obligation
-- D. La segmentation du réseau, qui empêche la sortie des données
-
-- [ ] ✓ je savais
+- D. La segmentation du réseau, qui empêche la sortie des données vers un stockage étranger
 
 **3.** Laquelle de ces alertes est exploitable, au sens du chapitre ?
 
-- A. « Erreur 500 sur la route /products/search »
+- A. « Erreur 500 sur la route /products/search, 340 occurrences depuis 09:12 »
 - B. « 47 tentatives de connexion échouées sur le compte a.durand, entre 02:10 et 02:14, depuis 203.0.113.7 »
-- C. « Service démarré, 12 dépendances chargées »
-- D. « Journalisation des requêtes activée »
-
-- [ ] ✓ je savais
+- C. « Service démarré à 06:00, 12 dépendances chargées, aucune erreur au démarrage »
+- D. « Journalisation des requêtes activée sur toutes les routes, niveau info »
 
 **4.** Un incident vient d'être découvert sur un serveur. Quel est le premier geste, tel que le chapitre ordonne les réponses ?
 
@@ -217,13 +399,12 @@ ne sont jamais exigés pour terminer le cours.*
 - C. Conserver les traces avant de les avoir capturées
 - D. Informer l'autorité de protection des données
 
-- [ ] ✓ je savais
-
 **5.** *Question ouverte (2-3 lignes).* Citez trois catégories d'événements que le chapitre place dans le minimum à journaliser pour une application web, et expliquez le piège d'un journal « qui enregistre tout sans rien signaler ».
 
-- [ ] ✓ je savais
-
 ---
+
+<details>
+<summary>Vérifier ses réponses</summary>
 
 ### Réponses
 
@@ -241,6 +422,8 @@ ne sont jamais exigés pour terminer le cours.*
 
 **5.** Attendu, trois parmi : les connexions réussies et échouées (avec identifiant et adresse d'origine) ; les changements de droits (élévation, création de compte, modification de rôle) ; les accès aux données sensibles (exports, lectures volumétriques) ; les erreurs techniques révélant la structure interne ; les changements de configuration (mode debug activé, route ouverte). Piège attendu : un journal sans règle de repérage force l'analyste à relire des milliers de lignes — c'est du bruit, pas de la détection.
 **Pourquoi :** détecter demande trois ingrédients — des journaux contenant l'information, une règle qui la repère, et quelqu'un qui traite l'alerte ; la requête est souvent journalisée, la suspicion rarement.
+
+</details>
 
 ---
 

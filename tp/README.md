@@ -1,8 +1,15 @@
 # Travaux pratiques — mode d'emploi
 
-Chaque énoncé se fait **juste après le chapitre** qu'il pratique. Le corrigé est
-un **corrigé formatif** : il reste dans ce dépôt public et sert à s'auto-corriger.
-Le TP intégrateur du cours est **facultatif** ; s'il est rendu, il est noté séparément.
+Les exercices, TD et défis de ce cours **se trouvent dans les chapitres**, à
+l'endroit du cours qui enseigne la notion qu'ils pratiquent. Chacun porte un
+titre de la forme « Exercice N — … » (ou « Exercice bonus — … » pour les défis
+facultatifs), et sa correction se déplie sous l'énoncé avec « Voir la
+correction ». Il n'y a donc rien à ouvrir ici pour travailler : on suit le
+chapitre.
+
+Ce dossier garde le **TP intégrateur** du cours, qui porte sur l'ensemble du
+programme. Il est **facultatif** ; s'il est rendu, il est noté séparément, et sa
+correction n'est pas publiée.
 
 > ⚖️ **Cadre légal.** Toutes les manipulations de ce cours se pratiquent sur
 > **vos propres conteneurs** (lab Docker) et sur des données fictives. Accéder ou
@@ -10,21 +17,21 @@ Le TP intégrateur du cours est **facultatif** ; s'il est rendu, il est noté s
 > et suivants du Code pénal), même « pour tester ». Les tests d'intrusion réels
 > se font sous contrat, dans un périmètre défini.
 
-## Table des exercices
+## Où trouver chaque exercice
 
-| Niveau | Énoncé | Chapitre lié | Corrigé |
+| Niveau | Exercice | Où il se trouve | Correction |
 | --- | --- | --- | --- |
-| 🟢 | [Classer des scénarios dans le Top 10 de l'OWASP](01-classer-owasp.md) | 01 — Anatomie d'une vulnérabilité | [corrigé](corrige/01-classer-owasp.md) |
-| 🟡 | [Repérer une injection SQL dans un extrait Python/SQL](02-trouver-injection.md) | 02 — Les injections | [corrigé](corrige/02-trouver-injection.md) |
-| 🔵 | [Lister les vulnérabilités et leur gravité sur un extrait de code](03-revue-de-code.md) | 03-05 — Failles web et configuration | [corrigé](corrige/03-revue-de-code.md) |
-| 🔴 | [Modéliser les vulnérabilités d'un pipeline de données](04-defi-menace-data.md) | 06 — Lire du code vulnérable | [corrigé](corrige/04-defi-menace-data.md) |
-| 🟡 | [Lire un advisory et rédiger un avis d'exposition](05-lire-advisory.md) | 09 — La vie d'une CVE | [corrigé](corrige/05-lire-advisory.md) |
-| 🟢 | [Reconstituer les étapes d'une attaque](07-reconstituer-attaque.md) | 08 — La kill chain | [corrigé](corrige/07-reconstituer-attaque.md) |
-| 🟡 | [Reconstituer la course patch / exploit](09-timeline-cve.md) | 09 — Failles connues et course | [corrigé](corrige/09-timeline-cve.md) |
-| 🔵 | [Exploiter, documenter, corriger une faille connue](10-td-exploiter-et-corriger.md) | 10 — Attaques appliquées | [corrigé](corrige/10-td-exploiter-et-corriger.md) |
-| 🔵 | [Écrire une analyse menace / prévention](12-analyse-menace-prevention.md) | 12 — Prévention et détection | [corrigé](corrige/12-analyse-menace-prevention.md) |
-| 🔴 | [Modéliser la kill chain d'une fuite de données](13-defi-kill-chain-data.md) | 13 — Tests d'intrusion | [corrigé](corrige/13-defi-kill-chain-data.md) |
-| 🛠️ | [TP intégrateur — Dossier d'analyse et de sécurisation](TP-INTEGRATEUR.md) | Le cours entier (J2-J3) | **facultatif, noté s'il est rendu** — corrigé non publié |
+| 🟢 | Classer des scénarios dans le Top 10 de l'OWASP | [chapitre 01](../01-anatomie-vulnerabilite.md) — Exercice 1 | dépliée sous l'énoncé |
+| 🟡 | Repérer une injection SQL dans un extrait Python/SQL | [chapitre 02](../02-owasp-injections.md) — Exercice 1 | dépliée sous l'énoncé |
+| 🟡 | Lire un advisory et rédiger un avis d'exposition | [chapitre 04](../04-owasp-config-deps.md) — Exercice 1 | dépliée sous l'énoncé |
+| 🔵 | Lister les vulnérabilités et leur gravité sur un extrait de code | [chapitre 04](../04-owasp-config-deps.md) — Exercice 2 | dépliée sous l'énoncé |
+| 🔴 | Modéliser les vulnérabilités d'un pipeline de données | [chapitre 05](../05-autres-familles.md) — Exercice bonus | dépliée sous l'énoncé |
+| 🟢 | Reconstituer les étapes d'une attaque | [chapitre 07](../07-modeles-attaquant.md) — Exercice 1 | dépliée sous l'énoncé |
+| 🔴 | Modéliser la kill chain d'une fuite de données | [chapitre 08](../08-kill-chain.md) — Exercice bonus | dépliée sous l'énoncé |
+| 🟡 | Reconstituer la course patch / exploit | [chapitre 09](../09-cve-et-course.md) — Exercice 1 | dépliée sous l'énoncé |
+| 🔵 | Exploiter, documenter, corriger une faille connue | [chapitre 09](../09-cve-et-course.md) — Exercice 2 | dépliée sous l'énoncé |
+| 🔵 | Écrire une analyse menace / prévention | [chapitre 12](../12-prevention-et-detection.md) — Exercice 1 | dépliée sous l'énoncé |
+| 🛠️ | [TP intégrateur — Dossier d'analyse et de sécurisation](TP-INTEGRATEUR.md) | ce dossier — le cours entier (J2-J3) | **facultatif, noté s'il est rendu** — corrigé non publié |
 
 Les niveaux suivent la progression 🟢 découverte · 🟡 application · 🔵 intégration ·
 🔴 défi facultatif. Un 🔴 ne bloque jamais la progression.

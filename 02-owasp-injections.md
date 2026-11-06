@@ -217,6 +217,225 @@ La mise en œuvre complète de ces correctifs — paramétrage, ORM, tests
 d'injection — est traitée dans la partie « sécuriser le code » du parcours. Ici,
 l'objectif est de **voir** la faille : la reconnaissance précède la réparation.
 
+### Exercice 1 — Repérer une injection SQL dans un extrait Python/SQL (40 min)
+
+#### Contexte
+
+Cinq petits services viennent d'être livrés par cinq équipes différentes : une
+bibliothèque municipale, une école, un studio photo, une plateforme de streaming
+et une billetterie. Chacun fonctionne. Aucun n'a été passé en revue sur le plan
+sécurité.
+
+Votre mission : dire, extrait par extrait, si une injection est possible, où elle
+se niche, et quel correctif la supprime.
+
+Pour situer vos réponses, retenez que la famille **A03** — Injection, du Top 10 de
+l'**OWASP** (Open Web Application Security Project), regroupe les failles où des
+données sont traitées comme des instructions.
+
+##### Extrait 1 — Bibliothèque municipale, recherche du catalogue
+
+```python
+@app.get("/catalogue")
+def chercher(mot: str):
+    requete = f"SELECT titre, auteur FROM livres WHERE titre LIKE '%{mot}%'"
+    return db.execute(requete).fetchall()
+```
+
+##### Extrait 2 — École, consultation des notes
+
+```python
+@app.get("/notes")
+def notes(eleve: str):
+    return db.execute(
+        "SELECT matiere, valeur FROM notes WHERE eleve = ?",
+        (eleve,),
+    ).fetchall()
+```
+
+##### Extrait 3 — Studio photo, archivage des séances
+
+```python
+def archiver(dossier: str):
+    # le client choisit le nom du dossier de séance
+    os.system("tar czf /backup/" + dossier + ".tgz /data/" + dossier)
+```
+
+##### Extrait 4 — Plateforme de streaming, recherche par courriel
+
+```python
+@app.post("/abonnes/recherche")
+def rechercher(corps: dict):
+    # le corps de la requête arrive en JSON, tel quel
+    return db.abonnes.find_one({"email": corps["email"]})
+```
+
+##### Extrait 5 — Billetterie, version « protégée » de la recherche
+
+```python
+@app.get("/spectacles")
+def chercher(recherche: str):
+    if "'" in recherche or ";" in recherche:
+        return {"erreur": "caractère interdit"}
+    requete = f"SELECT titre FROM spectacles WHERE titre LIKE '%{recherche}%'"
+    return db.execute(requete).fetchall()
+```
+
+---
+
+#### Consignes
+
+##### Partie 1 — Repérer
+
+Pour chacun des cinq extraits, répondez **oui** ou **non** à la question « une
+injection est-elle possible ? », et citez le motif exact qui la rend possible (la
+construction de code concernée, pas le numéro de ligne).
+
+##### Partie 2 — Expliquer le mécanisme
+
+Pour chaque extrait jugé vulnérable, décrivez en deux phrases :
+
+- ce que l'attaquant **envoie** (une chaîne, un opérateur, un séparateur…) ;
+- ce que le programme **exécute** à la place de ce qu'il devait faire.
+
+##### Partie 3 — Nommer le correctif
+
+Pour chaque extrait jugé vulnérable, proposez **une** mesure qui supprime la
+cause racine — pas qui masque le symptôme. Une phrase par extrait suffit.
+
+##### Partie 4 — Juger le « correctif »
+
+L'extrait 5 a été corrigé « à la hâte » par l'équipe de la billetterie. Ce
+correctif traite-t-il la cause racine ou un symptôme ? Justifiez en deux lignes,
+en vous appuyant sur la question : « si je corrige cela, la faille peut-elle
+encore être exploitée autrement ? ».
+
+---
+
+#### ✅ Auto-évaluation
+
+Avant de passer au corrigé, vérifiez que :
+
+- [ ] J'ai donné un verdict **pour les cinq extraits**, y compris ceux qui me
+      semblaient sains.
+- [ ] Mon verdict cite le **motif de code** (concaténation, recopie d'un corps de
+      requête, construction d'une commande) et pas seulement « c'est dangereux ».
+- [ ] Pour chaque extrait vulnérable, j'ai décrit **ce que l'attaquant envoie** et
+      **ce qui est exécuté**.
+- [ ] Mes correctifs suppriment la **cause racine** : je peux dire pourquoi un
+      filtre de caractères ne suffirait pas.
+- [ ] J'ai justifié mon jugement sur l'extrait 5 avec la question « la faille
+      peut-elle encore être exploitée autrement ? ».
+
+---
+
+#### Pour aller plus loin
+
+*Facultatif.* Parmi les cinq services, deux manipulent des données personnelles
+(courriels, notes d'élèves). Reformulez l'impact d'une injection pour ces deux-là
+en particulier : que perd-on, au-delà du fonctionnement technique ?
+
+<details>
+<summary>Voir la correction</summary>
+
+> Comparez d'abord votre travail aux **étapes** ci-dessous : la méthode compte autant que le résultat. La famille **A03** — Injection, du Top 10 de l'**OWASP** (Open Web Application Security Project), est celle où des données sont traitées comme des instructions.
+
+#### Partie 1 — Repérer
+
+**Éléments attendus :**
+
+| Extrait | Verdict | Motif de code |
+| --- | --- | --- |
+| Bibliothèque municipale | **oui** | la saisie `mot` est interpolée dans la requête par un littéral Python |
+| École | **non** | la requête est préparée, la saisie voyage dans un emplacement réservé |
+| Studio photo | **oui** | la saisie `dossier` est concaténée dans une ligne de commande shell |
+| Plateforme de streaming | **oui** | le corps JSON est recopié tel quel dans la requête de la base |
+| Billetterie | **oui** | la saisie reste interpolée dans la requête, malgré le filtre |
+
+**Ce qu'il faut retenir :** quatre extraits sur cinq sont vulnérables, et ils ne
+se ressemblent pas. Le motif à chercher n'est pas « SQL » ni « apostrophe » : c'est
+**une saisie qui rejoint un texte interprété** — requête de base, ligne de
+commande, document de recherche.
+
+**Erreurs fréquentes :** ne juger que les extraits qui parlent de base de données,
+et rater le studio photo. Une ligne de commande est un programme au même titre
+qu'une requête SQL.
+
+---
+
+#### Partie 2 — Expliquer le mécanisme
+
+**Éléments attendus :**
+
+| Extrait | Ce que l'attaquant envoie | Ce qui est exécuté |
+| --- | --- | --- |
+| Bibliothèque municipale | une chaîne qui referme le motif puis ajoute une condition | une requête où le filtre sur le titre est remplacé par une condition toujours vraie |
+| Studio photo | un nom de dossier contenant un séparateur de commandes | l'archivage, puis une seconde commande lancée par le shell |
+| Plateforme de streaming | un objet JSON contenant un opérateur de comparaison | une recherche « n'importe quel abonné » au lieu d'un courriel précis |
+| Billetterie | une chaîne qui referme le motif, sans apostrophe ni point-virgule | la même requête réécrite que pour la bibliothèque |
+
+**Ce qu'il faut retenir :** dans les quatre cas, la confusion est identique — la
+saisie emprunte le chemin des instructions. Le studio photo montre que ce chemin
+n'est pas toujours une base de données ; la plateforme de streaming montre que la
+syntaxe JSON n'y change rien.
+
+**Erreurs fréquentes :** décrire les conséquences (« on voit tous les livres »)
+sans décrire le mécanisme. Ce qui est attendu, c'est la transformation : ce que
+l'attaquant envoie, et ce que le programme exécute à la place.
+
+---
+
+#### Partie 3 — Nommer le correctif
+
+**Éléments attendus :**
+
+| Extrait | Correctif attendu |
+| --- | --- |
+| Bibliothèque municipale | requête préparée avec un emplacement réservé pour `mot` |
+| Studio photo | appeler l'archivage avec une liste d'arguments, sans passer par le shell |
+| Plateforme de streaming | valider le champ `email` comme une chaîne attendue, et le passer comme valeur — jamais comme fragment de requête |
+| Billetterie | requête préparée, comme pour la bibliothèque |
+
+**Ce qu'il faut retenir :** chaque correctif supprime la **concaténation** ou la
+**recopie de la saisie dans un texte interprété**. C'est le même geste dans trois
+langages : faire voyager la donnée à part, jamais dans le programme.
+
+**Erreurs fréquentes :** proposer « ajouter un filtre sur les caractères
+spéciaux ». Un filtre réduit l'exposition ; il laisse la concaténation en place,
+donc la faille exploitable autrement.
+
+---
+
+#### Partie 4 — Juger le « correctif »
+
+**Éléments attendus :** le filtre de l'extrait 5 traite un **symptôme**.
+
+Justification attendue : la concaténation est toujours là. La question « si je
+corrige cela, la faille peut-elle encore être exploitée autrement ? » reçoit la
+réponse oui — un encodage différent, un caractère non filtré ou un autre canal de
+saisie peut rejoindre la même requête. Le filtre ferme une porte, pas le passage.
+
+**Ce qu'il faut retenir :** un correctif qui examine les caractères examine la
+forme ; un correctif qui sépare les données des instructions examine la structure.
+Seul le second rend l'attaque impossible à rejouer.
+
+---
+
+#### Points à retenir
+
+- Le motif à repérer est **une saisie qui rejoint un texte interprété** : requête,
+  document de recherche, ligne de commande.
+- Un verdict se justifie par un **motif de code**, pas par une impression de
+  danger.
+- Le même mécanisme traverse SQL, NoSQL et commandes système — seule la syntaxe
+  change.
+- Le correctif qui supprime la cause est celui qui **sépare** la donnée de
+  l'instruction ; filtrer les caractères traite un symptôme.
+- Un jugement de correction n'a de valeur que s'il répond à la question « la
+  faille peut-elle encore être exploitée autrement ? ».
+
+</details>
+
 ---
 
 ## IV. Aller plus loin
@@ -269,34 +488,28 @@ ne sont jamais exigés pour terminer le cours.*
 
 ## 🧠 Vérifiez vos acquis
 
-*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis dépliez « Vérifier ses réponses » pour vous corriger : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
 
 **1.** Dans `SELECT ... WHERE titre LIKE '%{recherche}%'`, le mot saisi par le visiteur arrive par le même chemin que `select`, `from`, `where`. Quelle confusion cela installe-t-il ?
 
 - A. Une donnée arrive par un canal réservé aux instructions, et la base l'exécute comme un programme
 - B. Une instruction arrive par un canal réservé aux données, et la base l'affiche
-- C. Une donnée est chiffrée avant d'arriver à la base
-- D. Une instruction est exécutée deux fois
-
-- [ ] ✓ je savais
+- C. Une donnée arrive trop tôt dans le traitement, avant que la base n'ait pu vérifier le format attendu
+- D. Une instruction est exécutée deux fois, la requête étant construite puis relue par la base
 
 **2.** Que partagent l'injection SQL, l'injection NoSQL et l'injection de commandes (`127.0.0.1; whoami`) ?
 
-- A. La même syntaxe de l'apostrophe
-- B. Le même interpréteur, celui de Python
+- A. La même syntaxe : une apostrophe qui referme le texte attendu et ajoute une condition toujours vraie
+- B. Le même interpréteur : dans les trois cas, c'est le moteur de la base qui lit la saisie
 - C. La même cause racine : une chaîne assemble du code et des données, puis l'ensemble est interprété
-- D. Le même remède : la liste autorisée
-
-- [ ] ✓ je savais
+- D. Le même remède : une liste autorisée de caractères, appliquée avant toute construction de chaîne
 
 **3.** Pourquoi la requête paramétrée supprime-t-elle la faille, là où le blocage de l'apostrophe échoue ?
 
-- A. Parce qu'elle s'exécute plus vite que la concaténation
+- A. Parce qu'elle s'exécute plus vite que la concaténation, ce qui laisse à l'attaquant moins de temps pour intervenir
 - B. Parce que les saisies arrivent à part et restent traitées comme des données : la base ne peut plus les lire comme des instructions
-- C. Parce qu'elle examine la saisie et rejette les motifs suspects
-- D. Parce qu'elle masque la page d'erreur technique
-
-- [ ] ✓ je savais
+- C. Parce qu'elle examine la saisie, repère les motifs suspects et les rejette avant qu'ils n'atteignent la base
+- D. Parce qu'elle remplace la page d'erreur technique par un message neutre, qui ne renseigne plus l'attaquant
 
 **4.** On réduit les droits du compte de base utilisé par l'application. Que gagne-t-on ?
 
@@ -305,13 +518,12 @@ ne sont jamais exigés pour terminer le cours.*
 - C. L'exposition disparaît, puisque le compte est restreint
 - D. La validation de la saisie devient inutile
 
-- [ ] ✓ je savais
-
 **5.** *Question ouverte (2-3 lignes).* Le pare-feu applicatif qui rejette les motifs suspects, la page d'erreur neutre et le blocage de l'apostrophe sont trois correctifs proposés par la billetterie. En une phrase chacun, dites ce que chacun traite, puis expliquez pourquoi le chapitre les garde quand même.
 
-- [ ] ✓ je savais
-
 ---
+
+<details>
+<summary>Vérifier ses réponses</summary>
 
 ### Réponses
 
@@ -329,6 +541,8 @@ ne sont jamais exigés pour terminer le cours.*
 
 **5.** Attendu : le blocage de l'apostrophe et le pare-feu applicatif ne filtrent que les formes connues (et pénalisent les clients légitimes), la page d'erreur neutre empêche seulement de lire le détail technique — aucun des trois ne supprime la concaténation. Ils sont gardés parce qu'ils ont leur utilité en défense en profondeur.
 **Pourquoi :** le chapitre distingue nettement ce qui traite un symptôme de ce qui traite la cause ; plusieurs barrières utiles peuvent coexister sans jamais remplacer la requête paramétrée.
+
+</details>
 
 ---
 

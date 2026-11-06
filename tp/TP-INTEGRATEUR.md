@@ -158,8 +158,8 @@ Ces travaux du dossier `tp/` préparent le TP — ils ne s'y substituent pas :
 
 | Travail | Étape du TP qu'il prépare |
 | --- | --- |
-| [Lister les vulnérabilités et leur gravité sur un extrait de code](03-revue-de-code.md) | Étape 2 — cartographier |
-| [Modéliser les vulnérabilités d'un pipeline de données](04-defi-menace-data.md) | Étape 2 — les points de confiance |
-| [Exploiter, documenter, corriger une faille connue](10-td-exploiter-et-corriger.md) | Étapes 4 et 5 — prouver et corriger |
-| [Écrire une analyse menace / prévention](12-analyse-menace-prevention.md) | Étape 6 — détecter et répondre |
-| [Modéliser la kill chain d'une fuite de données](13-defi-kill-chain-data.md) | Étape 3 — modéliser l'attaque |
+| Lister les vulnérabilités et leur gravité sur un extrait de code — chapitre 04, Exercice 2 | Étape 2 — cartographier |
+| Modéliser les vulnérabilités d'un pipeline de données — chapitre 05, Exercice bonus | Étape 2 — les points de confiance |
+| Exploiter, documenter, corriger une faille connue — chapitre 09, Exercice 2 | Étapes 4 et 5 — prouver et corriger |
+| Écrire une analyse menace / prévention — chapitre 12, Exercice 1 | Étape 6 — détecter et répondre |
+| Modéliser la kill chain d'une fuite de données — chapitre 08, Exercice bonus | Étape 3 — modéliser l'attaque |

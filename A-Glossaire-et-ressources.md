@@ -150,7 +150,7 @@ Dans les chapitres, chaque acronyme est défini à sa première occurrence. Cett
 
 ### Dans ce cours
 
-- Les exercices, les TD et le TP intégrateur : le dossier `tp/`.
+- Les exercices et les TD : dans les chapitres, juste après la notion qu'ils pratiquent, avec leur correction dépliée sous l'énoncé. Le TP intégrateur : le dossier `tp/`.
 - Les manipulations : le lab Docker du cours, sur vos propres conteneurs.
 
 ---

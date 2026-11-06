@@ -166,49 +166,42 @@ ne sont jamais exigés pour terminer le cours.*
 
 ## 🧠 Vérifiez vos acquis
 
-*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis dépliez « Vérifier ses réponses » pour vous corriger : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
 
 **1.** Dans la méthode des trois passes, que cherche la deuxième passe — les sorties ?
 
-- A. D'où vient ce que le programme traite
+- A. D'où vient ce que le programme traite : les paramètres reçus, les fichiers lus, les variables d'environnement
 - B. Où la donnée va, c'est-à-dire où elle **agit** : chaque sortie est un endroit où la confusion entre données et instructions devient possible
-- C. Ce que le programme fait qui touche à la sécurité en dehors de son propre code
-- D. Les lignes les plus longues du diff, là où les fautes se cachent
-
-- [ ] ✓ je savais
+- C. Ce que le programme fait qui touche à la sécurité en dehors de son propre code, via les appels sensibles
+- D. Les lignes les plus longues du diff, là où les fautes se cachent d'habitude et qu'il faut relire en entier
 
 **2.** Pourquoi la troisième passe — les appels système — coûte-t-elle peu à mener ?
 
-- A. Parce qu'un outil la réalise automatiquement
+- A. Parce qu'un outil la réalise automatiquement, sans intervention humaine sur le diff
 - B. Parce que ces appels sont rares et concentrés : on peut les examiner un par un
-- C. Parce qu'ils concernent uniquement les commandes passées au système
-- D. Parce qu'ils sont tous signalés par un commentaire dans le code
-
-- [ ] ✓ je savais
+- C. Parce qu'ils concernent uniquement les commandes passées au système, donc un seul endroit à regarder
+- D. Parce qu'ils sont tous signalés par un commentaire dans le code, à condition de lire les annotations
 
 **3.** Vous rencontrez `contenu = open(chemin).read()` dans un diff. Que vous dit ce marqueur ?
 
-- A. Que la ligne est une faute : il faut la remplacer
-- B. Que `open()` ne doit jamais être employé avec des données externes
+- A. Que la ligne est une faute à remplacer, puisque le contenu vient de l'extérieur sans contrôle
+- B. Que `open()` ne doit jamais être employé avec des données externes, quelle que soit l'origine du chemin
 - C. Où poser la question : la lecture devient problématique si le chemin est choisi par l'extérieur
-- D. Que la revue de cette ligne est faite, puisqu'elle est repérée
-
-- [ ] ✓ je savais
+- D. Que la revue de cette ligne est faite puisqu'elle est repérée : un marqueur trouvé clôt le point
 
 **4.** À quoi sert la checklist de dix points, telle que le chapitre la positionne ?
 
 - A. À remplacer l'analyse, puisqu'elle se coche en quelques minutes
-- B. À lister les dix familles du Top 10 de l'OWASP
-- C. À imposer l'ordre des trois passes
+- B. À lister les dix familles du Top 10 de l'OWASP, pour que chaque point corresponde à une famille
+- C. À imposer l'ordre des trois passes, afin qu'aucune lecture d'un même fichier ne soit faite deux fois
 - D. À cadrer la revue et à laisser une trace de ce qui a été vérifié
-
-- [ ] ✓ je savais
 
 **5.** *Question ouverte (2-3 lignes).* Citez deux marqueurs d'**absence** du chapitre et expliquez pourquoi ils se voient moins facilement qu'une interpolation ou qu'un `eval`.
 
-- [ ] ✓ je savais
-
 ---
+
+<details>
+<summary>Vérifier ses réponses</summary>
 
 ### Réponses
 
@@ -226,6 +219,8 @@ ne sont jamais exigés pour terminer le cours.*
 
 **5.** Attendu, deux parmi : une route qui modifie des données sans vérifier de rôle ; une page qui insère une variable dans du HTML sans échappement ; un mot de passe réduit à un condensat rapide ou stocké en clair ; un secret écrit dans le code ; une dépendance figée à une vieille version. Explication attendue : il n'y a rien à lire — le problème est un contrôle qui manque, pas une construction recognizable.
 **Pourquoi :** c'est pour cela que la checklist consacre des points à ces absences (rôle côté serveur, échappement des sorties, algorithme de mot de passe, secrets hors du code) : elles ne sautent pas aux yeux en suivant le code.
+
+</details>
 
 ---
 

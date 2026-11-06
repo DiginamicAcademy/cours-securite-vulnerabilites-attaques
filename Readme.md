@@ -48,7 +48,8 @@ qu'elle coûterait** — pour décider quoi corriger en premier.
 
 ## Sommaire
 
-Les chapitres se lisent dans l'ordre ; chaque notion est pratiquée juste après.
+Les chapitres se lisent dans l'ordre ; chaque notion est pratiquée juste après,
+par l'exercice intégré au chapitre (sa correction se déplie sous l'énoncé).
 
 | # | Chapitre | Durée de lecture |
 | --- | --- | --- |
@@ -71,17 +72,17 @@ Les chapitres se lisent dans l'ordre ; chaque notion est pratiquée juste aprè
 
 | | Sujet | Durée |
 | --- | --- | --- |
-| 🟢 | [Classer des scénarios dans le Top 10 de l'OWASP](tp/01-classer-owasp.md) · [corrigé](tp/corrige/01-classer-owasp.md) | 25 min |
-| 🟡 | [Repérer une injection SQL dans un extrait Python/SQL](tp/02-trouver-injection.md) · [corrigé](tp/corrige/02-trouver-injection.md) | 40 min |
-| 🔵 | [Lister les vulnérabilités et leur gravité sur un extrait de code](tp/03-revue-de-code.md) · [corrigé](tp/corrige/03-revue-de-code.md) | 55 min |
-| 🔴 | [Modéliser les vulnérabilités d'un pipeline de données](tp/04-defi-menace-data.md) · [corrigé](tp/corrige/04-defi-menace-data.md) | libre |
-| 🟡 | [Lire un advisory et rédiger un avis d'exposition](tp/05-lire-advisory.md) · [corrigé](tp/corrige/05-lire-advisory.md) | 35 min |
-| 🟢 | [Reconstituer les étapes d'une attaque](tp/07-reconstituer-attaque.md) · [corrigé](tp/corrige/07-reconstituer-attaque.md) | 25 min |
-| 🟡 | [Reconstituer la course patch / exploit](tp/09-timeline-cve.md) · [corrigé](tp/corrige/09-timeline-cve.md) | 40 min |
-| 🔵 | [Exploiter, documenter, corriger une faille connue](tp/10-td-exploiter-et-corriger.md) · [corrigé](tp/corrige/10-td-exploiter-et-corriger.md) | 70 min |
-| 🔵 | [Écrire une analyse menace / prévention](tp/12-analyse-menace-prevention.md) · [corrigé](tp/corrige/12-analyse-menace-prevention.md) | 55 min |
-| 🔴 | [Modéliser la kill chain d'une fuite de données](tp/13-defi-kill-chain-data.md) · [corrigé](tp/corrige/13-defi-kill-chain-data.md) | libre |
-| 🛠️ | [TP intégrateur — Dossier d'analyse et de sécurisation](tp/TP-INTEGRATEUR.md) · **noté** | 3 h |
+| 🟢 | Classer des scénarios dans le Top 10 de l'OWASP — dans le chapitre [01 — Anatomie d'une vulnérabilité](01-anatomie-vulnerabilite.md), Exercice 1 | 25 min |
+| 🟡 | Repérer une injection SQL dans un extrait Python/SQL — dans le chapitre [02 — Les injections](02-owasp-injections.md), Exercice 1 | 40 min |
+| 🔵 | Lister les vulnérabilités et leur gravité sur un extrait de code — dans le chapitre [04 — Configuration, dépendances et failles connues](04-owasp-config-deps.md), Exercice 2 | 55 min |
+| 🔴 | Modéliser les vulnérabilités d'un pipeline de données — dans le chapitre [05 — Autres familles de failles](05-autres-familles.md), Exercice bonus | libre |
+| 🟡 | Lire un advisory et rédiger un avis d'exposition — dans le chapitre [04 — Configuration, dépendances et failles connues](04-owasp-config-deps.md), Exercice 1 | 35 min |
+| 🟢 | Reconstituer les étapes d'une attaque — dans le chapitre [07 — Modèles d'attaquant](07-modeles-attaquant.md), Exercice 1 | 25 min |
+| 🟡 | Reconstituer la course patch / exploit — dans le chapitre [09 — Failles connues et course contre la montre](09-cve-et-course.md), Exercice 1 | 40 min |
+| 🔵 | Exploiter, documenter, corriger une faille connue — dans le chapitre [09 — Failles connues et course contre la montre](09-cve-et-course.md), Exercice 2 | 70 min |
+| 🔵 | Écrire une analyse menace / prévention — dans le chapitre [12 — Prévention et détection](12-prevention-et-detection.md), Exercice 1 | 55 min |
+| 🔴 | Modéliser la kill chain d'une fuite de données — dans le chapitre [08 — La kill chain](08-kill-chain.md), Exercice bonus | libre |
+| 🛠️ | [TP intégrateur — Dossier d'analyse et de sécurisation](tp/TP-INTEGRATEUR.md) · **facultatif, noté s'il est rendu** | 3 h 10 |
 
 ---
 
@@ -93,7 +94,7 @@ avancer, revenir au concept concerné, refaire l'exercice.
 ### Jour 2 — chapitres 01 à 06
 
 - [ ] J'ai lu les chapitres 01 à 06 et les points clés sont clairs.
-- [ ] J'ai fait au moins les exercices 🟢 et 🟡 (partie principale), et vérifié mes réponses dans `tp/corrige/`. Les extensions « Pour aller plus loin » sont facultatives.
+- [ ] J'ai fait au moins les exercices 🟢 et 🟡 (partie principale), et vérifié mes réponses avec le bloc « Voir la correction » placé sous chaque énoncé, dans le chapitre. Les extensions « Pour aller plus loin » sont facultatives.
 - [ ] J'ai répondu au QCM formatif, lorsqu'il est disponible, et identifié mes notions à revoir.
 - [ ] Je sais expliquer, avec mes mots, les 2-3 idées principales de la journée.
 - [ ] Je peux appliquer ces idées à un cas simple (un extrait de code, une config, un flux).
@@ -101,7 +102,7 @@ avancer, revenir au concept concerné, refaire l'exercice.
 ### Jour 3 — chapitres 07 à 13
 
 - [ ] J'ai lu les chapitres 07 à 13 et les points clés sont clairs.
-- [ ] J'ai fait au moins les exercices 🟢 et 🟡 (partie principale), et vérifié mes réponses dans `tp/corrige/`. Les extensions « Pour aller plus loin » sont facultatives.
+- [ ] J'ai fait au moins les exercices 🟢 et 🟡 (partie principale), et vérifié mes réponses avec le bloc « Voir la correction » placé sous chaque énoncé, dans le chapitre. Les extensions « Pour aller plus loin » sont facultatives.
 - [ ] J'ai répondu au QCM formatif, lorsqu'il est disponible, et identifié mes notions à revoir.
 - [ ] Je sais expliquer, avec mes mots, les 2-3 idées principales de la journée.
 - [ ] Je peux appliquer ces idées à un cas simple (un extrait de code, une config, un flux).

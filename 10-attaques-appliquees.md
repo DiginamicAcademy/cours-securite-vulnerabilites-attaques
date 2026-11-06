@@ -204,25 +204,21 @@ ne sont jamais exigés pour terminer le cours.*
 
 ## 🧠 Vérifiez vos acquis
 
-*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis dépliez « Vérifier ses réponses » pour vous corriger : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
 
 **1.** Dans l'histoire de la marketplace, à quelle étape l'incident commence-t-il vraiment ?
 
-- A. À la reconnaissance, quand une apostrophe déclenche une erreur technique
-- B. À la compréhension, quand la structure de la requête est devinée
+- A. À la reconnaissance, quand une apostrophe déclenche une erreur technique qui renseigne sur la structure
+- B. À la compréhension, quand la structure de la requête est devinée et que l'exploit est écrit
 - C. À l'exploitation, quand le catalogue complet, produits non publiés compris, s'affiche
 - D. À l'extraction, quand une jointure fait sortir les courriels et les mots de passe des comptes clients
 
-- [ ] ✓ je savais
-
 **2.** Sur le forum, le même commentaire piégé est anodin pour un visiteur et dangereux pour un modérateur. Pourquoi ?
 
-- A. Parce que le script est enregistré dans le compte du modérateur
+- A. Parce que le script est enregistré dans le compte du modérateur et s'exécute à chacune de ses connexions
 - B. Parce que le script s'exécute dans le navigateur de celui qui lit la page, avec les droits de ce lecteur
-- C. Parce que le serveur exécute le script seulement pour les comptes élevés
-- D. Parce que le modérateur a un mot de passe plus facile à deviner
-
-- [ ] ✓ je savais
+- C. Parce que le serveur n'exécute le script que pour les comptes élevés, dont les droits sont plus larges
+- D. Parce que le modérateur a un mot de passe plus facile à deviner, ce qui expose d'abord son compte
 
 **3.** Le cookie de session est marqué `HttpOnly`. Que change cette mesure ?
 
@@ -231,22 +227,19 @@ ne sont jamais exigés pour terminer le cours.*
 - C. Le script ne peut pas lire le cookie, mais la faille reste
 - D. La session expire plus vite et l'origine des requêtes est vérifiée
 
-- [ ] ✓ je savais
-
 **4.** Dans la chaîne API + base de données, quelle analyse le chapitre retient-il ?
 
-- A. Une seule faille était critique : la route de diagnostic laissée en production
-- B. La route d'administration sans vérification de rôle est un bug de programmation
+- A. Une seule faille était critique, la route de diagnostic laissée en production, les autres étant mineures
+- B. La route d'administration sans vérification de rôle est un bug de programmation à corriger en premier
 - C. Aucune faille n'est critique prise isolément ; enchaînées, elles produisent l'accès complet aux données
-- D. L'API n'aurait jamais dû publier sa propre description
-
-- [ ] ✓ je savais
+- D. L'API n'aurait jamais dû publier sa propre description, qui a livré la liste des routes à l'attaquant
 
 **5.** *Question ouverte (2-3 lignes).* Choisissez un des trois scénarios et donnez deux mesures qui l'auraient coupé à deux étapes différentes, en distinguant celle qui **empêche** de celle qui **réduit l'impact**. Pourquoi le chapitre accorde-t-il autant de poids à la seconde ?
 
-- [ ] ✓ je savais
-
 ---
+
+<details>
+<summary>Vérifier ses réponses</summary>
 
 ### Réponses
 
@@ -264,6 +257,8 @@ ne sont jamais exigés pour terminer le cours.*
 
 **5.** Attendu, par exemple sur le XSS : **empêcher** — échapper le HTML à l'affichage (dépôt) ou CSP refusant les scripts inline (exécution) ; **réduire l'impact** — `HttpOnly` sur le cookie, expiration courte de session (collecte, usage). Justification attendue : les mesures d'impact comptent autant que celles qui empêchent, parce qu'aucune barrière n'est totale et qu'elles limitent ce que l'attaquant obtient quand il passe.
 **Pourquoi :** sur le scénario API, le même raisonnement mène aux droits minimaux du compte de base et à l'alerte sur les lectures volumétriques : la chaîne se coupe aussi par ce qu'elle coûte à l'attaquant.
+
+</details>
 
 ---
 

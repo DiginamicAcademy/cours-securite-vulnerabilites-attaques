@@ -126,6 +126,173 @@ proportionnée.
 > Les statistiques d'incidents sont dominées par les attaques de masse : c'est
 > là que le retour sur investissement défensif est le plus élevé.
 
+### Exercice 1 — Reconstituer les étapes d'une attaque (25 min)
+
+#### Contexte
+
+L'éditeur **Meridian Software** publie une application de gestion de stock pour
+les commerces de proximité. Un matin, l'équipe découvre que l'historique de
+commandes de ses clients a été mis en vente sur un forum. Personne n'a vu
+l'attaque se dérouler.
+
+L'enquête reconstitue les gestes suivants — mais ils vous parviennent dans le
+désordre :
+
+| Lettre | Geste observé |
+| --- | --- |
+| **A** | Il copie les adresses de courriel et les historiques de commande. |
+| **B** | Il télécharge un outil de scan et l'exécute contre des milliers de sites. |
+| **C** | Il utilise un compte de service pour lire la base de commandes. |
+| **D** | Il revend la liste sur un forum. |
+| **E** | Il trouve une page d'administration oubliée, accessible sans mot de passe. |
+| **F** | Il sort ces données par un transfert déguisé en sauvegarde. |
+| **G** | Il dépose sur cette page un script qui lui donnera un accès permanent. |
+| **H** | Il relève les comptes utilisateurs listés sur cette page. |
+
+---
+
+#### Consignes
+
+##### Partie 1 — Remettre la chronologie en ordre
+
+Classez les lettres dans l'ordre chronologique plausible. Pour chaque étape,
+ajoutez le nom de l'étape de la kill chain qu'elle correspond (reconnaissance,
+accès initial, escalade de privilèges, mouvement latéral, persistance, actions
+sur les objectifs, exfiltration).
+
+##### Partie 2 — Identifier le profil d'attaquant
+
+Quel profil parmi ceux du cours décrit le mieux cette attaque ? Justifiez votre
+réponse en vous appuyant sur :
+
+- la **motivation** apparente ;
+- les **moyens** observés (temps, outils, connaissance du système).
+
+Dites ensuite quelle conséquence ce profil a sur la défense à construire en
+priorité.
+
+##### Partie 3 — Où la défense pouvait agir
+
+Pour les étapes d'**accès initial**, de **persistance** et d'**exfiltration**,
+proposez la mesure qui les aurait coupées ou rendues visibles. Une phrase par
+mesure, formulée comme une action.
+
+---
+
+#### ✅ Auto-évaluation
+
+Avant de passer au corrigé, vérifiez que :
+
+- [ ] Mon ordre chronologique est **complet** : chaque lettre apparaît une fois.
+- [ ] Chaque étape porte le **nom de la kill chain** correspondant.
+- [ ] Mon profil d'attaquant est justifié par la motivation **et** par les moyens.
+- [ ] J'ai dit ce que ce profil change pour la **défense à construire en
+      priorité**.
+- [ ] Mes mesures sont formulées comme des **actions**, pas comme des souhaits.
+
+---
+
+#### Pour aller plus loin
+
+*Facultatif.* Parmi les étapes de cette attaque, laquelle aurait été la plus
+simple à **détecter** avec des journaux, et pourquoi ? Répondez en deux lignes.
+
+<details>
+<summary>Voir la correction</summary>
+
+> Comparez d'abord votre travail aux **étapes** ci-dessous : la méthode compte autant que le résultat.
+
+#### Partie 1 — Remettre la chronologie en ordre
+
+**Éléments attendus :**
+
+| Ordre | Lettre | Étape de la kill chain | Justification |
+| --- | --- | --- | --- |
+| 1 | **B** | reconnaissance | un scan de masse ne vise personne : il cherche ce qui est exposé |
+| 2 | **E** | accès initial | la page d'administration oubliée est la porte trouvée par le scan |
+| 3 | **H** | reconnaissance interne | les comptes listés disent ce qui est utilisable dans le système |
+| 4 | **G** | persistance | le script déposé permet de revenir sans repasser par la porte d'entrée |
+| 5 | **C** | escalade de privilèges | le compte de service ouvre des données qu'un compte ordinaire ne lit pas |
+| 6 | **A** | actions sur les objectifs | la copie des données est le but recherché |
+| 7 | **F** | exfiltration | le transfert déguisé fait sortir les données sans éveiller l'attention |
+| 8 | **D** | usage des données | la revente est la finalité économique de l'attaque |
+
+**Ce qu'il faut retenir :** l'ordre se justifie par les **dépendances** entre les
+étapes — chaque geste fournit ce dont le suivant a besoin. Une chronologie qui
+ne dit pas ces dépendances reste une liste ; c'est le lien entre les étapes qui
+fait la chaîne.
+
+**Erreurs fréquentes :** placer la persistance en fin d'attaque. Un attaquant
+installe son accès permanent **tôt**, précisément pour ne pas dépendre de la
+porte d'entrée qui pourrait être refermée à tout moment.
+
+---
+
+#### Partie 2 — Identifier le profil d'attaquant
+
+**Éléments attendus :**
+
+Le profil est celui de **l'opportuniste automatisé**, devenu criminel dans
+l'usage de ce qu'il trouve.
+
+- **Motivation** : l'argent — la revente de la liste sur un forum est la
+  finalité, et non la prouesse ni la revanche.
+- **Moyens** : un outil de scan prêt à l'emploi, lancé contre des milliers de
+  sites, sans connaissance préalable de Meridian Software. Le temps passé par
+  cible est faible : l'attaquant ne cherche pas une entreprise précise, il
+  exploite ce qui est trouvé.
+
+**Ce qu'il faut retenir :** la conséquence défensive est directe. Face à un
+attaquant automatisé, la mesure la plus rentable est celle qui **retire la cible
+de la liste** — fermer les pages et les services inutiles, corriger les
+expositions banales. Ce n'est pas la défense la plus spectaculaire, mais c'est
+celle qui traite le volume réel des attaques.
+
+**Erreurs fréquentes :** conclure « attaque ciblée » parce que les données ont
+été choisies avec soin. La **sélection** des données est opportuniste ; c'est la
+**cible** qui ne l'était pas. Le distinguo change entièrement la défense à
+prioriser.
+
+---
+
+#### Partie 3 — Où la défense pouvait agir
+
+**Éléments attendus :**
+
+| Étape | Mesure |
+| --- | --- |
+| Accès initial | retirer les pages d'administration inutiles, et protéger celles qui restent par une authentification vérifiée côté serveur |
+| Persistance | journaliser et alerter sur tout dépôt de fichier ou création de tâche sur un serveur applicatif |
+| Exfiltration | plafonner les volumes de transfert sortants et alerter sur un transfert qui sort de l'habitude |
+
+**Ce qu'il faut retenir :** les trois mesures relèvent de registres différents —
+la première est de la **prévention** (supprimer la porte), les deux autres de la
+**détection** (voir le geste). Une attaque comme celle-ci se coupe rarement par
+une seule barrière : elle se rend coûteuse en rendant chaque étape visible.
+
+**Erreurs fréquentes :** proposer « un pare-feu » pour l'exfiltration. Un
+pare-feu filtre des destinations, pas des volumes : le transfert déguisé en
+sauvegarde sort par un canal légitime. C'est la comparaison à une habitude qui
+le révèle.
+
+---
+
+#### Points à retenir
+
+- Une attaque se reconstitue par les **dépendances** entre ses étapes : chaque
+  geste fournit ce dont le suivant a besoin.
+- La persistance s'installe **tôt** — un attaquant ne laisse pas sa rentrée
+  dépendre d'une porte qui pourrait se fermer.
+- Un scan de masse ne vise personne : la bonne défense est de **sortir de la
+  liste**, pas de se prémunir d'une attaque sur mesure.
+- Les mesures se répartissent entre **prévention** (supprimer la porte) et
+  **détection** (voir le geste) — et les deux sont nécessaires.
+- Ce qui se voit dans les journaux n'est pas l'attaque entière, mais ses gestes
+  les plus anormaux : dépôt de fichier, changement de droits, transfert
+  inhabituel.
+
+</details>
+
 ---
 
 ## IV. Aller plus loin
@@ -175,7 +342,7 @@ ne sont jamais exigés pour terminer le cours.*
 
 ## 🧠 Vérifiez vos acquis
 
-*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis dépliez « Vérifier ses réponses » pour vous corriger : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
 
 **1.** Un ancien administrateur parti depuis un mois consulte encore les fiches de paie avec son compte, jamais révoqué. Quel profil, et quelles mesures proportionnées ?
 
@@ -184,25 +351,19 @@ ne sont jamais exigés pour terminer le cours.*
 - C. Criminel organisé : segmentation, détection des mouvements latéraux, sauvegardes
 - D. Espion industriel : défense en profondeur, surveillance, cloisonnement des données sensibles
 
-- [ ] ✓ je savais
-
 **2.** « La connaissance du SI vaut plus cher que l'outil. » Que veut dire cette phrase ?
 
-- A. Qu'un outil acheté en ligne coûte trop cher pour une petite structure
-- B. Qu'il faut investir dans de meilleurs outils avant de former les équipes
+- A. Qu'un outil acheté en ligne coûte trop cher pour une petite structure, qui doit d'abord budgéter les salaires
+- B. Qu'il faut investir dans de meilleurs outils avant de former les équipes, l'outil étant ce qui manque le plus
 - C. Qu'un script ne sait pas où sont vos données sensibles, alors qu'un employé le sait : d'où la revue des accès au départ
-- D. Qu'un initié n'utilise aucun outil, seulement ses accès
-
-- [ ] ✓ je savais
+- D. Qu'un initié n'utilise aucun outil, seulement ses accès : la connaissance du SI se passerait donc de technique
 
 **3.** Une PME hésite entre se protéger contre un espionnage étatique bien préparé et corriger ses pages d'administration oubliées et ses comptes par défaut. Que retient-elle, selon le chapitre ?
 
-- A. L'espionnage étatique : c'est le profil le plus difficile à arrêter, il passe donc en premier
-- B. Les deux au même niveau : la menace possible compte autant que la probable
+- A. L'espionnage étatique : c'est le profil le plus difficile à arrêter, il doit donc passer avant les autres
+- B. Les deux au même niveau : la menace possible compte autant que la menace probable, on ne choisit pas
 - C. Les pages oubliées et les comptes par défaut : les statistiques d'incidents sont dominées par les attaques de masse automatisées
-- D. Ni l'un ni l'autre : la probabilité ne change rien, seule la gravité technique décide
-
-- [ ] ✓ je savais
+- D. Ni l'un ni l'autre : la probabilité ne change rien, seule la gravité technique de la faille décide
 
 **4.** Un attaquant dont la motivation est l'argent se heurte à une application difficile à percer. Que fait-il, en général ?
 
@@ -211,13 +372,12 @@ ne sont jamais exigés pour terminer le cours.*
 - C. Il publie la capture de sa tentative pour la reconnaissance
 - D. Il bascule vers l'idéologie et défigure la page d'accueil
 
-- [ ] ✓ je savais
-
 **5.** *Question ouverte (2-3 lignes).* Reprenez la question utile du chapitre — « qui a intérêt à m'attaquer, et avec quel budget ? » — pour la boutique en ligne de la fromagerie DIGICHEESE. Quel profil est le plus probable, et quelles mesures proportionnées en découlent ?
 
-- [ ] ✓ je savais
-
 ---
+
+<details>
+<summary>Vérifier ses réponses</summary>
 
 ### Réponses
 
@@ -235,6 +395,8 @@ ne sont jamais exigés pour terminer le cours.*
 
 **5.** Attendu : le profil le plus probable est l'opportuniste automatisé — la boutique n'est pas visée, elle est dans la liste de balayage ; mesures attendues : mises à jour, mots de passe forts, aucun réglage par défaut, page d'administration non exposée. Peut être complété par l'initié (prestataire, stagiaire) : moindre privilège et journaux.
 **Pourquoi :** une application de gestion de stock de fromagerie n'attire pas la même patience qu'un laboratoire de recherche ; aligner les mesures sur le profil réellement visé, c'est la sécurité proportionnée.
+
+</details>
 
 ---
 

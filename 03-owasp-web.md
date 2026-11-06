@@ -220,34 +220,28 @@ ne sont jamais exigés pour terminer le cours.*
 
 ## 🧠 Vérifiez vos acquis
 
-*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis dépliez « Vérifier ses réponses » pour vous corriger : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
 
 **1.** Un courriel hameçonné propose un lien dont l'adresse contient une balise de script ; la page d'erreur renvoie ce morceau de l'adresse tel quel dans la réponse, sans rien enregistrer en base. Quelle forme de **XSS** (Cross-Site Scripting) est-ce ?
 
-- A. Le XSS stocké, puisque le script s'exécute dans la page
+- A. Le XSS stocké : la charge est enregistrée côté serveur, puis servie à chaque visiteur de la page
 - B. Le XSS réfléchi : la saisie revient dans la réponse immédiate, c'est l'ouverture du lien piégé qui déclenche
-- C. Le XSS côté DOM, puisque c'est le navigateur qui exécute
-- D. Ce n'est pas un XSS : le serveur n'a rien exécuté
-
-- [ ] ✓ je savais
+- C. Le XSS côté DOM : un script de la page lit l'adresse et injecte la saisie dans le document
+- D. Ce n'est pas un XSS : le serveur n'a exécuté aucune instruction, il a seulement affiché du texte
 
 **2.** On marque les cookies de session `HttpOnly`. Que change cette mesure ?
 
-- A. Le XSS devient impossible : la balise de script n'est plus exécutée
-- B. Le navigateur n'envoie plus le cookie aux requêtes venues d'un autre site
+- A. Le XSS devient impossible : sans cookie lisible, la balise de script n'est plus exécutée du tout
+- B. Le navigateur n'envoie plus le cookie aux requêtes venues d'un autre site, ce qui ferme la porte au CSRF
 - C. Le script ne peut plus lire le cookie : le XSS vole moins facilement une session, mais n'est pas supprimé
-- D. Le navigateur refuse les scripts venant de sources étrangères
-
-- [ ] ✓ je savais
+- D. Le navigateur refuse les scripts venant de sources étrangères, ce qui filtre la balise injectée
 
 **3.** Une page malveillante ouverte dans un onglet déclenche un virement sur votre banque. Le serveur reçoit la requête et ne peut pas dire qui l'a lancée. Pourquoi ?
 
-- A. Parce que l'attaquant a récupéré le mot de passe de la victime
+- A. Parce que l'attaquant a récupéré le mot de passe de la victime au préalable, par hameçonnage
 - B. Parce que le navigateur envoie les cookies tout seul : la requête arrive authentifiée, sans signe de qui l'a déclenchée
-- C. Parce que le jeton anti-CSRF était prévisible
-- D. Parce que la banque n'utilisait pas la politique de sécurité du contenu
-
-- [ ] ✓ je savais
+- C. Parce que le jeton anti-CSRF était prévisible : l'attaquant l'a recalculé et joint à sa requête
+- D. Parce que la banque n'utilisait pas la politique de sécurité du contenu, qui aurait bloqué l'onglet tiers
 
 **4.** Dans un portail de ressources humaines, le bouton « Fiches de paie » est masqué pour les salariés. L'adresse `/fiches/1043` répond quand même à un salarié qui tape le numéro d'un collègue. Quel est le problème ?
 
@@ -256,13 +250,12 @@ ne sont jamais exigés pour terminer le cours.*
 - C. Une défaillance de configuration : il faut retirer la page de documentation technique
 - D. Un **CSRF** (Cross-Site Request Forgery) : la requête ne prouvait pas son origine
 
-- [ ] ✓ je savais
-
 **5.** *Question ouverte (2-3 lignes).* « Échapper à l'entrée ne protège pas à la sortie. » Expliquez cette phrase avec un exemple du chapitre, et nommez la mesure qui applique ce principe.
 
-- [ ] ✓ je savais
-
 ---
+
+<details>
+<summary>Vérifier ses réponses</summary>
 
 ### Réponses
 
@@ -280,6 +273,8 @@ ne sont jamais exigés pour terminer le cours.*
 
 **5.** Attendu : une donnée validée ou nettoyée une fois à l'entrée peut être réaffichée n'importe où — dans une page, dans un courriel, dans un export — et chaque support a sa propre syntaxe à respecter. Mesure attendue : l'échappement de sortie, appliqué à chaque insertion.
 **Pourquoi :** c'est au moment de l'affichage que le navigateur doit savoir que ce texte est du texte et non du code ; les gabarits modernes le font par défaut, à condition de ne pas demander l'inverse.
+
+</details>
 
 ---
 

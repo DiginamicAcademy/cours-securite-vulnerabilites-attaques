@@ -161,7 +161,7 @@ ne sont jamais exigés pour terminer le cours.*
 
 ## 🧠 Vérifiez vos acquis
 
-*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis dépliez « Vérifier ses réponses » pour vous corriger : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
 
 **1.** Pendant une mission, un serveur voisin — hors du périmètre annoncé — tombe. Comment le chapitre qualifie-t-il ce fait ?
 
@@ -170,16 +170,12 @@ ne sont jamais exigés pour terminer le cours.*
 - C. Un risque normal, dès lors que les contacts d'urgence figurent au document
 - D. Un détail sans effet, la procédure d'arrêt immédiat ayant été remise
 
-- [ ] ✓ je savais
-
 **2.** « Le directeur technique m'a dit de faire le test. » Que vaut cet accord verbal ?
 
-- A. Il vaut autorisation, puisqu'il est donné de bonne foi
-- B. Il vaut pour le périmètre, mais pas pour les règles d'engagement
+- A. Il vaut autorisation, puisqu'il est donné de bonne foi par la personne habilitée à engager la mission
+- B. Il vaut pour le périmètre, mais pas pour les règles d'engagement, qui doivent rester écrites
 - C. Il ne vaut rien devant un tribunal : seules les autorisations écrites, signées par la personne habilitée, valent
-- D. Il vaut dès lors qu'aucune donnée réelle n'est copiée
-
-- [ ] ✓ je savais
+- D. Il vaut dès lors qu'aucune donnée réelle n'a été copiée pendant toute la mission
 
 **3.** À l'étape d'exploitation, que fait le testeur ?
 
@@ -188,8 +184,6 @@ ne sont jamais exigés pour terminer le cours.*
 - C. Il doit atteindre la totalité des fonctions réservées
 - D. Il s'arrête à la première faille confirmée, pour ne pas aggraver l'état
 
-- [ ] ✓ je savais
-
 **4.** Lequel de ces critères ne fait **pas** partie des trois qui jugent la qualité d'un rapport ?
 
 - A. Chaque finding est reproductible par une autre équipe
@@ -197,13 +191,12 @@ ne sont jamais exigés pour terminer le cours.*
 - C. Chaque finding est noté en **CVSS** (Common Vulnerability Scoring System)
 - D. Chaque finding propose une correction actionnable
 
-- [ ] ✓ je savais
-
 **5.** *Question ouverte (2-3 lignes).* Une direction conclut d'un test bien mené : « notre système est sûr ». Reprenez deux limites structurelles du chapitre et corrigez cette conclusion.
 
-- [ ] ✓ je savais
-
 ---
+
+<details>
+<summary>Vérifier ses réponses</summary>
 
 ### Réponses
 
@@ -221,6 +214,8 @@ ne sont jamais exigés pour terminer le cours.*
 
 **5.** Attendu : deux limites parmi — la durée (quelques jours de mission contre des mois pour un attaquant motivé), le périmètre (ce qui n'est pas testé n'est pas couvert, une application ajoutée après n'a pas été évaluée), le moment (un état à une date, modifié par la moindre mise à jour), les angles morts (ingénierie sociale sans accord explicite, sécurité physique, faiblesses de conception), le point de vue (ne remplace pas une analyse de risque). Correction attendue : le test prouve qu'**dans le périmètre et le temps testés** le testeur n'a pas trouvé mieux ; c'est un instantané vérifiable qui alimente un plan de correction, pas un certificat de sécurité.
 **Pourquoi :** la valeur d'un test se mesure au plan de correction qui en sort — l'histoire racontée en introduction est précisément celle d'un rapport connu et non traité.
+
+</details>
 
 ---
 

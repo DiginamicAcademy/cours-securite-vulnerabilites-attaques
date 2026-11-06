@@ -112,6 +112,200 @@ A03 » plutôt que « c'est une faille, je ne sais pas laquelle ». Vous la
 manipulerez dès l'exercice qui suit, puis famille par famille au fil de la
 journée.
 
+### Exercice 1 — Classer des scénarios dans le Top 10 de l'OWASP (25 min)
+
+#### Contexte
+
+La fromagerie **DIGICHEESE** (la fromagerie du fil rouge) vient de mettre sa
+boutique en ligne. Six observations ont été remontées, par l'équipe et par des
+clients. Aucune n'est encore qualifiée : c'est votre travail.
+
+Pour vous repérer, voici les dix familles du Top 10 de l'OWASP, la classification
+de référence des failles web. Vous n'avez pas à les apprendre : vous les utilisez
+comme une carte.
+
+| Code | Famille | Ce qu'elle recouvre |
+| --- | --- | --- |
+| **A01** | Broken Access Control | faire ce qu'on n'a pas le droit de faire |
+| **A02** | Cryptographic Failures | des données mal protégées, chiffrées mal ou pas |
+| **A03** | Injection | confondre les données et les instructions |
+| **A04** | Insecure Design | un choix de conception dangereux, pas un bug |
+| **A05** | Security Misconfiguration | réglages par défaut, debug laissé actif, pages inutiles |
+| **A06** | Vulnerable and Outdated Components | une dépendance connue pour être fragile |
+| **A07** | Identification and Authentication Failures | des comptes et des mots de passe mal protégés |
+| **A08** | Software and Data Integrity Failures | des mises à jour ou des données jamais vérifiées |
+| **A09** | Security Logging and Monitoring Failures | ne pas voir l'attaque arriver |
+| **A10** | **SSRF** (Server-Side Request Forgery) | faire demander au serveur ce qu'il ne devrait pas |
+
+##### Les six observations
+
+1. **La recherche produits.** La requête envoyée à la base est construite en
+   collant ce que le visiteur tape. En saisissant `' OR '1'='1`, on obtient la
+   liste complète du catalogue, y compris les produits non publiés.
+2. **Les commentaires clients.** Un commentaire s'affiche tel quel sur la fiche
+   produit. Un visiteur y dépose une balise de script qui s'exécute dans le
+   navigateur de quiconque lit la fiche.
+3. **L'espace administration.** L'adresse `/admin/users` renvoie la liste des
+   comptes clients. Un client connecté qui la tape dans son navigateur l'obtient,
+   sans être administrateur.
+4. **La configuration.** Le serveur tourne en mode debug. L'adresse
+   `/debug/config` affiche les identifiants de la base de données.
+5. **La génération de factures.** Les factures sont produites par une bibliothèque
+   vieille de plusieurs années, dont une faille de contournement est publiquement
+   documentée.
+6. **Le formulaire de connexion.** Aucune limite de tentatives, aucun blocage après
+   plusieurs essais ratés.
+
+---
+
+#### Consignes
+
+##### Partie 1 — Rattacher chaque observation à une famille
+
+Pour chacune des six observations, donnez le **code** de la famille (A01, A03…) et
+son nom. Une observation peut relever de plusieurs familles : dans ce cas, donnez
+la principale et citez l'autre en une phrase.
+
+##### Partie 2 — Retracer l'anatomie de l'une de ces failles
+
+Choisissez l'observation qui vous semble la plus grave. Retrouvez ses quatre
+étapes : **cause racine**, **exposition**, **exploitation**, **impact**. Une phrase
+par étape.
+
+##### Partie 3 — Cause racine ou symptôme ?
+
+Pour l'observation 4 (le mode debug laissé actif en production), l'équipe propose
+trois correctifs :
+
+- désactiver le mode debug sur le serveur de production ;
+- bloquer l'adresse `/debug/config` dans le pare-feu ;
+- afficher une page d'erreur neutre à la place.
+
+Dites, pour chacun, s'il traite la **cause racine** ou un **symptôme**, et
+justifiez en une phrase.
+
+##### Partie 4 — Traiter en premier
+
+Parmi les six observations, laquelle traitez-vous en premier ? Justifiez en deux
+lignes en vous appuyant sur l'**exposition** et le **contexte métier**.
+
+---
+
+#### ✅ Auto-évaluation
+
+Avant de passer au corrigé, vérifiez que :
+
+- [ ] J'ai classé **les six** observations, et pas seulement les évidentes.
+- [ ] Mon classement donne le **code** de la famille (A01, A03…), pas seulement son
+      nom.
+- [ ] Pour l'anatomie, j'ai donné les **quatre étapes**, y compris l'impact.
+- [ ] J'ai distingué, pour les trois correctifs, ce qui traite la **cause racine**
+      de ce qui traite le **symptôme**.
+- [ ] Mon choix de priorité s'appuie sur un **critère explicite** (exposition,
+      contexte métier, personnes touchées…).
+
+---
+
+#### Pour aller plus loin
+
+*Facultatif.* Reprenez l'observation 2 (les commentaires clients). Que change le
+fait que la faille s'exécute dans le navigateur d'un administrateur plutôt que dans
+celui d'un client ? Reformulez l'impact en conséquence.
+
+<details>
+<summary>Voir la correction</summary>
+
+> Comparez d'abord votre travail aux **étapes** ci-dessous : la méthode compte autant que le résultat. Les familles citées sont celles du Top 10 de l'**OWASP** (Open Web Application Security Project).
+
+#### Partie 1 — Rattacher chaque observation à une famille
+
+**Éléments attendus :**
+
+| Observation | Famille | Pourquoi |
+| --- | --- | --- |
+| La recherche produits | **A03** — Injection | la saisie est traitée comme une instruction |
+| Les commentaires clients | **A03** — Injection | même confusion, dans le navigateur : le texte saisi devient du code |
+| L'espace administration | **A01** — Broken Access Control | l'accès n'est pas vérifié côté serveur |
+| La configuration | **A05** — Security Misconfiguration | un réglage de développement laissé actif en production |
+| La génération de factures | **A06** — Vulnerable and Outdated Components | une dépendance connue pour être fragile, jamais mise à jour |
+| Le formulaire de connexion | **A07** — Identification and Authentication Failures | rien ne protège le compte au-delà du mot de passe |
+
+**Ce qu'il faut retenir :** deux observations relèvent de la même famille. La
+classification ne se lit pas comme une étiquette par faille : une seule famille
+peut couvrir des mécanismes très différents. Ici, la confusion entre les données et
+les instructions se retrouve dans la recherche comme dans les commentaires — la
+seconde s'exécutant dans le navigateur plutôt que dans la base.
+
+**Erreurs fréquentes :** classer les commentaires clients dans une famille à part,
+parce que « ça ne touche pas la base de données ». Ce qui compte, c'est le
+mécanisme — des données confondues avec des instructions — pas la syntaxe.
+
+---
+
+#### Partie 2 — Retracer l'anatomie de l'une de ces failles
+
+**Éléments attendus** (exemple avec la recherche produits — toute autre observation
+est acceptable, à condition de remplir les quatre étapes) :
+
+| Étape | Ce qui est attendu |
+| --- | --- |
+| **Cause racine** | la requête est construite en collant la saisie de l'utilisateur, sans séparer les données des instructions |
+| **Exposition** | la recherche est ouverte à tous les visiteurs, sans authentification |
+| **Exploitation** | l'attaquant saisit une chaîne qui fait réécrire la requête, et obtient la liste complète |
+| **Impact** | des produits non publiés deviennent visibles, et la même porte ouvre sur ce que la base contient |
+
+**Ce qu'il faut retenir :** beaucoup décrivent les conséquences (« le catalogue
+fuite ») sans remonter à la cause racine. L'anatomie n'est complète que si les
+quatre étapes sont là — et l'étape la plus souvent oubliée est la cause racine.
+
+---
+
+#### Partie 3 — Cause racine ou symptôme ?
+
+**Éléments attendus :**
+
+| Correctif | Verdict | Pourquoi |
+| --- | --- | --- |
+| désactiver le mode debug sur le serveur de production | **cause racine** | la faille disparaît : plus rien n'est exposé par ce canal |
+| bloquer l'adresse `/debug/config` dans le pare-feu | **symptôme** | une porte est fermée, mais le mode debug reste actif et peut en ouvrir d'autres |
+| afficher une page d'erreur neutre à la place | **symptôme** | on masque l'affichage, pas la configuration |
+
+**Ce qu'il faut retenir :** la question à se poser est « si je corrige cela, la
+même configuration peut-elle encore exposer autre chose ? ». Si la réponse est oui,
+vous traitez un symptôme.
+
+---
+
+#### Partie 4 — Traiter en premier
+
+**Éléments attendus** (classement indicatif — l'important est le critère explicite) :
+
+Pour **DIGICHEESE** (la fromagerie du fil rouge), deux réponses se défendent :
+
+- **la configuration** en premier, si l'on juge sur l'exposition : un identifiant
+  de base de données ouvre tout le reste, et l'adresse est accessible sans
+  authentification ;
+- **la recherche produits** en premier, si l'on juge sur le nombre de personnes
+  touchées : c'est la page que tout le monde utilise.
+
+Ce qui est attendu, c'est que le critère soit **dit** : un classement sans critère
+affiché ne se discute pas.
+
+---
+
+#### Points à retenir
+
+- Classer, c'est donner un **nom commun** à un problème : le code de famille suffit
+  à se comprendre entre collègues.
+- Une même famille peut couvrir des mécanismes très différents — la confusion entre
+  données et instructions se retrouve dans la recherche comme dans les commentaires.
+- L'anatomie d'une faille se décrit en quatre étapes, et se coupe à chacune d'elles.
+- Un correctif qui traite un symptôme donne l'impression d'avancer : seule la cause
+  racine rend l'attaque impossible à rejouer autrement.
+- Un classement de priorité n'a de valeur que si son **critère est explicite**.
+
+</details>
+
 ---
 
 ## IV. Aller plus loin
@@ -145,7 +339,7 @@ ne sont jamais exigés pour terminer le cours.*
 
 ## 🧠 Vérifiez vos acquis
 
-*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis dépliez « Vérifier ses réponses » pour vous corriger : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
 
 **1.** Un développeur remplace la concaténation par une requête écrite avec des paramètres, au lieu de coller les chaînes. Quelle étape de la vie de la faille vient-il de supprimer ?
 
@@ -154,16 +348,12 @@ ne sont jamais exigés pour terminer le cours.*
 - C. L'exploitation : l'attaquant ne sait plus écrire une requête
 - D. L'impact : les données de paiement n'ont plus de valeur métier
 
-- [ ] ✓ je savais
-
 **2.** L'équipe de DIGICHEESE retient un seul correctif : afficher une page d'erreur neutre, sans détail technique. Que traite cette mesure ?
 
 - A. La cause racine, puisque l'erreur disparaît
 - B. Un symptôme : elle empêche l'attaquant de lire l'erreur, pas d'agir
 - C. Le contexte métier, en retirant les données de paiement de la page
 - D. La surface d'attaque, en fermant la page à tous les visiteurs
-
-- [ ] ✓ je savais
 
 **3.** Une faille reçoit un score **CVSS** (Common Vulnerability Scoring System) de 9,1 sur un outil interne sans donnée sensible ; une autre, score 5,4, touche la page de paiement du site. Par laquelle commencer, et pourquoi ?
 
@@ -172,22 +362,19 @@ ne sont jamais exigés pour terminer le cours.*
 - C. La 9,1 : un score élevé reste à traiter après un score moyen, c'est la règle
 - D. Impossible de trancher : un score CVSS ne dit rien de l'exposition
 
-- [ ] ✓ je savais
-
 **4.** Dans le vocabulaire de ce chapitre, à quoi sert le Top 10 de l'**OWASP** (Open Web Application Security Project) ?
 
-- A. À apprendre par cœur les dix failles à corriger dans l'ordre
-- B. À chiffrer la gravité d'une faille pour un système donné
+- A. À apprendre par cœur les dix failles les plus fréquentes, dans l'ordre de gravité, pour les corriger une à une
+- B. À chiffrer la gravité d'une faille pour un système donné, en combinant ce que l'attaquant fait et ce que l'organisation perd
 - C. À regrouper les familles de failles web les plus fréquentes, pour pouvoir dire « c'est une faille de la famille A03 »
-- D. À interdire les habitudes de programmation les plus risquées
-
-- [ ] ✓ je savais
+- D. À interdire les habitudes de programmation les plus risquées, en publiant une liste de pratiques à bannir en revue de code
 
 **5.** *Question ouverte (2-3 lignes).* Le chapitre donne une question pour distinguer cause racine et symptôme : « si je corrige cela, la faille peut-elle encore être exploitée autrement ? ». Appliquez-la au blocage des requêtes contenant une apostrophe : que répond-on, et que faut-il en conclure ?
 
-- [ ] ✓ je savais
-
 ---
+
+<details>
+<summary>Vérifier ses réponses</summary>
 
 ### Réponses
 
@@ -205,6 +392,8 @@ ne sont jamais exigés pour terminer le cours.*
 
 **5.** Attendu : oui, la faille reste exploitable — l'apostrophe n'est qu'un cas particulier, et le blocage en punira d'autres (un client qui cherche un cœur de Comté). Conclusion attendue : on traitait un symptôme, il faut reprendre la requête elle-même avec des paramètres.
 **Pourquoi :** seule la cause racine rend l'attaque impossible à rejouer autrement ; masquer ou filtrer un cas précis donne seulement l'impression d'avancer.
+
+</details>
 
 ---
 

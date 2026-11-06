@@ -173,4 +173,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Un ancien administrateur parti depuis un mois consulte encore les fiches de paie avec son compte, jamais révoqué. Quel profil, et quelles mesures proportionnées ?
+
+- A. Opportuniste automatisé : mises à jour, mots de passe forts, aucun réglage par défaut
+- B. Initié : moindre privilège, journalisation et revue des accès au départ
+- C. Criminel organisé : segmentation, détection des mouvements latéraux, sauvegardes
+- D. Espion industriel : défense en profondeur, surveillance, cloisonnement des données sensibles
+
+- [ ] ✓ je savais
+
+**2.** « La connaissance du SI vaut plus cher que l'outil. » Que veut dire cette phrase ?
+
+- A. Qu'un outil acheté en ligne coûte trop cher pour une petite structure
+- B. Qu'il faut investir dans de meilleurs outils avant de former les équipes
+- C. Qu'un script ne sait pas où sont vos données sensibles, alors qu'un employé le sait : d'où la revue des accès au départ
+- D. Qu'un initié n'utilise aucun outil, seulement ses accès
+
+- [ ] ✓ je savais
+
+**3.** Une PME hésite entre se protéger contre un espionnage étatique bien préparé et corriger ses pages d'administration oubliées et ses comptes par défaut. Que retient-elle, selon le chapitre ?
+
+- A. L'espionnage étatique : c'est le profil le plus difficile à arrêter, il passe donc en premier
+- B. Les deux au même niveau : la menace possible compte autant que la probable
+- C. Les pages oubliées et les comptes par défaut : les statistiques d'incidents sont dominées par les attaques de masse automatisées
+- D. Ni l'un ni l'autre : la probabilité ne change rien, seule la gravité technique décide
+
+- [ ] ✓ je savais
+
+**4.** Un attaquant dont la motivation est l'argent se heurte à une application difficile à percer. Que fait-il, en général ?
+
+- A. Il revient pendant des mois : la patience accompagne toutes les motivations
+- B. Il passe à la suivante : il cherche le chemin le plus rentable
+- C. Il publie la capture de sa tentative pour la reconnaissance
+- D. Il bascule vers l'idéologie et défigure la page d'accueil
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Reprenez la question utile du chapitre — « qui a intérêt à m'attaquer, et avec quel budget ? » — pour la boutique en ligne de la fromagerie DIGICHEESE. Quel profil est le plus probable, et quelles mesures proportionnées en découlent ?
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** L'initié n'a rien cassé : il disposait déjà d'un accès légitime, et son avantage est de connaître le système.
+**Pourquoi :** son point faible est aussi le nôtre — il laisse des traces dans les journaux comme les autres, d'où journalisation, moindre privilège et revue des accès au départ, l'une des mesures les plus rentables qui existent.
+
+**2. C.** Un script prêt à l'emploi ne dit pas où sont les données sensibles ; un employé, si.
+**Pourquoi :** c'est la première des deux leçons du tableau des moyens — et la raison pour laquelle les accès internes mal gérés coûtent si cher.
+
+**3. C.** On construit sa défense contre la menace **probable**, pas contre la plus spectaculaire ; on garde un œil sur les autres.
+**Pourquoi :** c'est le principe de la sécurité proportionnée, et le retour sur investissement défensif est le plus élevé contre les attaques de masse.
+
+**4. B.** La motivation décide de la cible et de la **persévérance** : un attaquant motivé par l'argent cherche le chemin le plus rentable.
+**Pourquoi :** c'est ce qui le distingue de l'espion, capable d'accepter de revenir pendant des mois sur une cible précise.
+
+**5.** Attendu : le profil le plus probable est l'opportuniste automatisé — la boutique n'est pas visée, elle est dans la liste de balayage ; mesures attendues : mises à jour, mots de passe forts, aucun réglage par défaut, page d'administration non exposée. Peut être complété par l'initié (prestataire, stagiaire) : moindre privilège et journaux.
+**Pourquoi :** une application de gestion de stock de fromagerie n'attire pas la même patience qu'un laboratoire de recherche ; aligner les mesures sur le profil réellement visé, c'est la sécurité proportionnée.
+
+---
+
 [← Chapitre précédent](06-lecture-de-code-vulnerable.md) · [Sommaire](Readme.md) · [Chapitre suivant →](08-kill-chain.md)

@@ -218,4 +218,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Un courriel hameçonné propose un lien dont l'adresse contient une balise de script ; la page d'erreur renvoie ce morceau de l'adresse tel quel dans la réponse, sans rien enregistrer en base. Quelle forme de **XSS** (Cross-Site Scripting) est-ce ?
+
+- A. Le XSS stocké, puisque le script s'exécute dans la page
+- B. Le XSS réfléchi : la saisie revient dans la réponse immédiate, c'est l'ouverture du lien piégé qui déclenche
+- C. Le XSS côté DOM, puisque c'est le navigateur qui exécute
+- D. Ce n'est pas un XSS : le serveur n'a rien exécuté
+
+- [ ] ✓ je savais
+
+**2.** On marque les cookies de session `HttpOnly`. Que change cette mesure ?
+
+- A. Le XSS devient impossible : la balise de script n'est plus exécutée
+- B. Le navigateur n'envoie plus le cookie aux requêtes venues d'un autre site
+- C. Le script ne peut plus lire le cookie : le XSS vole moins facilement une session, mais n'est pas supprimé
+- D. Le navigateur refuse les scripts venant de sources étrangères
+
+- [ ] ✓ je savais
+
+**3.** Une page malveillante ouverte dans un onglet déclenche un virement sur votre banque. Le serveur reçoit la requête et ne peut pas dire qui l'a lancée. Pourquoi ?
+
+- A. Parce que l'attaquant a récupéré le mot de passe de la victime
+- B. Parce que le navigateur envoie les cookies tout seul : la requête arrive authentifiée, sans signe de qui l'a déclenchée
+- C. Parce que le jeton anti-CSRF était prévisible
+- D. Parce que la banque n'utilisait pas la politique de sécurité du contenu
+
+- [ ] ✓ je savais
+
+**4.** Dans un portail de ressources humaines, le bouton « Fiches de paie » est masqué pour les salariés. L'adresse `/fiches/1043` répond quand même à un salarié qui tape le numéro d'un collègue. Quel est le problème ?
+
+- A. Un identifiant prévisible : il suffit de numéroter les fiches au hasard
+- B. Une vérification faite côté navigateur et jamais côté serveur : l'interface est la vitrine, pas la porte
+- C. Une défaillance de configuration : il faut retirer la page de documentation technique
+- D. Un **CSRF** (Cross-Site Request Forgery) : la requête ne prouvait pas son origine
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* « Échapper à l'entrée ne protège pas à la sortie. » Expliquez cette phrase avec un exemple du chapitre, et nommez la mesure qui applique ce principe.
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** Rien n'est stocké : la saisie attend dans l'adresse et revient dans la réponse immédiate. C'est le lien piégé qui porte l'attaque, pas la base de données.
+**Pourquoi :** ce qui distingue les trois formes, c'est l'endroit où la saisie attend — en base (stocké), dans la réponse immédiate (réfléchi), dans le JavaScript de la page (côté DOM).
+
+**2. C.** `HttpOnly` retire au script la lecture du cookie : la session est moins facilement volée.
+**Pourquoi :** le chapitre est explicite — cela ne supprime pas le XSS. Les réponses B et D décrivent deux autres barrières, l'attribut `SameSite` et la **CSP** (Content Security Policy).
+
+**3. B.** C'est tout le mécanisme du CSRF : le navigateur joint le cookie de session comme toujours, et le serveur reçoit une requête authentifiée.
+**Pourquoi :** le serveur ne peut pas deviner l'origine de la requête — d'où la règle du chapitre : toute requête qui **modifie** quelque chose doit prouver qu'elle vient de l'application, par un jeton anti-CSRF, l'attribut `SameSite`, ou une re-authentification pour les actions sensibles.
+
+**4. B.** Le contrôle d'accès n'existait que dans l'affichage du menu ; le serveur, lui, acceptait la requête.
+**Pourquoi :** masquer un bouton n'est pas interdire une action — le navigateur n'est qu'un client parmi d'autres. La correction est de vérifier le rôle côté serveur, à chaque requête, et de refuser par défaut ; l'identifiant prévisible n'est qu'une porte d'entrée de plus.
+
+**5.** Attendu : une donnée validée ou nettoyée une fois à l'entrée peut être réaffichée n'importe où — dans une page, dans un courriel, dans un export — et chaque support a sa propre syntaxe à respecter. Mesure attendue : l'échappement de sortie, appliqué à chaque insertion.
+**Pourquoi :** c'est au moment de l'affichage que le navigateur doit savoir que ce texte est du texte et non du code ; les gabarits modernes le font par défaut, à condition de ne pas demander l'inverse.
+
+---
+
 [← Chapitre précédent](02-owasp-injections.md) · [Sommaire](Readme.md) · [Chapitre suivant →](04-owasp-config-deps.md)

@@ -143,4 +143,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Un développeur remplace la concaténation par une requête écrite avec des paramètres, au lieu de coller les chaînes. Quelle étape de la vie de la faille vient-il de supprimer ?
+
+- A. L'exposition : la page de recherche n'est plus joignable de l'extérieur
+- B. La cause racine : la requête ne mélange plus les données et les instructions
+- C. L'exploitation : l'attaquant ne sait plus écrire une requête
+- D. L'impact : les données de paiement n'ont plus de valeur métier
+
+- [ ] ✓ je savais
+
+**2.** L'équipe de DIGICHEESE retient un seul correctif : afficher une page d'erreur neutre, sans détail technique. Que traite cette mesure ?
+
+- A. La cause racine, puisque l'erreur disparaît
+- B. Un symptôme : elle empêche l'attaquant de lire l'erreur, pas d'agir
+- C. Le contexte métier, en retirant les données de paiement de la page
+- D. La surface d'attaque, en fermant la page à tous les visiteurs
+
+- [ ] ✓ je savais
+
+**3.** Une faille reçoit un score **CVSS** (Common Vulnerability Scoring System) de 9,1 sur un outil interne sans donnée sensible ; une autre, score 5,4, touche la page de paiement du site. Par laquelle commencer, et pourquoi ?
+
+- A. La 9,1 : le score combine ce que l'attaquant doit faire et ce que l'organisation y perd, il fixe donc l'ordre
+- B. La 5,4 : le score est un point de départ, et le contexte métier tranche
+- C. La 9,1 : un score élevé reste à traiter après un score moyen, c'est la règle
+- D. Impossible de trancher : un score CVSS ne dit rien de l'exposition
+
+- [ ] ✓ je savais
+
+**4.** Dans le vocabulaire de ce chapitre, à quoi sert le Top 10 de l'**OWASP** (Open Web Application Security Project) ?
+
+- A. À apprendre par cœur les dix failles à corriger dans l'ordre
+- B. À chiffrer la gravité d'une faille pour un système donné
+- C. À regrouper les familles de failles web les plus fréquentes, pour pouvoir dire « c'est une faille de la famille A03 »
+- D. À interdire les habitudes de programmation les plus risquées
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Le chapitre donne une question pour distinguer cause racine et symptôme : « si je corrige cela, la faille peut-elle encore être exploitée autrement ? ». Appliquez-la au blocage des requêtes contenant une apostrophe : que répond-on, et que faut-il en conclure ?
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** Écrire la requête avec des paramètres supprime la cause racine : les données et les instructions ne passent plus par le même chemin.
+**Pourquoi :** les trois autres mesures agissent ailleurs — un filtre en amont réduit l'exposition, une surveillance réduit la durée de l'exploitation, une procédure de crise réduit l'impact. Aucune ne remplace la correction de la cause.
+
+**2. B.** La page d'erreur neutre cache un symptôme : l'attaquant ne lit plus le détail technique, mais la faille reste exploitable.
+**Pourquoi :** la question du chapitre se pose ici — la faille peut encore être exploitée autrement, donc le correctif ne traitait pas la cause.
+
+**3. B.** Un score élevé sur un système sans valeur se traite après un score moyen sur la caisse : le contexte métier et l'exposition décident.
+**Pourquoi :** le CVSS est présenté comme un point de départ, pas une décision — la gravité dépend de l'exposition et du contexte métier, pas de la seule complexité technique.
+
+**4. C.** C'est une carte pour se parler : elle nomme la famille plutôt que de laisser la faille anonyme.
+**Pourquoi :** le chapitre insiste — ce n'est ni une liste à réciter ni une grille de notation ; la notation, c'est le rôle du CVSS.
+
+**5.** Attendu : oui, la faille reste exploitable — l'apostrophe n'est qu'un cas particulier, et le blocage en punira d'autres (un client qui cherche un cœur de Comté). Conclusion attendue : on traitait un symptôme, il faut reprendre la requête elle-même avec des paramètres.
+**Pourquoi :** seule la cause racine rend l'attaque impossible à rejouer autrement ; masquer ou filtrer un cas précis donne seulement l'impression d'avancer.
+
+---
+
 [Sommaire](Readme.md) · [Chapitre suivant →](02-owasp-injections.md)

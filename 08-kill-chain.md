@@ -159,4 +159,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Après la prise d'un serveur, un attaquant crée une tâche planifiée et un compte en douce pour survivre au redémarrage. À quelle étape de la **kill chain** est-il ?
+
+- A. Accès initial
+- B. Mouvement latéral
+- C. Persistance
+- D. Actions sur les objectifs
+
+- [ ] ✓ je savais
+
+**2.** Des données partent du réseau vers un stockage en ligne, déguisées en trafic de sauvegarde. Quelle étape, et quelle mesure lui est associée dans le chapitre ?
+
+- A. Exfiltration — limitation des volumes sortants et alerte sur les transferts inhabituels
+- B. Actions sur les objectifs — cloisonnement et chiffrement des données sensibles
+- C. Mouvement latéral — détection des connexions internes atypiques
+- D. Reconnaissance — surveillance des balayages et pages pièges
+
+- [ ] ✓ je savais
+
+**3.** Comment le chapitre définit-il la défense en profondeur ?
+
+- A. Un empilement de produits de sécurité complémentaires
+- B. La présence d'au moins une barrière à **chaque** étape de la chaîne
+- C. Une barrière unique, la plus solide possible, sur l'accès initial
+- D. Le choix de la détection plutôt que de la prévention
+
+- [ ] ✓ je savais
+
+**4.** Un mot de passe réutilisé permet de passer de l'accès initial à l'action finale en quelques minutes, sans escalade ni mouvement latéral. Que conclure ?
+
+- A. Que la grille ne décrit que les attaques longues et ne s'applique pas ici
+- B. Que l'attaque est anormale : elle aurait dû remplir les sept étapes
+- C. Que la kill chain est une grille de lecture pour savoir où l'on se trouve, pas un scénario à suivre
+- D. Que l'escalade de privilèges a forcément eu lieu, incognito
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Dans l'affaire du distributeur de 2013, un accès distant limité ou une segmentation entre le réseau du fournisseur et le réseau interne aurait coupé la chaîne à sa deuxième étape. Expliquez pourquoi couper tôt coûte moins cher, et ce qu'il faut faire d'une étape que l'on ne peut pas empêcher — par exemple un accès prestataire nécessaire à l'activité.
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. C.** Tâche planifiée et compte créé en douce servent à rester après le redémarrage : c'est la persistance.
+**Pourquoi :** ce sont précisément ces étapes-là — escalade, mouvement, persistance — qui transforment un incident mineur en catastrophe, alors que l'accès initial est le plus médiatisé.
+
+**2. A.** L'exfiltration est l'étape la plus discrète : les données peuvent sortir pendant des semaines, dans un trafic qui ressemble à n'importe quelle sauvegarde.
+**Pourquoi :** le tableau associe à chaque étape une mesure qui l'empêche et une qui la révèle — ici, limiter les volumes sortants et alerter sur les transferts volumétriques inhabituels.
+
+**3. B.** Ce n'est pas une question de quantité de produits : une barrière unique, même excellente, cède dès qu'elle est contournée.
+**Pourquoi :** plusieurs échecs doivent s'enchaîner pour qu'un incident grave ait lieu — donc plusieurs occasions existent de l'interrompre.
+
+**4. C.** Toutes les attaques ne remplissent pas les sept étapes ; la grille sert à se situer, étape par étape.
+**Pourquoi :** c'est une chaîne de compromission, pas un scénario : son intérêt est de montrer où la défense peut agir.
+
+**5.** Attendu : plus on coupe tôt, moins ça coûte cher — la porte d'entrée est rarement l'endroit le plus coûteux de la chaîne, et une segmentation prive l'attaquant de la suite. Pour une étape impossible à empêcher (accès prestataire nécessaire) : la **détecter** — savoir qu'il a été utilisé, quand, et pour aller où.
+**Pourquoi :** la détection vaut la prévention quand on ne peut pas empêcher ; c'est ce qui transforme une compromission silencieuse en incident géré.
+
+---
+
 [← Chapitre précédent](07-modeles-attaquant.md) · [Sommaire](Readme.md) · [Chapitre suivant →](09-cve-et-course.md)

@@ -164,4 +164,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Dans la méthode des trois passes, que cherche la deuxième passe — les sorties ?
+
+- A. D'où vient ce que le programme traite
+- B. Où la donnée va, c'est-à-dire où elle **agit** : chaque sortie est un endroit où la confusion entre données et instructions devient possible
+- C. Ce que le programme fait qui touche à la sécurité en dehors de son propre code
+- D. Les lignes les plus longues du diff, là où les fautes se cachent
+
+- [ ] ✓ je savais
+
+**2.** Pourquoi la troisième passe — les appels système — coûte-t-elle peu à mener ?
+
+- A. Parce qu'un outil la réalise automatiquement
+- B. Parce que ces appels sont rares et concentrés : on peut les examiner un par un
+- C. Parce qu'ils concernent uniquement les commandes passées au système
+- D. Parce qu'ils sont tous signalés par un commentaire dans le code
+
+- [ ] ✓ je savais
+
+**3.** Vous rencontrez `contenu = open(chemin).read()` dans un diff. Que vous dit ce marqueur ?
+
+- A. Que la ligne est une faute : il faut la remplacer
+- B. Que `open()` ne doit jamais être employé avec des données externes
+- C. Où poser la question : la lecture devient problématique si le chemin est choisi par l'extérieur
+- D. Que la revue de cette ligne est faite, puisqu'elle est repérée
+
+- [ ] ✓ je savais
+
+**4.** À quoi sert la checklist de dix points, telle que le chapitre la positionne ?
+
+- A. À remplacer l'analyse, puisqu'elle se coche en quelques minutes
+- B. À lister les dix familles du Top 10 de l'OWASP
+- C. À imposer l'ordre des trois passes
+- D. À cadrer la revue et à laisser une trace de ce qui a été vérifié
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Citez deux marqueurs d'**absence** du chapitre et expliquez pourquoi ils se voient moins facilement qu'une interpolation ou qu'un `eval`.
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** Une requête à une base, une page renvoyée au navigateur, une ligne de commande, un fichier écrit : c'est là que la donnée agit.
+**Pourquoi :** la première passe liste les entrées sans juger, la troisième examine les appels sensibles ; c'est aux sorties que la donnée peut devenir une instruction.
+
+**2. B.** Ouvrir un fichier, lancer un processus, charger un module, vérifier un mot de passe, décider d'un droit : peu d'endroits, chacun décisif.
+**Pourquoi :** le gain de la méthode vient de ce qu'elle découpe la lecture — un diff de quarante lignes contient rarement plus de deux ou trois points d'entrée.
+
+**3. C.** Un marqueur n'est pas une preuve : `open()` est parfaitement légitime, c'est `open()` sur un chemin choisi par l'extérieur qui pose question.
+**Pourquoi :** les marqueurs disent où chercher, pas quoi conclure — c'est ce qui les distingue d'une liste de fautes à supprimer.
+
+**4. D.** Elle ne remplace pas l'analyse, elle la cadre — et garde la trace de ce qui a été vérifié.
+**Pourquoi :** cette trace devient utile quand la revue est contestée, ou reprise par quelqu'un d'autre.
+
+**5.** Attendu, deux parmi : une route qui modifie des données sans vérifier de rôle ; une page qui insère une variable dans du HTML sans échappement ; un mot de passe réduit à un condensat rapide ou stocké en clair ; un secret écrit dans le code ; une dépendance figée à une vieille version. Explication attendue : il n'y a rien à lire — le problème est un contrôle qui manque, pas une construction recognizable.
+**Pourquoi :** c'est pour cela que la checklist consacre des points à ces absences (rôle côté serveur, échappement des sorties, algorithme de mot de passe, secrets hors du code) : elles ne sautent pas aux yeux en suivant le code.
+
+---
+
 [← Chapitre précédent](05-autres-familles.md) · [Sommaire](Readme.md) · [Chapitre suivant →](07-modeles-attaquant.md)

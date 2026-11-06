@@ -163,4 +163,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Sur les journaux d'un service, on observe peu d'échecs par compte, mais des échecs sur des milliers de comptes, depuis des adresses variées. Quelle attaque ?
+
+- A. La force brute : il y a beaucoup d'essais au total
+- B. Le **credential stuffing** : peu d'essais par compte, beaucoup de comptes, avec des identifiants déjà volés ailleurs
+- C. L'hameçonnage : les adresses des expéditeurs varient
+- D. Le détournement de session : les comptes testés existent
+
+- [ ] ✓ je savais
+
+**2.** Un mot de passe long et unique met hors d'atteinte :
+
+- A. La force brute, qui part de zéro et doit essayer un nombre astronomique de combinaisons
+- B. Le credential stuffing, qui ne peut pas rejouer un mot de passe inconnu de l'attaquant
+- C. L'hameçonnage, puisque la page ne peut plus rien obtenir
+- D. Le détournement de session, puisque le cookie devient plus long
+
+- [ ] ✓ je savais
+
+**3.** Le formulaire de connexion répond « compte inconnu » ou « mot de passe incorrect » selon le cas. Quel est le problème ?
+
+- A. Aucun : l'utilisateur retrouve plus vite son erreur
+- B. Ces deux messages permettent de deviner quels identifiants existent ; un message unique — « identifiants incorrects » — ne renseigne pas
+- C. La réponse révèle l'existence d'une limite de débit
+- D. Le service expose ainsi son cookie de session
+
+- [ ] ✓ je savais
+
+**4.** Comment le chapitre positionne-t-il la **MFA** (*multi-factor authentication*) ?
+
+- A. Elle rend l'hameçonnage impossible
+- B. Elle remplace la limite de débit sur le formulaire
+- C. Elle rend le vol d'un mot de passe insuffisant
+- D. Elle empêche la capture du cookie de session
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Reconstituez le fil du détournement de session tel que le chapitre le déroule, et donnez une mesure qui coupe deux des temps de ce fil.
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** C'est la trace caractéristique du bourrage d'identifiants — l'inverse de la force brute, qui concentre beaucoup d'essais sur un seul compte.
+**Pourquoi :** l'attaque est une attaque de masse automatisée qui ne vise personne en particulier : le service est simplement dans la liste.
+
+**2. A.** Face à un mot de passe long et unique, le nombre de combinaisons à essayer devient astronomique ; face à un mot de passe court ou courant, la force brute finit par trouver.
+**Pourquoi :** contre le credential stuffing, ce n'est pas la longueur qui protège mais l'unicité du mot de passe par service, la limite de débit et la MFA — l'attaquant rejoue des mots de passe réels.
+
+**3. B.** Un message d'erreur trop précis est une fuite : il confirme l'existence d'un identifiant.
+**Pourquoi :** le chapitre pose la même règle que pour les erreurs techniques — ne rien donner gratuitement sur ce qui existe côté serveur.
+
+**4. C.** Le TIP est explicite : la MFA ne rend pas l'hameçonnage impossible, elle rend le vol d'un mot de passe insuffisant.
+**Pourquoi :** c'est déjà beaucoup, car la majorité des attaques de masse reposent sur la réutilisation et l'automatisation — ce sont elles que ces mesures cassent.
+
+**5.** Attendu : la personne se connecte et le serveur émet un cookie de session ; le cookie est intercepté ou copié (script injecté, réseau sans chiffrement, poste laissé ouvert) ; l'attaquant le rejoue et le serveur le prend pour la personne ; la session dure tant que le cookie n'est ni expiré ni révoqué. Deux mesures attendues parmi : `HttpOnly`, `Secure` et HTTPS exclusivement contre le vol ; durée de session courte, révocation possible, liaison à l'appareil contre le rejeu ; déconnexion active et expiration côté serveur contre la persistance.
+**Pourquoi :** une fois connecté on n'a plus besoin du mot de passe — la session est une preuve, et la protéger compte autant que protéger le mot de passe.
+
+---
+
 [← Chapitre précédent](10-attaques-appliquees.md) · [Sommaire](Readme.md) · [Chapitre suivant →](12-prevention-et-detection.md)

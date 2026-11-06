@@ -159,4 +159,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Pendant une mission, un serveur voisin — hors du périmètre annoncé — tombe. Comment le chapitre qualifie-t-il ce fait ?
+
+- A. Un dommage collatéral acceptable, puisque la mission est mandatée
+- B. Un incident : tout ce qui n'est pas dans le périmètre est hors limites
+- C. Un risque normal, dès lors que les contacts d'urgence figurent au document
+- D. Un détail sans effet, la procédure d'arrêt immédiat ayant été remise
+
+- [ ] ✓ je savais
+
+**2.** « Le directeur technique m'a dit de faire le test. » Que vaut cet accord verbal ?
+
+- A. Il vaut autorisation, puisqu'il est donné de bonne foi
+- B. Il vaut pour le périmètre, mais pas pour les règles d'engagement
+- C. Il ne vaut rien devant un tribunal : seules les autorisations écrites, signées par la personne habilitée, valent
+- D. Il vaut dès lors qu'aucune donnée réelle n'est copiée
+
+- [ ] ✓ je savais
+
+**3.** À l'étape d'exploitation, que fait le testeur ?
+
+- A. Il copie un échantillon des données réelles pour attester de l'accès
+- B. Il prouve l'accès sans le consommer : les données réelles ne sont pas copiées
+- C. Il doit atteindre la totalité des fonctions réservées
+- D. Il s'arrête à la première faille confirmée, pour ne pas aggraver l'état
+
+- [ ] ✓ je savais
+
+**4.** Lequel de ces critères ne fait **pas** partie des trois qui jugent la qualité d'un rapport ?
+
+- A. Chaque finding est reproductible par une autre équipe
+- B. Chaque finding est priorisé selon un critère explicite
+- C. Chaque finding est noté en **CVSS** (Common Vulnerability Scoring System)
+- D. Chaque finding propose une correction actionnable
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Une direction conclut d'un test bien mené : « notre système est sûr ». Reprenez deux limites structurelles du chapitre et corrigez cette conclusion.
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** Le périmètre nomme précisément ce qui peut être testé ; ce qui n'y figure pas est hors limites, et un serveur voisin qui tombe est un incident.
+**Pourquoi :** c'est le cadre écrit — périmètre, règles d'engagement, autorisations — qui distingue un test d'un délit, et il ne se réinterprète pas en cours de mission.
+
+**2. C.** Le document signé par la personne habilitée est seul valable ; une parole, même d'un directeur technique, ne protège personne.
+**Pourquoi :** tester un système sans mandat écrit est un délit, y compris « pour aider ». Si la faille est découverte hors mission, la bonne démarche est la divulgation responsable : signaler sans exploiter.
+
+**3. B.** Les objectifs sont convenus à l'avance — atteindre une fonction réservée, extraire une donnée de démonstration, toucher un système interne — et l'accès est prouvé, pas consommé.
+**Pourquoi :** le livrable est le rapport, pas l'exploit : chaque découverte y est documentée avec son scénario, sa preuve, son impact métier et la correction recommandée.
+
+**4. C.** Les trois critères du chapitre sont la reproductibilité, une priorisation explicite et une correction actionnable — pas « sécurisez cette fonction ».
+**Pourquoi :** un bon test ne se mesure pas au nombre de failles trouvées : peu de découvertes, toutes vérifiées et corrigeables, valent mieux que cinquante pages que personne ne sait traiter.
+
+**5.** Attendu : deux limites parmi — la durée (quelques jours de mission contre des mois pour un attaquant motivé), le périmètre (ce qui n'est pas testé n'est pas couvert, une application ajoutée après n'a pas été évaluée), le moment (un état à une date, modifié par la moindre mise à jour), les angles morts (ingénierie sociale sans accord explicite, sécurité physique, faiblesses de conception), le point de vue (ne remplace pas une analyse de risque). Correction attendue : le test prouve qu'**dans le périmètre et le temps testés** le testeur n'a pas trouvé mieux ; c'est un instantané vérifiable qui alimente un plan de correction, pas un certificat de sécurité.
+**Pourquoi :** la valeur d'un test se mesure au plan de correction qui en sort — l'histoire racontée en introduction est précisément celle d'un rapport connu et non traité.
+
+---
+
 [← Chapitre précédent](12-prevention-et-detection.md) · [Sommaire](Readme.md) · [Chapitre suivant →](A-Glossaire-et-ressources.md)

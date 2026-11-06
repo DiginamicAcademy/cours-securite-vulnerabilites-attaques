@@ -179,4 +179,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Une faille inconnue, un usage détourné d'une fonction légitime, un accès interne mal intentionné : que montre ce trio ?
+
+- A. Que la prévention est inefficace et qu'il faut tout reporter sur la réponse
+- B. Que la prévention a une limite structurelle : elle porte sur ce qui a été anticipé — la détection n'est donc pas un complément de confort
+- C. Qu'il faut journaliser davantage d'erreurs techniques pour la corriger
+- D. Que la minimisation des données est sans effet sur ces trois cas
+
+- [ ] ✓ je savais
+
+**2.** Un service commercial conserve depuis dix ans les adresses de courriel d'anciens clients. Quelle mesure le chapitre met-il en avant, et pourquoi ?
+
+- A. Le chiffrement au repos, puisque les données sont déjà là
+- B. La journalisation des accès à cette table
+- C. La minimisation des données : ce qu'on ne détient pas ne peut pas être volé, et le **RGPD** (Règlement général sur la protection des données) en fait une obligation
+- D. La segmentation du réseau, qui empêche la sortie des données
+
+- [ ] ✓ je savais
+
+**3.** Laquelle de ces alertes est exploitable, au sens du chapitre ?
+
+- A. « Erreur 500 sur la route /products/search »
+- B. « 47 tentatives de connexion échouées sur le compte a.durand, entre 02:10 et 02:14, depuis 203.0.113.7 »
+- C. « Service démarré, 12 dépendances chargées »
+- D. « Journalisation des requêtes activée »
+
+- [ ] ✓ je savais
+
+**4.** Un incident vient d'être découvert sur un serveur. Quel est le premier geste, tel que le chapitre ordonne les réponses ?
+
+- A. Isoler la machine, immédiatement
+- B. Corriger la cause racine pour bloquer le rejeu
+- C. Conserver les traces avant de les avoir capturées
+- D. Informer l'autorité de protection des données
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Citez trois catégories d'événements que le chapitre place dans le minimum à journaliser pour une application web, et expliquez le piège d'un journal « qui enregistre tout sans rien signaler ».
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** La prévention ne couvre que ce qu'on a anticipé : les trois cas passent au travers de ses mailles.
+**Pourquoi :** c'est la raison pour laquelle la défense a trois temps — prévenir, détecter, répondre — et qu'aucun ne remplace les deux autres.
+
+**2. C.** C'est la mesure la plus sous-estimée : conserver ces adresses dix ans après la fin de la relation client fait courir dix ans de risque inutile.
+**Pourquoi :** réduire ce qui peut sortir utilement agit à la source, là où le chiffrement ou la segmentation laissent les données présentes.
+
+**3. B.** Elle porte quoi, quand, qui, depuis où : elle peut être traitée sans investigation préalable.
+**Pourquoi :** « erreur 500 » est un symptôme, pas une alerte — et le chapitre prévient que la détection sans traitement est une fausse sécurité : elle documente la durée de compromission au lieu de la réduire.
+
+**4. C.** Conserver d'abord : journaux, captures, état des systèmes touchés.
+**Pourquoi :** isoler avant de comprendre peut faire plus de dégâts que l'attaque, et effacer « pour nettoyer » détruit ce qui permettrait de savoir ce qui s'est passé. Vient ensuite isoler, qualifier, informer, puis corriger et vérifier.
+
+**5.** Attendu, trois parmi : les connexions réussies et échouées (avec identifiant et adresse d'origine) ; les changements de droits (élévation, création de compte, modification de rôle) ; les accès aux données sensibles (exports, lectures volumétriques) ; les erreurs techniques révélant la structure interne ; les changements de configuration (mode debug activé, route ouverte). Piège attendu : un journal sans règle de repérage force l'analyste à relire des milliers de lignes — c'est du bruit, pas de la détection.
+**Pourquoi :** détecter demande trois ingrédients — des journaux contenant l'information, une règle qui la repère, et quelqu'un qui traite l'alerte ; la requête est souvent journalisée, la suspicion rarement.
+
+---
+
 [← Chapitre précédent](11-attaques-authentification.md) · [Sommaire](Readme.md) · [Chapitre suivant →](13-tests-intrusion.md)

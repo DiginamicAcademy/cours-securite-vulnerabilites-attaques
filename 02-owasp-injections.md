@@ -267,4 +267,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Dans `SELECT ... WHERE titre LIKE '%{recherche}%'`, le mot saisi par le visiteur arrive par le même chemin que `select`, `from`, `where`. Quelle confusion cela installe-t-il ?
+
+- A. Une donnée arrive par un canal réservé aux instructions, et la base l'exécute comme un programme
+- B. Une instruction arrive par un canal réservé aux données, et la base l'affiche
+- C. Une donnée est chiffrée avant d'arriver à la base
+- D. Une instruction est exécutée deux fois
+
+- [ ] ✓ je savais
+
+**2.** Que partagent l'injection SQL, l'injection NoSQL et l'injection de commandes (`127.0.0.1; whoami`) ?
+
+- A. La même syntaxe de l'apostrophe
+- B. Le même interpréteur, celui de Python
+- C. La même cause racine : une chaîne assemble du code et des données, puis l'ensemble est interprété
+- D. Le même remède : la liste autorisée
+
+- [ ] ✓ je savais
+
+**3.** Pourquoi la requête paramétrée supprime-t-elle la faille, là où le blocage de l'apostrophe échoue ?
+
+- A. Parce qu'elle s'exécute plus vite que la concaténation
+- B. Parce que les saisies arrivent à part et restent traitées comme des données : la base ne peut plus les lire comme des instructions
+- C. Parce qu'elle examine la saisie et rejette les motifs suspects
+- D. Parce qu'elle masque la page d'erreur technique
+
+- [ ] ✓ je savais
+
+**4.** On réduit les droits du compte de base utilisé par l'application. Que gagne-t-on ?
+
+- A. L'injection disparaît : elle ne peut plus être écrite
+- B. L'injection reste, mais ce qu'elle coûte est limité
+- C. L'exposition disparaît, puisque le compte est restreint
+- D. La validation de la saisie devient inutile
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Le pare-feu applicatif qui rejette les motifs suspects, la page d'erreur neutre et le blocage de l'apostrophe sont trois correctifs proposés par la billetterie. En une phrase chacun, dites ce que chacun traite, puis expliquez pourquoi le chapitre les garde quand même.
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. A.** Le mot saisi est une donnée, mais il emprunte le chemin des instructions ; la base reçoit une chaîne et l'exécute comme un programme, sans faire la différence.
+**Pourquoi :** c'est la définition même de l'injection donnée par le chapitre — faire entrer une instruction par un canal réservé aux données.
+
+**2. C.** Seule la syntaxe change : une condition ajoutée en SQL, un opérateur comme `$ne` en NoSQL, une seconde commande après un séparateur en shell.
+**Pourquoi :** le chapitre conclut « cherchez la cause, pas la syntaxe » — les trois cas viennent d'une chaîne qui assemble code et données.
+
+**3. B.** La requête est envoyée une fois pour toutes avec des emplacements réservés ; les saisies voyagent séparément et ne peuvent plus devenir des instructions.
+**Pourquoi :** bloquer l'apostrophe filtre une forme connue (et casse « soirée jazz à l'Olympia »), un encodage différent passe ; la requête paramétrée supprime la confusion, donc la faille.
+
+**4. B.** Le compte de base n'a pas besoin de supprimer des tables : la mesure ne supprime pas l'injection, elle en borne les conséquences.
+**Pourquoi :** c'est une barrière utile en défense en profondeur, pas une correction de la cause racine.
+
+**5.** Attendu : le blocage de l'apostrophe et le pare-feu applicatif ne filtrent que les formes connues (et pénalisent les clients légitimes), la page d'erreur neutre empêche seulement de lire le détail technique — aucun des trois ne supprime la concaténation. Ils sont gardés parce qu'ils ont leur utilité en défense en profondeur.
+**Pourquoi :** le chapitre distingue nettement ce qui traite un symptôme de ce qui traite la cause ; plusieurs barrières utiles peuvent coexister sans jamais remplacer la requête paramétrée.
+
+---
+
 [← Chapitre précédent](01-anatomie-vulnerabilite.md) · [Sommaire](Readme.md) · [Chapitre suivant →](03-owasp-web.md)

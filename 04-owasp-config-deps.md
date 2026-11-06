@@ -192,4 +192,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Le portail de rendez-vous d'un hôpital laisse `/debug/config` répondre avec la configuration complète, y compris les identifiants de la base. De quelle famille du Top 10 de l'**OWASP** (Open Web Application Security Project) s'agit-il ?
+
+- A. A06 — Vulnerable and Outdated Components, puisque la configuration vient du framework
+- B. A05 — Security Misconfiguration, puisque la configuration est la faille
+- C. A02 — Cryptographic Failures, puisque des identifiants circulent
+- D. A01 — Broken Access Control, puisque personne n'a forcé la porte
+
+- [ ] ✓ je savais
+
+**2.** Que partagent les réglages par défaut laissés en production et les mots de passe stockés avec un condensat faible comme `MD5` (Message-Digest Algorithm) sans sel ?
+
+- A. D'être des erreurs de programmation isolées
+- B. De ne devenir graves qu'avec une exposition internet
+- C. De se corriger avec un analyseur de dépendances
+- D. D'avoir la même cause : un choix par défaut jamais revu
+
+- [ ] ✓ je savais
+
+**3.** Dans un advisory, quel élément vous dit d'abord si **vous** êtes concerné ?
+
+- A. Le score **CVSS** (Common Vulnerability Scoring System)
+- B. Les références vers la base **NVD** (National Vulnerability Database)
+- C. Le produit et les versions touchées
+- D. Le mécanisme de la faille
+
+- [ ] ✓ je savais
+
+**4.** L'éditeur publie une version corrigée lundi ; votre service tourne toujours sur la version de vendredi, et des preuves de concept circulent depuis mardi. Où en êtes-vous dans le cycle de vie de la faille ?
+
+- A. En phase de découverte : l'information est encore tenue secrète
+- B. La faille est ouverte : entre la publication du correctif et son déploiement chez vous, rien n'est corrigé
+- C. La faille est refermée : le correctif existe, donc le risque est passé
+- D. C'est sans importance : l'exploitation massive demande des mois
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Le chapitre remplace la question « avons-nous des dépendances vulnérables ? » par une autre. Quelle est-elle, et qu'implique-t-elle concrètement pour une équipe ?
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** Personne n'a forcé quoi que ce soit : le mode debug du framework était resté activé, la configuration **est** la faille — famille A05.
+**Pourquoi :** les autres familles décrivent d'autres mécanismes ; ici, la gravité se mesure à ce qui est derrière la page, et un identifiant de base affiché vaut l'accès à tout son contenu.
+
+**2. D.** Les deux viennent d'un réglage par défaut accepté puis oublié, pas d'une faute écrite ligne à ligne.
+**Pourquoi :** c'est le point commun que le chapitre établit entre A05 et A02 — et c'est pour cela que ces failles se corrigent par des choix assumés et revus, pas par un correctif ponctuel.
+
+**3. C.** Sans le produit et les versions concernées, rien ne permet de dire si votre système est dans la liste.
+**Pourquoi :** le CVSS compare des gravités entre failles, les références renvoient aux annonces, le mécanisme explique ce qui peut arriver — mais la première question est « sommes-nous concernés ? », et c'est aussi le rôle de l'avis d'exposition.
+
+**4. B.** Le correctif existe mais n'est pas déployé : la fenêtre d'exposition reste ouverte, et le délai entre publication et exploitation se compte en heures, parfois en minutes.
+**Pourquoi :** c'est la course correctif / exploitation — un correctif installé mais jamais redéployé ne corrige rien.
+
+**5.** Attendu : « savons-nous quelles dépendances vulnérables tournent en production, et en combien de temps nous les mettons à jour ? ». Implications attendues : connaître ses dépendances (analyse type **SCA** — Software Composition Analysis, alertes des éditeurs et des forges) et être capable de déployer vite.
+**Pourquoi :** une faille dans une dépendance est une faille de l'application ; la course se gagne à la veille et à la vitesse de déploiement, pas en espérant n'être jamais concerné.
+
+---
+
 [← Chapitre précédent](03-owasp-web.md) · [Sommaire](Readme.md) · [Chapitre suivant →](05-autres-familles.md)

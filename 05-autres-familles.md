@@ -199,4 +199,69 @@ ne sont jamais exigés pour terminer le cours.*
 
 ---
 
+## 🧠 Vérifiez vos acquis
+
+*Formatif, jamais noté. Répondez sans relire le chapitre, puis cochez. Les réponses sont juste après le séparateur : ce qui compte est de repérer où vous vacillez, pas de faire 5 sur 5.*
+
+**1.** Une plateforme télécharge elle-même l'adresse d'image soumise par un vendeur, et celui-ci soumet `http://169.254.169.254/latest/meta-data/`. Pourquoi cette adresse est-elle dangereuse ?
+
+- A. Parce qu'elle est invalide et fait planter le service de prévisualisation
+- B. Parce que ce service de métadonnées de l'hébergeur est joignable depuis le serveur, et depuis lui seul : c'est le serveur qui fait la requête à la place du vendeur
+- C. Parce qu'elle contient du **XML** (eXtensible Markup Language) que le parseur va lire
+- D. Parce que l'image récupérée est trop volumineuse pour le disque
+
+- [ ] ✓ je savais
+
+**2.** Une facture importée commence par `<!ENTITY interne SYSTEM "file:///etc/passwd">`, et le nom du client s'affiche avec le contenu du fichier. Quelle faille, et quel réglage la rend possible ?
+
+- A. Une SSRF (Server-Side Request Forgery) : le serveur n'a pas restreint la liste des adresses autorisées
+- B. Une **XXE** (XML External Entity) : le parseur accepte les entités externes par défaut
+- C. Une désérialisation non fiable : le fichier est reconstruit en objet
+- D. Une prototype pollution : la clé insérée modifie le prototype partagé
+
+- [ ] ✓ je savais
+
+**3.** `resultat = pickle.loads(donnees_recues)` sur un fichier reçu d'un partenaire. Pourquoi est-ce plus grave qu'une simple corruption de données ?
+
+- A. Parce que le module est lent sur les gros fichiers et bloque les nœuds
+- B. Parce que le fichier peut contenir une condition SQL
+- C. Parce qu'un objet sérialisé contient la recette de sa reconstruction : le programme exécute ce que le fichier lui dicte
+- D. Parce que le format ne vérifie pas l'encodage des caractères
+
+- [ ] ✓ je savais
+
+**4.** En quoi la prototype pollution se distingue-t-elle des trois familles précédentes, telle que la décrit le chapitre ?
+
+- A. Elle ne s'attaque qu'aux applications écrites en Python
+- B. Elle ne cherche pas à exécuter du code mais à redéfinir les règles selon lesquelles l'application fonctionne
+- C. Elle est la seule visible dans l'interface
+- D. Elle nécessite un fichier binaire pour être déclenchée
+
+- [ ] ✓ je savais
+
+**5.** *Question ouverte (2-3 lignes).* Reprenez la question du chapitre — « ce fichier peut-il me faire faire quelque chose ? » — sur le flux de l'atelier : un fichier XML de facturation déposé chaque nuit par un partenaire désormais compromis, importé automatiquement. Nommez la famille de risque, l'étape exacte où elle entre dans le système, et une barrière du chapitre qui la coupe.
+
+- [ ] ✓ je savais
+
+---
+
+### Réponses
+
+**1. B.** C'est le mécanisme du SSRF, famille A10 : le serveur fait une requête qu'il n'a pas choisie, vers un service atteint depuis l'intérieur seulement.
+**Pourquoi :** par ce chemin on parcourt le réseau interne, on atteint des services sans authentification (bases, consoles d'administration, services d'infrastructure) et parfois des fichiers locaux.
+
+**2. B.** La déclaration en tête du fichier demande au parseur d'aller lire ailleurs puis d'insérer le résultat : le fichier de données devient une instruction d'accès au système.
+**Pourquoi :** c'est le réglage par défaut du parseur qui ouvre la porte — selon la configuration, la même faille peut aussi déclencher une requête sortante, comme en SSRF.
+
+**3. C.** Charger l'objet, c'est suivre la recette qu'il apporte : une désérialisation de données non fiables est une exécution de code déguisée.
+**Pourquoi :** les trois familles du chapitre reviennent à la même cause — trop de confiance accordée à une donnée entrante.
+
+**4. B.** L'effet est discret et étendu : une clé insérée modifie le prototype partagé par tous les objets de la page, donc le comportement de l'application.
+**Pourquoi :** le chapitre la rattache à A03 — Injection ou A08 — Software and Data Integrity Failures, et retient le geste à examiner : fusionner une donnée externe dans ses propres structures.
+
+**5.** Attendu : famille XXE ; l'entrée se fait à l'étape de lecture du fichier par le parseur, qui accepte les entités externes ; barrière attendue : désactiver les entités externes du parseur (ou restreindre les formats acceptés, exécuter l'importeur avec le moins de droits possible, surveiller les requêtes sortantes inhabituelles).
+**Pourquoi :** aucune de ces failles ne se voit dans l'interface — elles se voient aux points de contact avec l'extérieur, ici un fichier déposé par un tiers.
+
+---
+
 [← Chapitre précédent](04-owasp-config-deps.md) · [Sommaire](Readme.md) · [Chapitre suivant →](06-lecture-de-code-vulnerable.md)

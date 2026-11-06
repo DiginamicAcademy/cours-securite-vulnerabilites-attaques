@@ -1,6 +1,6 @@
 # TP intégrateur — Sécuriser une application de bout en bout
 
-> **Nature :** TP intégrateur noté · **Durée :** 3 h 10 · **Notion :** le cours entier, appliqué de bout en bout à une application réelle
+> **Nature :** TP intégrateur **facultatif**, noté au bulletin s'il est rendu · **Durée :** 3 h 10 · **Notion :** le cours entier, appliqué de bout en bout à une application réelle
 
 > ⚖️ **Cadre légal.** Tout ce TP se pratique sur **vos propres conteneurs** (le lab DIGICHEESE du cours) et sur des données fictives. Accéder ou se maintenir sans droit dans un système d'autrui est un délit (articles 323-1 et suivants du Code pénal), même « pour tester ». Les tests d'intrusion réels se font sous contrat, dans un périmètre défini.
 

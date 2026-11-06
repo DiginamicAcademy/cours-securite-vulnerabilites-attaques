@@ -2,7 +2,7 @@
 
 Chaque énoncé se fait **juste après le chapitre** qu'il pratique. Le corrigé est
 un **corrigé formatif** : il reste dans ce dépôt public et sert à s'auto-corriger.
-Le TP noté du cours, lui, est évalué séparément.
+Le TP intégrateur du cours est **facultatif** ; s'il est rendu, il est noté séparément.
 
 > ⚖️ **Cadre légal.** Toutes les manipulations de ce cours se pratiquent sur
 > **vos propres conteneurs** (lab Docker) et sur des données fictives. Accéder ou
@@ -24,7 +24,7 @@ Le TP noté du cours, lui, est évalué séparément.
 | 🔵 | [Exploiter, documenter, corriger une faille connue](10-td-exploiter-et-corriger.md) | 10 — Attaques appliquées | [corrigé](corrige/10-td-exploiter-et-corriger.md) |
 | 🔵 | [Écrire une analyse menace / prévention](12-analyse-menace-prevention.md) | 12 — Prévention et détection | [corrigé](corrige/12-analyse-menace-prevention.md) |
 | 🔴 | [Modéliser la kill chain d'une fuite de données](13-defi-kill-chain-data.md) | 13 — Tests d'intrusion | [corrigé](corrige/13-defi-kill-chain-data.md) |
-| 🛠️ | [TP intégrateur — Dossier d'analyse et de sécurisation](TP-INTEGRATEUR.md) | Le cours entier (J2-J3) | **noté** — corrigé non publié |
+| 🛠️ | [TP intégrateur — Dossier d'analyse et de sécurisation](TP-INTEGRATEUR.md) | Le cours entier (J2-J3) | **facultatif, noté s'il est rendu** — corrigé non publié |
 
 Les niveaux suivent la progression 🟢 découverte · 🟡 application · 🔵 intégration ·
 🔴 défi facultatif. Un 🔴 ne bloque jamais la progression.

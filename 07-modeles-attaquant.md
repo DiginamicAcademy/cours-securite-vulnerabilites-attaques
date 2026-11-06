@@ -120,11 +120,6 @@ votre page d'administration oubliée. On construit sa défense contre la menace
 probable, et on garde un œil sur les autres — c'est le principe de la sécurité
 proportionnée.
 
-> ⚠️ **À ARBITRER** — suppression envisagée : le profil **militant**
-> (*hacktiviste*) et la motivation **idéologie**, les plus éloignés des cas
-> applicatifs de la journée. Les deux tableaux restent lisibles sans ces deux
-> entrées.
-
 > [!WARNING]
 > Une erreur fréquente : calquer sa défense sur la menace la plus spectaculaire
 > (l'espionnage étatique) et négliger la plus courante (le script automatisé).

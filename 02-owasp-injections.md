@@ -124,11 +124,6 @@ l'attaquant n'envoie plus une valeur mais un **opérateur**. L'opérateur `$ne`
 client » : le premier compte de la base convient. Pas de SQL, pas d'apostrophe —
 mais la même confusion entre la donnée attendue et l'instruction exécutée.
 
-> ⚠️ **À ARBITRER** — suppression envisagée : le détail de la famille NoSQL
-> (opérateur `$ne`). Si le volume doit encore baisser, la ligne « NoSQL » du
-> tableau de synthèse qui suit suffit : le mécanisme est déjà établi avec SQL.
-> L'exemple complet est repris en « Aller plus loin ».
-
 ### Injection de commandes
 
 Quand une application dialogue avec le système d'exploitation, la confusion

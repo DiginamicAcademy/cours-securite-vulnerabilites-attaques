@@ -175,10 +175,6 @@ même que pour les injections ; le CSRF se rattache à **A01**, car il détourn
 une action que l'utilisateur avait le droit de faire. Classer reste un outil
 pour se parler — c'est le mécanisme qui compte.
 
-> ⚠️ **À ARBITRER** — suppression envisagée : ce rangement dans la carte OWASP
-> (XSS en A03, CSRF rattaché à A01). Utile pour manipuler la carte, dispensable
-> pour finir la journée. Le détail est repris en « Aller plus loin ».
-
 ---
 
 ## IV. Aller plus loin

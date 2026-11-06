@@ -70,11 +70,6 @@ chiffrement, secrets écrits dans un fichier de configuration versionné. Le poi
 commun avec la configuration : la cause racine est un **choix par défaut jamais
 revu**, pas une erreur de programmation isolée.
 
-> ⚠️ **À ARBITRER** — suppression envisagée : le détail de la famille **A02**,
-> traitée à part dans la journée « Cryptographie » du parcours. Pour cette
-> journée, le paragraphe ci-dessus suffit ; les formes détaillées sont reprises
-> en « Aller plus loin ».
-
 > [!WARNING]
 > Un identifiant de base de données affiché par une page de debug n'est pas un
 > détail technique : c'est l'accès à tout ce que la base contient. La gravité se

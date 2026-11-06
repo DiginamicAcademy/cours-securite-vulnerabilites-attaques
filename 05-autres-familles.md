@@ -119,12 +119,6 @@ fonctionne. On la rattache à **A03** — Injection ou à **A08** — Software a
 Data Integrity Failures. L'aperçu suffit ici : fusionner une donnée externe
 dans ses propres structures est un geste à examiner de près.
 
-> ⚠️ **À ARBITRER** — suppression envisagée : la **prototype pollution** (§ II),
-> famille spécialisée JavaScript et la plus éloignée des cas traités dans la
-> journée. Le tableau de synthèse § III et la question « ce fichier peut-il me
-> faire faire quelque chose ? » suffisent. Le détail est repris en
-> « Aller plus loin ».
-
 > [!WARNING]
 > Ces trois familles se repèrent moins facilement qu'une injection dans un
 > formulaire : aucune ne se voit dans l'interface. Elles se voient dans les

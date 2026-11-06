@@ -113,11 +113,6 @@ un cookie de session ; le cookie est intercepté ou copié ; l'attaquant le
 rejoue et le serveur le prend pour la personne ; la session dure tant que le
 cookie n'est ni expiré ni révoqué.
 
-> ⚠️ **À ARBITRER** — suppression envisagée : le développement sur le
-> **détournement de session** (§ II), déjà illustré par le scénario XSS → vol
-> de session du chapitre 10. Le tableau de protection se réduirait alors à la
-> ligne « Hameçonnage / MFA ».
-
 Ce qui protège, à chaque étape :
 
 | Étape | Mesure |

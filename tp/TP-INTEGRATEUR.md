@@ -154,7 +154,7 @@ Avant de rendre votre dossier, vérifiez que :
 
 ## Travaux préparatoires
 
-Ces travaux du dossier `tp/` préparent le TP — ils ne s'y substituent pas :
+Ces exercices du cours préparent le TP — ils ne s'y substituent pas :
 
 | Travail | Étape du TP qu'il prépare |
 | --- | --- |

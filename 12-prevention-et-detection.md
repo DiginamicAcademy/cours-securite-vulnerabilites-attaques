@@ -217,7 +217,7 @@ Avant de passer au corrigé, vérifiez que :
 
 ---
 
-#### Pour aller plus loin
+#### Prolongement de l'exercice
 
 *Facultatif.* Parmi vos mesures de détection, laquelle déclencherait le plus
 d'alertes sans être la plus utile ? Expliquez en quelques lignes comment vous

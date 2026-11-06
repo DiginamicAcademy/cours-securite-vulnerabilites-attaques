@@ -234,7 +234,7 @@ Avant de passer au corrigé, vérifiez que :
 
 ---
 
-#### Pour aller plus loin
+#### Prolongement de l'exercice
 
 *Facultatif.* La chaîne décrite grandit encore : un partenaire supplémentaire
 déposera bientôt ses fichiers, et un tableau de bord sera ouvert aux fournisseurs.

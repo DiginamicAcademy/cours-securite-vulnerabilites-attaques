@@ -206,7 +206,7 @@ Avant de passer au corrigé, vérifiez que :
 
 ---
 
-#### Pour aller plus loin
+#### Prolongement de l'exercice
 
 *Facultatif.* Reprenez l'observation 2 (les commentaires clients). Que change le
 fait que la faille s'exécute dans le navigateur d'un administrateur plutôt que dans

@@ -189,7 +189,7 @@ Avant de comparer avec le modèle de référence, vérifiez que :
 
 ---
 
-#### Pour aller plus loin
+#### Prolongement de l'exercice
 
 *Facultatif.* Si vous ne deviez retenir qu'**un seul** signal de détection à
 installer en premier sur cette plateforme, lequel choisiriez-vous, et pourquoi

@@ -329,7 +329,7 @@ Avant de passer au corrigé, vérifiez que :
 
 ---
 
-#### Pour aller plus loin
+#### Prolongement de l'exercice
 
 *Facultatif.* Parmi les cinq services, deux manipulent des données personnelles
 (courriels, notes d'élèves). Reformulez l'impact d'une injection pour ces deux-là

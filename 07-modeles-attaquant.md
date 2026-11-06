@@ -192,7 +192,7 @@ Avant de passer au corrigé, vérifiez que :
 
 ---
 
-#### Pour aller plus loin
+#### Prolongement de l'exercice
 
 *Facultatif.* Parmi les étapes de cette attaque, laquelle aurait été la plus
 simple à **détecter** avec des journaux, et pourquoi ? Répondez en deux lignes.

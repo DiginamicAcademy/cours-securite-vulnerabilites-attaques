@@ -239,7 +239,7 @@ Avant de passer au corrigé, vérifiez que :
 
 ---
 
-#### Pour aller plus loin
+#### Prolongement de l'exercice
 
 *Facultatif.* L'avis annonce une troisième faille après la publication du
 correctif. Décrivez la procédure que vous mettriez en place pour que la prochaine
@@ -520,7 +520,7 @@ Avant de passer au corrigé, vérifiez que :
 
 ---
 
-#### Pour aller plus loin
+#### Prolongement de l'exercice
 
 *Facultatif.* Parmi vos constats, l'un d'eux ne se voit pas dans le code de
 l'application mais dans ce qui l'entoure. Lequel, et quelle vérification

@@ -14,7 +14,7 @@
 | **Durée** | 3 h, en fin de J3 |
 | **Travail** | individuel |
 | **Livrable final unique** | le **Dossier d'analyse et de sécurisation** — un seul document |
-| **Notation** | sur 20, grille ci-dessous |
+| **Notation** | TP noté sur 20 |
 
 Ce TP est **noté** : contrairement aux exercices de ce dossier, il n'a pas de corrigé publié ici.
 
@@ -118,21 +118,6 @@ Le dossier doit se lire sans vous : un lecteur qui n'a pas assisté au TP doit 
 
 ---
 
-## Grille d'évaluation
-
-| Critère | Points |
-| --- | --- |
-| Cadrage : périmètre, acteurs, données, surface d'attaque | 2 |
-| Cartographie : familles, causes racines, gravité justifiée, priorisation | 5 |
-| Modélisation : kill chain complète, profil d'attaquant, points de confiance | 4 |
-| Preuve : exploitation sur le lab et explication du mécanisme | 3 |
-| Prévention : correction à la cause racine et test de non-régression | 3 |
-| Détection et réponse : signaux, règles, premiers gestes | 2 |
-| Dossier : clarté, cadre légal, limites honnêtes | 1 |
-| **Total** | **20** |
-
----
-
 ## Durée
 
 **3 h**, réparties comme indiqué en tête de chaque étape : 20 + 50 + 30 + 30 + 30 + 20 minutes. Le lab est supposé démarré avant le début du TP.
@@ -175,16 +160,3 @@ Ces travaux du dossier `tp/` préparent le TP — ils ne s'y substituent pas :
 | [Exploiter, documenter, corriger une faille connue](10-td-exploiter-et-corriger.md) | Étapes 4 et 5 — prouver et corriger |
 | [Écrire une analyse menace / prévention](12-analyse-menace-prevention.md) | Étape 6 — détecter et répondre |
 | [Modéliser la kill chain d'une fuite de données](13-defi-kill-chain-data.md) | Étape 3 — modéliser l'attaque |
-
----
-
-## Suivi de production
-
-| Phase | État |
-| --- | --- |
-| Conception (ce document) | ✅ fait le 04/11/2026 |
-| Rédaction de l'énoncé apprenant | ✅ fait le 05/11/2026 |
-| Corrigé (hors dépôt public) | ⬜ à faire |
-| Relecture | ⬜ à faire |
-
-**Journal** — 04/11/2026 : v1, conception initiale. · 05/11/2026 : énoncé publié et référencé dans le Readme et le mode d'emploi des TP.

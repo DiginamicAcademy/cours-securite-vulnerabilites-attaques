@@ -1,7 +1,5 @@
 [← Chapitre précédent](10-attaques-appliquees.md) · [Sommaire](Readme.md) · [Chapitre suivant →](12-prevention-et-detection.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I « Credential stuffing, brute force » (l'atelier des six POST : faire constater l'absence de limite de débit avant de nommer la notion) et § II « Phishing, session hijacking » (faire reconstituer la chronologie du détournement de session à partir du scénario XSS du chapitre 10) -->
-
 # Attaques d'authentification — Le premier rempart, et ses failles
 
 > En 2012, la plateforme professionnelle LinkedIn est victime d'un vol de

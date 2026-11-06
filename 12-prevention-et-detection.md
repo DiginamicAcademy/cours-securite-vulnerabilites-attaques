@@ -1,7 +1,5 @@
 [← Chapitre précédent](11-attaques-authentification.md) · [Sommaire](Readme.md) · [Chapitre suivant →](13-tests-intrusion.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § II « Détecter » (l'atelier des journaux : faire constater ce qui manque pour qu'un analyste comprenne l'événement après coup, avant d'énoncer la règle du journal utile) et § III « Répondre » (faire ordonner les cinq gestes avant de donner l'ordre retenu) -->
-
 # Prévention et détection — Prévenir, détecter, répondre
 
 > Une compromission passe inaperçue pendant des mois — les rapports publics sur

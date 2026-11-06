@@ -1,7 +1,5 @@
 [← Chapitre précédent](04-owasp-config-deps.md) · [Sommaire](Readme.md) · [Chapitre suivant →](06-lecture-de-code-vulnerable.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § I « SSRF, XXE, désérialisation » (l'atelier du flux XML nocturne : laisser nommer la famille et l'étape d'entrée avant de donner le tableau de synthèse) -->
-
 # Autres familles de failles — le même raisonnement, d'autres portes
 
 > Un document PDF reçu d'un fournisseur fait planter le parseur — puis exécuter

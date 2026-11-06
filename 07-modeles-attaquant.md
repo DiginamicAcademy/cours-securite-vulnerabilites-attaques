@@ -1,7 +1,5 @@
 [← Chapitre précédent](06-lecture-de-code-vulnerable.md) · [Sommaire](Readme.md) · [Chapitre suivant →](08-kill-chain.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § I « Qui attaque ? » (les quatre scénarios de l'atelier : laisser associer profil et motivation, et faire argumenter les écarts avant de donner le tableau des profils) -->
-
 # Modèles d'attaquant — Qui attaque, et avec quoi
 
 > Un ancien employé mécontent, un adolescent qui lance un outil trouvé en ligne,

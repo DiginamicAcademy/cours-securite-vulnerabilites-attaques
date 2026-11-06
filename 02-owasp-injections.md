@@ -1,7 +1,5 @@
 [← Chapitre précédent](01-anatomie-vulnerabilite.md) · [Sommaire](Readme.md) · [Chapitre suivant →](03-owasp-web.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I (lancer le lab et faire trouver `' OR '1'='1` avant toute explication) et § III « Les barrières qui ne traitent qu'un symptôme » (faire proposer les trois correctifs de la billetterie, laisser défendre chaque option avant de trancher) -->
-
 # Les injections — quand les données deviennent des instructions
 
 > `' OR '1'='1` — sept caractères, et la base de données renvoie tout ce qu'elle

@@ -1,7 +1,5 @@
 [← Chapitre précédent](07-modeles-attaquant.md) · [Sommaire](Readme.md) · [Chapitre suivant →](09-cve-et-course.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I « La chaîne » (l'atelier de l'affaire du distributeur : faire placer les cinq faits sur la chaîne avant d'afficher le tableau des sept étapes) et § II « Où couper la chaîne » (faire remplir la colonne « qu'est-ce qui, chez nous, empêche ou révèle cette étape ? » avant de donner le tableau de défense) -->
-
 # La kill chain — Une attaque en sept étapes
 
 > En 2013, la chaîne de compromission d'un grand distributeur américain

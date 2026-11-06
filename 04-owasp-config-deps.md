@@ -1,7 +1,5 @@
 [← Chapitre précédent](03-owasp-web.md) · [Sommaire](Readme.md) · [Chapitre suivant →](05-autres-familles.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I « Security misconfiguration » (le lab expose `/debug/config` : faire lister les fuites et ce qu'on en ferait avant de nommer la famille A05) et § III « Lire un advisory réel » (faire chercher dans l'avis ce qui décide de l'action avant de donner la grille de lecture) -->
-
 # Configuration, dépendances et failles connues
 
 > Une bibliothèque Python téléchargée dix millions de fois par mois est

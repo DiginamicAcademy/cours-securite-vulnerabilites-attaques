@@ -1,7 +1,5 @@
 [← Chapitre précédent](05-autres-familles.md) · [Sommaire](Readme.md) · [Chapitre suivant →](07-modeles-attaquant.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § I « La méthode en trois passes » (l'atelier sur `lab/vulnerable/app.py` : faire chercher les failles AVANT d'annoncer la méthode, chronométrer, puis confronter les trouvailles aux trois passes) -->
-
 # Lire du code vulnérable — la méthode des trois passes
 
 > Un relecteur expérimenté passe vingt minutes sur un diff de quarante lignes et

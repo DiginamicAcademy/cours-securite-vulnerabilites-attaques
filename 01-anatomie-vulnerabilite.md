@@ -1,7 +1,5 @@
 [Sommaire](Readme.md) · [Chapitre suivant →](02-owasp-injections.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacement : § II « Cause racine ou symptôme ? » — présenter les trois correctifs de DIGICHEESE et laisser choisir (voire se tromper) avant de trancher -->
-
 # Anatomie d'une vulnérabilité — Vie d'une faille
 
 > La fromagerie **DIGICHEESE** (la fromagerie du fil rouge) vient

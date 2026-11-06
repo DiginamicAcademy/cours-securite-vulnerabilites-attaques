@@ -65,6 +65,7 @@ Les chapitres se lisent dans l'ordre ; chaque notion est pratiquée juste aprè
 | 11 | [Attaques d'authentification — Le premier rempart, et ses failles](11-attaques-authentification.md) | 30 min |
 | 12 | [Prévention et détection — Prévenir, détecter, répondre](12-prevention-et-detection.md) | 30 min |
 | 13 | [Tests d'intrusion — Une preuve, pas un exercice de hacking](13-tests-intrusion.md) | 25 min |
+| A | [Glossaire et ressources](A-Glossaire-et-ressources.md) | — |
 
 **Travaux pratiques**
 
@@ -86,13 +87,13 @@ Les chapitres se lisent dans l'ordre ; chaque notion est pratiquée juste aprè
 
 ## ✅ Checkpoints de fin de journée
 
-À cocher avant de passer à la journée suivante. En cas de doute : ne pas
+À cocher avant de passer à la journée suivante. En cas de doute : ne pas
 avancer, revenir au concept concerné, refaire l'exercice.
 
 ### Jour 2 — chapitres 01 à 06
 
 - [ ] J'ai lu les chapitres 01 à 06 et les points clés sont clairs.
-- [ ] J'ai fait au moins les exercices 🟢 et 🟡 (partie principale), et vérifié mes réponses dans `tp/corrige/`. Les extensions « Pour aller plus loin » sont facultatives.
+- [ ] J'ai fait au moins les exercices 🟢 et 🟡 (partie principale), et vérifié mes réponses dans `tp/corrige/`. Les extensions « Pour aller plus loin » sont facultatives.
 - [ ] J'ai répondu au QCM formatif, lorsqu'il est disponible, et identifié mes notions à revoir.
 - [ ] Je sais expliquer, avec mes mots, les 2-3 idées principales de la journée.
 - [ ] Je peux appliquer ces idées à un cas simple (un extrait de code, une config, un flux).
@@ -100,7 +101,7 @@ avancer, revenir au concept concerné, refaire l'exercice.
 ### Jour 3 — chapitres 07 à 13
 
 - [ ] J'ai lu les chapitres 07 à 13 et les points clés sont clairs.
-- [ ] J'ai fait au moins les exercices 🟢 et 🟡 (partie principale), et vérifié mes réponses dans `tp/corrige/`. Les extensions « Pour aller plus loin » sont facultatives.
+- [ ] J'ai fait au moins les exercices 🟢 et 🟡 (partie principale), et vérifié mes réponses dans `tp/corrige/`. Les extensions « Pour aller plus loin » sont facultatives.
 - [ ] J'ai répondu au QCM formatif, lorsqu'il est disponible, et identifié mes notions à revoir.
 - [ ] Je sais expliquer, avec mes mots, les 2-3 idées principales de la journée.
 - [ ] Je peux appliquer ces idées à un cas simple (un extrait de code, une config, un flux).

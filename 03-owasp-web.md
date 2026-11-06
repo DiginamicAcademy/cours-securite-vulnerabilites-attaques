@@ -1,7 +1,5 @@
 [← Chapitre précédent](02-owasp-injections.md) · [Sommaire](Readme.md) · [Chapitre suivant →](04-owasp-config-deps.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § I « XSS » (le lab renvoie `<script>alert(1)</script>` : faire constater la balise intacte avant d'expliquer l'échappement de sortie) et § III « Broken Access Control » (l'adresse `/fiches/1042` : faire tester le changement de numéro avant d'énoncer la règle « vérifier côté serveur ») -->
-
 # Les failles web — quand le navigateur se retourne contre vous
 
 > Un commentaire de client sur une fiche produit : `<script>alert(1)</script>`.

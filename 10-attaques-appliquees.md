@@ -1,7 +1,5 @@
 [← Chapitre précédent](09-cve-et-course.md) · [Sommaire](Readme.md) · [Chapitre suivant →](11-attaques-authentification.md)
 
-<!-- MODE TD : 🟢 découverte → ✅ correction → 📘 cours → 🔵 application — emplacements : § III « Chaîne API + BDD » (l'atelier des deux `curl` : faire enchaîner les appels et noter la faille de chaque étape avant de dérouler la chronologie) et, plus largement, les trois scénarios (présenter la plainte, faire retracer la chronologie avant de la donner) -->
-
 # Attaques appliquées — Trois scénarios, un même raisonnement
 
 > Trois histoires, tirées de retours d'expérience publiés : une recherche

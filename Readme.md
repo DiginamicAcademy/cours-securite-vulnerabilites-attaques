@@ -8,7 +8,7 @@
 # Les vulnérabilités et techniques d'attaques
 
 > Cours d'**autoformation** · **RNCP40573** Expert en informatique et systèmes d'information · brique transversale de **sécurité**, adossée au bloc **BC03** (compétence C25)
-> 2 journée(s) · supports **rédigés par IA**, relus et validés.
+> 2 journées · supports **rédigés par IA**, relus et validés.
 
 ---
 

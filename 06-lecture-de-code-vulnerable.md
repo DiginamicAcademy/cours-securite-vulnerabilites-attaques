@@ -52,6 +52,20 @@ Ouvrir un fichier, lancer un processus, charger un module, vérifier un mot de
 passe, décider si un utilisateur a le droit de faire quelque chose. Ces appels
 sont rares et concentrés : les examiner un par un coûte peu.
 
+Le schéma ci-dessous montre l'entonnoir : chaque passe restreint le travail de la suivante.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    D["Fichier ou diff"] --> P1["Passe 1 — les entrées"]
+    P1 -->|restreint le champ| P2["Passe 2 — les sorties"]
+    P2 -->|restreint le champ| P3["Passe 3 — les appels système"]
+    P1 -.-> L1["formulaire, paramètre d'URL, fichier reçu, réponse d'API, variable d'environnement"]
+    P2 -.-> L2["requête à une base, page HTML, ligne de commande, fichier écrit"]
+    P3 -.-> L3["ouvrir un fichier, lancer un processus, charger un module, vérifier un droit"]
+    style P3 fill:#dbe6f5,stroke:#3b5b8d
+```
+
 > [!TIP]
 > Le gain de la méthode vient de ce qu'elle **découpe** la lecture. Un diff de
 > quarante lignes contient rarement plus de deux ou trois points d'entrée ; les

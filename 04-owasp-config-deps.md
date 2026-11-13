@@ -84,6 +84,21 @@ bibliothèques, frameworks, images de conteneurs, briques d'infrastructure. Une
 faille dans l'une d'elles est une faille de l'application — c'est la famille
 **A06** — Vulnerable and Outdated Components.
 
+Le schéma ci-dessous montre la profondeur réelle de l'arbre. Vous relisez le premier niveau ; vous répondez de toute la descendance.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart TD
+    A["Votre application — seul niveau que vous relisez"] --> D1["Framework web"]
+    A --> D2["Client de base de données"]
+    A --> D3["Bibliothèque d'utilitaires"]
+    D1 --> T1["Dépendances transitives"]
+    D2 --> T2["Dépendances transitives"]
+    D3 --> T3["Micro-bibliothèque que personne n'a lue"]
+    style A fill:#dbe6f5,stroke:#3b5b8d
+    style T3 fill:#fde8e8,stroke:#b34040
+```
+
 ### Ce qu'est une CVE
 
 Quand une faille est découverte dans un produit utilisé ailleurs, elle reçoit un
@@ -120,6 +135,29 @@ Une faille connue vit en quatre temps :
 C'est la **course correctif / exploitation** : le défenseur doit produire,
 tester et déployer plus vite que l'attaquant ne s'adapte. Un correctif installé
 mais jamais redéployé ne corrige rien.
+
+Le diagramme d'états ci-dessous pose les quatre temps et marque les deux issues : la fenêtre d'exposition s'ouvre à la publication, et un correctif qui n'atteint jamais la production ne la referme pas.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+stateDiagram-v2
+    state "Non connue" as NC
+    state "Découverte" as DEC
+    state "Publiée" as PUB
+    state "Corrigée" as COR
+    state "Déployée" as DEP
+    state "Exploitée" as EXP
+    state "Corrigée mais jamais redéployée" as OUB
+    [*] --> NC
+    NC --> DEC : un chercheur ou l'éditeur la trouve
+    DEC --> PUB : la CVE et l'advisory sortent
+    PUB --> COR : une version corrigée est publiée
+    PUB --> EXP : une preuve de concept circule
+    COR --> DEP : la version atteint la production
+    COR --> OUB : le correctif n'est jamais redéployé
+    OUB --> EXP : la fenêtre reste ouverte
+    DEP --> [*]
+```
 
 > [!TIP]
 > La question n'est pas « avons-nous des dépendances vulnérables ? » — la réponse

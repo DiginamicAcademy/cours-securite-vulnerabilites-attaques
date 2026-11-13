@@ -103,6 +103,21 @@ pour réussir et ce que l'organisation y perd. Ce score est un **point de dépar
 pas une décision : un score élevé sur un système sans valeur reste à traiter après
 un score moyen sur la caisse.
 
+Le schéma ci-dessous montre comment les trois facteurs se combinent en une seule décision, et pourquoi le score seul ne suffit pas :
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    S["Score CVSS — sévérité technique"] --> G["Gravité réelle"]
+    E["Exposition — ce qui est joignable de l'extérieur"] --> G
+    C["Contexte métier — ce qu'il y a derrière"] --> G
+    G --> P["Ordre de traitement"]
+    X["Score élevé sur un système sans valeur"] -.->|traité après la caisse| P
+    style G fill:#dbe6f5,stroke:#3b5b8d
+    style P fill:#eef2f9,stroke:#1f3f6b
+    style X fill:#fde8e8,stroke:#b34040
+```
+
 Pour se parler, les professionnels regroupent aussi les failles en familles. La
 classification la plus répandue est le Top 10 de l'**OWASP** (Open Web
 Application Security Project) : les dix familles de failles web les plus

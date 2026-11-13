@@ -14,10 +14,12 @@
 
 ## Pourquoi ce cours
 
-La fromagerie **DIGICHEESE** (la fromagerie du fil rouge) vient de mettre sa
+La fromagerie **DIGICHEESE** (l'entreprise d'étude du parcours) vient de mettre sa
 boutique en ligne. Sa recherche produits tient en une ligne de Python. Ça marche,
 c'est même rapide. Et c'est exactement ça, le problème : les failles les plus
 graves tiennent souvent dans les lignes les plus simples à écrire.
+
+Les ateliers se déroulent dans le lab Docker partagé du parcours ([DiginamicAcademy/lab-digicheese](https://github.com/DiginamicAcademy/lab-digicheese)).
 
 Ce cours couvre les **journées 2 et 3** du parcours de sécurité applicative :
 

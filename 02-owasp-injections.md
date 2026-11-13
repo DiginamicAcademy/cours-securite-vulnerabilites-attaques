@@ -89,7 +89,7 @@ réservé aux **données**.
 > 🧪 **Atelier rapide (8 min)**
 >
 > Dans le lab fourni, le service `vulnerable` expose une recherche produits
-> volontairement fragile. Après `cd lab` puis `docker compose up --build -d`,
+> volontairement fragile. Après `cd lab-digicheese` puis `docker compose up --build -d`,
 > comparez deux requêtes :
 >
 > ```bash

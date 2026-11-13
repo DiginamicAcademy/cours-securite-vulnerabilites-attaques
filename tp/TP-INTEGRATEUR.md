@@ -22,7 +22,7 @@ Ce TP est **noté** : contrairement aux exercices de ce dossier, il n'a pas de 
 
 ## Contexte
 
-**DIGICHEESE** (la fromagerie du fil rouge) est une TPE (très petite entreprise) fromagère qui a mis sa boutique en ligne il y a deux ans. L'application a grandi par ajouts successifs et personne n'est revenu sur sa sécurité depuis. Elle tient en quatre services — exactement ceux du lab Docker que vous avez reçu :
+**DIGICHEESE** (l'entreprise d'étude du parcours) est une TPE (très petite entreprise) fromagère qui a mis sa boutique en ligne il y a deux ans. L'application a grandi par ajouts successifs et personne n'est revenu sur sa sécurité depuis. Elle tient en quatre services — exactement ceux du lab Docker que vous avez reçu :
 
 | Service | URL | Ce qu'il fait |
 | --- | --- | --- |
@@ -128,7 +128,7 @@ Le dossier doit se lire sans vous : un lecteur qui n'a pas assisté au TP doit 
 
 ## Ce qui est fourni
 
-- Le lab Docker **DIGICHEESE** partagé avec le parcours (dossier `lab/`) : `docker compose up --build -d` démarre les quatre services. Son `README.md` donne les endpoints, les failles mises en scène et les comptes de démonstration.
+- Le lab Docker **DIGICHEESE** partagé avec le parcours ([DiginamicAcademy/lab-digicheese](https://github.com/DiginamicAcademy/lab-digicheese), dossier `lab-digicheese/`) : `docker compose up --build -d` démarre les quatre services. Son `README.md` donne les endpoints, les failles mises en scène et les comptes de démonstration.
 - Le code source de l'application dans ses deux versions — `vulnerable/` (ce qui tourne) et `secure/` (la référence corrigée) — et la base de démonstration `db/init.sql`.
 - Le fichier de dépendances verrouillé du service `cve` (`cve/requirements.txt`).
 - Les journaux : ceux que vous produisez vous-même avec `docker compose logs`, pas un fichier fourni.

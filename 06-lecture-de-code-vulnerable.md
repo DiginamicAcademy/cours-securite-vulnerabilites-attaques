@@ -59,7 +59,7 @@ sont rares et concentrés : les examiner un par un coûte peu.
 
 > 🧪 **Atelier rapide (10 min)**
 >
-> Le fichier `lab/vulnerable/app.py` du lab contient cinq failles volontaires,
+> Le fichier `lab-digicheese/vulnerable/app.py` du lab contient cinq failles volontaires,
 > signalées par des commentaires dans le code :
 >
 ```python

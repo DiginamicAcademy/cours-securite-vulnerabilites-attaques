@@ -2,7 +2,7 @@
 
 # Anatomie d'une vulnérabilité — Vie d'une faille
 
-> La fromagerie **DIGICHEESE** (la fromagerie du fil rouge) vient
+> La fromagerie **DIGICHEESE** (l'entreprise d'étude du parcours) vient
 > de passer en ligne. Son développeur a écrit la recherche produits en une ligne
 > de Python. Ça marche, c'est même rapide. Et c'est exactement ça, le problème :
 > les failles les plus graves tiennent souvent dans les lignes les plus simples
@@ -116,7 +116,7 @@ journée.
 
 #### Contexte
 
-La fromagerie **DIGICHEESE** (la fromagerie du fil rouge) vient de mettre sa
+La fromagerie **DIGICHEESE** (l'entreprise d'étude du parcours) vient de mettre sa
 boutique en ligne. Six observations ont été remontées, par l'équipe et par des
 clients. Aucune n'est encore qualifiée : c'est votre travail.
 
@@ -280,7 +280,7 @@ vous traitez un symptôme.
 
 **Éléments attendus** (classement indicatif — l'important est le critère explicite) :
 
-Pour **DIGICHEESE** (la fromagerie du fil rouge), deux réponses se défendent :
+Pour **DIGICHEESE** (l'entreprise d'étude du parcours), deux réponses se défendent :
 
 - **la configuration** en premier, si l'on juge sur l'exposition : un identifiant
   de base de données ouvre tout le reste, et l'adresse est accessible sans

@@ -147,7 +147,7 @@ l'accès complet. C'est exactement ce que la kill chain décrit : plusieurs
 > 🧪 **Atelier rapide (10 min)**
 >
 > Sur le service `vulnerable` du lab local (`docker compose up --build -d` dans
-> le dossier `lab`), enchaînez deux appels pour obtenir les identifiants de base
+> le dossier `lab-digicheese`), enchaînez deux appels pour obtenir les identifiants de base
 > de données :
 >
 > ```bash

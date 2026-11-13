@@ -52,7 +52,7 @@ Application Security Project).
 > 🧪 **Atelier rapide (8 min)**
 >
 > Le service `vulnerable` du lab expose volontairement sa configuration. Après
-> `cd lab` puis `docker compose up --build -d`, interrogez-le :
+> `cd lab-digicheese` puis `docker compose up --build -d`, interrogez-le :
 >
 > ```bash
 > curl http://localhost:8080/debug/config

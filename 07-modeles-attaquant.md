@@ -120,6 +120,24 @@ votre page d'administration oubliée. On construit sa défense contre la menace
 probable, et on garde un œil sur les autres — c'est le principe de la sécurité
 proportionnée.
 
+Le schéma ci-dessous sépare les deux régions. L'effort de défense se porte sur la petite, pas sur la grande.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    subgraph POSSIBLE["Menace possible"]
+        subgraph PROBABLE["Menace probable"]
+            O["Opportunisme automatisé — vous êtes dans la liste de balayage"]
+            I["Initié"]
+            C["Criminel organisé"]
+        end
+        S["Espion industriel ou étatique"]
+    end
+    D["Effort de défense"] ==> PROBABLE
+    style O fill:#fde8e8,stroke:#b34040
+    style S fill:#eef2f9,stroke:#4b5563
+```
+
 > [!WARNING]
 > Une erreur fréquente : calquer sa défense sur la menace la plus spectaculaire
 > (l'espionnage étatique) et négliger la plus courante (le script automatisé).

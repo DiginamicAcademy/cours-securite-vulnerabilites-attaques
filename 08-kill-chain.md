@@ -99,6 +99,24 @@ Le cas du distributeur de 2013 l'illustre : un accès distant limité, ou une
 segmentation entre le réseau du fournisseur et le réseau interne, aurait coupé
 la chaîne à sa deuxième étape.
 
+Le schéma ci-dessous suit le même cas, mais dans l'espace réseau — non plus dans les sept étapes. La grille dit quoi surveiller ; lui dit où poser la segmentation.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    subgraph PRE["Réseau du prestataire de maintenance"]
+        A["Poste du prestataire"]
+    end
+    subgraph INT["Réseau interne"]
+        B["Accès distant"] --> C["Serveurs de caisse"]
+        C --> D["Terminaux de paiement"]
+    end
+    A -->|coupe ici — segmentation ou accès distant limité| B
+    D --> E["Sortie du réseau — plusieurs jours"]
+    style A fill:#fde8e8,stroke:#b34040
+    style E fill:#fde8e8,stroke:#b34040
+```
+
 Deux idées à retenir ici.
 
 **La défense en profondeur** n'est pas un empilement de produits : c'est la
@@ -125,6 +143,18 @@ Le réseau de pharmacies **Léonie** consolide ses ventes dans un entrepôt de
 données. Des exports quotidiens alimentent un lac de données, une chaîne de
 planification exécute les traitements, et un tableau de bord expose les agrégats
 aux responsables de région.
+
+La chaîne ci-dessous reprend ces quatre maillons tels qu'ils fonctionnent : elle sert de feuille de travail, c'est dessus que vous placerez les étapes de la kill chain.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    E["Exports quotidiens des pharmacies"] --> L["Lac de données"]
+    L --> C["Chaîne de planification des traitements"]
+    C --> T["Tableau de bord — agrégats aux responsables de région"]
+    J["Journaux disponibles : planification, lac, tableau de bord, réseau"] -.-> C
+    style L fill:#dbe6f5,stroke:#3b5b8d
+```
 
 Un incident vient d'éclater : des données de programme de fidélité — noms,
 adresses, historique d'achats — ont été retrouvées en circulation. Personne ne

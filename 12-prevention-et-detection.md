@@ -53,6 +53,22 @@ Une faille inconnue, un usage détourné d'une fonction légitime, un accès
 interne mal intentionné passent au travers — c'est pour cela que la détection
 n'est pas un complément de confort.
 
+Le schéma ci-dessous montre la fuite au lieu de la raconter : la prévention ne laisse passer que ce qui a été anticipé, et la détection récolte le reste.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    AT["Attaque"] --> PR["Prévenir — ne laisse passer que ce qui a été anticipé"]
+    PR -->|fuite — ce qui n'a pas été anticipé| DE["Détecter — voit ce qui a passé"]
+    DE --> RE["Répondre — borne l'impact"]
+    DE -.-> ING["Journaux, règle, et quelqu'un qui traite"]
+    ING -.->|noyé sous le bruit| PAN["Alerte jamais traitée"]
+    ING -.->|fausse sécurité| PAN
+    style AT fill:#fde8e8,stroke:#b34040
+    style PR fill:#dbe6f5,stroke:#3b5b8d
+    style PAN fill:#fde8e8,stroke:#b34040
+```
+
 > [!TIP]
 > Une mesure de prévention se choisit par ce qu'elle coupe dans la chaîne, pas
 > par sa sophistication. Un compte de base de données aux droits minimaux coupe

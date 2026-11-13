@@ -144,6 +144,19 @@ configuration, ce n'est pas un accès à la base. Enchaînées, elles produisent
 l'accès complet. C'est exactement ce que la kill chain décrit : plusieurs
 échecs doivent s'enchaîner — donc plusieurs occasions de couper.
 
+Le schéma ci-dessous additionne les gravités, maillon par maillon. Aucune case de départ n'est critique ; la dernière l'est devenue.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    A["1. L'API publie sa description — faible"] --> B["2. Route d'administration sans contrôle de rôle — faible"]
+    B --> C["3. Route de diagnostic active en production — moyenne"]
+    C --> D["4. Identifiants de la base en clair"]
+    D --> E["5. Accès direct à la base, hors application"]
+    style A fill:#eef2f9,stroke:#3b5b8d
+    style E fill:#fde8e8,stroke:#b34040
+```
+
 > 🧪 **Atelier rapide (10 min)**
 >
 > Sur le service `vulnerable` du lab local (`docker compose up --build -d` dans

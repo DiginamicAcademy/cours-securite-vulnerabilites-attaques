@@ -19,7 +19,7 @@ boutique en ligne. Sa recherche produits tient en une ligne de Python. Ça march
 c'est même rapide. Et c'est exactement ça, le problème : les failles les plus
 graves tiennent souvent dans les lignes les plus simples à écrire.
 
-Les ateliers se déroulent dans le lab Docker partagé du parcours ([DiginamicAcademy/lab-digicheese](https://github.com/DiginamicAcademy/lab-digicheese)).
+Les ateliers se déroulent dans le lab Docker partagé du parcours ([DiginamicAcademy/lab-securite](https://github.com/DiginamicAcademy/lab-securite)).
 
 Ce cours couvre les **journées 2 et 3** du parcours de sécurité applicative :
 

@@ -69,7 +69,7 @@ faites en son nom, déplacement vers l'espace d'administration.
 > 🧪 **Atelier rapide (8 min)**
 >
 > Le service `vulnerable` du lab renvoie la saisie dans une page sans
-> l'échapper. Après `cd lab-digicheese` puis `docker compose up --build -d`, observez :
+> l'échapper. Après `cd lab-securite` puis `docker compose up --build -d`, observez :
 >
 > ```bash
 > curl "http://localhost:8080/comments?q=<script>alert(1)</script>"

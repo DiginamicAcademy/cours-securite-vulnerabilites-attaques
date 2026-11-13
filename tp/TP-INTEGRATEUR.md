@@ -128,7 +128,7 @@ Le dossier doit se lire sans vous : un lecteur qui n'a pas assisté au TP doit 
 
 ## Ce qui est fourni
 
-- Le lab Docker **DIGICHEESE** partagé avec le parcours ([DiginamicAcademy/lab-digicheese](https://github.com/DiginamicAcademy/lab-digicheese), dossier `lab-digicheese/`) : `docker compose up --build -d` démarre les quatre services. Son `README.md` donne les endpoints, les failles mises en scène et les comptes de démonstration.
+- Le lab Docker **DIGICHEESE** partagé avec le parcours ([DiginamicAcademy/lab-securite](https://github.com/DiginamicAcademy/lab-securite), dossier `lab-securite/`) : `docker compose up --build -d` démarre les quatre services. Son `README.md` donne les endpoints, les failles mises en scène et les comptes de démonstration.
 - Le code source de l'application dans ses deux versions — `vulnerable/` (ce qui tourne) et `secure/` (la référence corrigée) — et la base de démonstration `db/init.sql`.
 - Le fichier de dépendances verrouillé du service `cve` (`cve/requirements.txt`).
 - Les journaux : ceux que vous produisez vous-même avec `docker compose logs`, pas un fichier fourni.

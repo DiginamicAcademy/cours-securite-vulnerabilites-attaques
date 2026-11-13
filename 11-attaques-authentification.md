@@ -113,6 +113,23 @@ un cookie de session ; le cookie est intercepté ou copié ; l'attaquant le
 rejoue et le serveur le prend pour la personne ; la session dure tant que le
 cookie n'est ni expiré ni révoqué.
 
+Le tableau qui suit distribue une mesure par temps. Encore faut-il avoir le fil sous les yeux pour la placer : les quatre temps sont numérotés dans la séquence ci-dessous.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+sequenceDiagram
+    participant P as Personne
+    participant R as Réseau public
+    participant A as Attaquant
+    participant S as Serveur
+    P->>S: 1. se connecte, le serveur émet un cookie de session
+    P->>S: la requête suivante porte le cookie
+    R->>A: 2. sans HTTPS, le cookie passe en clair et l'attaquant l'écoute
+    A->>S: 3. rejoue le cookie volé
+    S-->>A: reconnaît la personne, la session est détournée
+    Note over A,S: 4. la session dure tant que le cookie n'est ni expiré ni révoqué
+```
+
 Ce qui protège, à chaque étape :
 
 | Étape | Mesure |

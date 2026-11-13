@@ -208,6 +208,24 @@ supprime la cause racine.
   pas besoin de supprimer des tables. Cela ne supprime pas l'injection, mais
   limite ce qu'elle coûte.
 
+Le schéma ci-dessous place chaque mesure à l'endroit où elle agit. C'est la position, et non le sérieux de la mesure, qui fait la différence :
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    E["Saisie de l'utilisateur"] --> B1["Liste noire sur l'apostrophe"]
+    B1 --> B2["Pare-feu applicatif"]
+    B2 --> B3["Page d'erreur neutre"]
+    B3 --> F["Concaténation dans le code"]
+    F -->|la donnée devient instruction| I["Interpréteur SQL"]
+    E ==>|requête et données voyagent séparément| Q["Requête paramétrée"]
+    Q ==> J["Interpréteur — la donnée reste une donnée"]
+    style F fill:#fde8e8,stroke:#b34040
+    style I fill:#fde8e8,stroke:#b34040
+    style Q fill:#eef2f9,stroke:#2f7d4f
+    style J fill:#eef2f9,stroke:#2f7d4f
+```
+
 > [!TIP]
 > La question à se poser devant chaque ligne qui assemble du texte : « ce que
 > l'utilisateur tape peut-il être lu comme une instruction ? ». Si oui, la ligne

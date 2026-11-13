@@ -51,6 +51,25 @@ script dans la page, et son navigateur l'exécute. Si c'est un administrateur qu
 modère les avis, le script travaille avec ses droits — vol de session, actions
 faites en son nom, déplacement vers l'espace d'administration.
 
+La séquence ci-dessous montre quatre participants et un décalage dans le temps : le script n'exécute jamais chez celui qui l'a déposé.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+sequenceDiagram
+    participant AT as Attaquant
+    participant B as Base du site
+    participant V as Navigateur d'un visiteur
+    participant A as Navigateur de l'administrateur
+    AT->>B: dépose un commentaire portant le script
+    Note over B: le commentaire est stocké, le script attend sa victime
+    V->>B: ouvre la fiche du restaurant
+    B->>V: renvoie la page avec le script
+    Note over V: le script lit le cookie de ce visiteur
+    A->>B: ouvre la même fiche pour modérer
+    B->>A: renvoie la page avec le script
+    Note over A: le script travaille avec les droits de celui qui lit
+```
+
 ### Les deux autres formes
 
 - **Le XSS réfléchi** : la saisie n'est pas stockée ; elle revient dans la réponse
@@ -110,6 +129,22 @@ Le mécanisme tient en une phrase : **le navigateur envoie les cookies tout seu
 Le serveur reçoit une requête authentifiée et n'a aucun moyen de savoir qui l'a
 déclenchée — vous, ou la page que vous consultiez.
 
+La séquence ci-dessous met le cookie en acteur : c'est lui qui authentifie la requête, et personne ne l'a décidée.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+sequenceDiagram
+    participant V as Victime
+    participant O as Onglet malveillant
+    participant N as Navigateur de la victime
+    participant B as Banque
+    V->>O: ouvre une page pendant qu'un autre onglet est connecté à la banque
+    O->>N: déclenche une requête vers la banque
+    N->>B: ajoute le cookie de session tout seul
+    B->>B: requête authentifiée, le virement est exécuté
+    Note over B: le serveur ne peut pas savoir qui a déclenché
+```
+
 ### Les formes classiques
 
 - une image dont l'adresse est l'action à exécuter — le chargement de l'image
@@ -142,6 +177,21 @@ fiche ressemble à `/fiches/1042`. Un salarié remplace le numéro par celui d'u
 collègue — et la fiche s'affiche. Le contrôle d'accès existait peut-être dans
 l'interface : le bouton était masqué. Mais l'interface n'est pas la porte, c'est
 la vitrine.
+
+Le schéma ci-dessous dessine les deux chemins vers la même fiche. Le masquage n'est pas sur le chemin de la décision : seule la porte du milieu décide.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    S["Salarié"] -->|passe par l'interface| I["Interface — la vitrine, pas la porte"]
+    I --> Sv["Serveur"]
+    S -->|URL directe| Sv
+    Sv --> C{"Contrôle de rôle"}
+    C -->|absent, la fiche s'affiche| R["Fiche /fiches/1042"]
+    C -.->|présent, refus| X["Accès refusé"]
+    style I fill:#fde8e8,stroke:#b34040
+    style C fill:#dbe6f5,stroke:#3b5b8d
+```
 
 C'est la famille **A01** — Broken Access Control, la plus fréquente du Top 10 de
 l'**OWASP** (Open Web Application Security Project). Elle recouvre des cas

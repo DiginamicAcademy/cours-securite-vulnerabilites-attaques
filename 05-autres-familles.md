@@ -53,6 +53,20 @@ Ce que permet ce mécanisme : parcourir le réseau interne, atteindre des servi
 sans authentification — bases de données, consoles d'administration, services
 d'infrastructure — ou lire des fichiers locaux selon la configuration.
 
+Le schéma ci-dessous montre qui émet la requête. Tout le SSRF tient dans ce renversement : ce n'est pas le navigateur de l'attaquant qui frappe.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    V["Vendeur"] -->|envoie une adresse d'image| S["Serveur e-commerce"]
+    S ==>|c'est le serveur qui émet la requête| M["169.254.169.254 — service de métadonnées"]
+    S ==>|pareil pour toute adresse interne| N["Réseau interne — bases, consoles"]
+    M -.->|joignable depuis le serveur, et depuis lui seul| Z["L'attaquant, lui, n'y a pas accès"]
+    style S fill:#dbe6f5,stroke:#3b5b8d
+    style M fill:#fde8e8,stroke:#b34040
+    style N fill:#fde8e8,stroke:#b34040
+```
+
 ### XXE — le fichier de données qui demande plus que ce qu'il contient
 
 Un cabinet comptable importe des factures au format **XML** (eXtensible Markup
@@ -74,6 +88,19 @@ fichier demandé. C'est la faille dite **XXE** (XML External Entity) : le fichi
 de données devient une instruction d'accès au système. Selon la configuration du
 parseur, elle peut aussi déclencher une requête vers un serveur choisi par
 l'attaquant — le même effet que le SSRF, par un autre chemin.
+
+Le schéma ci-dessous donne l'ordre de résolution, que le code seul ne laisse pas voir : déclarer, lire, insérer.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    F["Facture XML portant une entité externe"] --> P["Parseur"]
+    P -->|résout la déclaration| L["Lit le fichier système demandé"]
+    L -->|insère le résultat| D["Champ client de la facture"]
+    D -.->|le document est renvoyé tel quel| R["Facture affichée avec le fichier système à la place du nom du client"]
+    style L fill:#fde8e8,stroke:#b34040
+    style R fill:#fde8e8,stroke:#b34040
+```
 
 ### Désérialisation — quand les octets redeviennent des objets
 
@@ -155,6 +182,21 @@ Pour un flux de données entrant — un fichier reçu d'un tiers, une API parten
 un export importé — la question pratique est donc : *ce fichier peut-il me faire
 faire quelque chose ?* Si oui, il faut savoir quoi, et l'empêcher.
 
+Le schéma ci-dessous rassemble la thèse du chapitre : quatre portes différentes, une seule cause, et les mêmes barrières pour les quatre.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    A["SSRF — le serveur appelle à votre place"] --> C["Trop de confiance accordée à une donnée entrante"]
+    B["XXE — le fichier de données donne un ordre"] --> C
+    D["Désérialisation — les octets redeviennent objets"] --> C
+    E["Prototype pollution — une règle change"] --> C
+    C --> F["Restreindre ce qui est accepté"]
+    C --> G["Désactiver ce qui ne sert pas"]
+    C --> H["Moindres droits et surveillance des écarts"]
+    style C fill:#fde8e8,stroke:#b34040
+```
+
 ### Exercice bonus — Modéliser les vulnérabilités d'un pipeline de données (libre, facultatif)
 
 #### Contexte
@@ -181,6 +223,19 @@ Voici la chaîne, telle qu'elle fonctionne :
 5. **Restitution** — une application web interne, puis un portail public,
    affichent les tableaux de bord ; une API (Application Programming Interface)
    alimente les partenaires.
+
+La chaîne ci-dessous reprend ces cinq étapes telles quelles : c'est votre feuille de travail, vous y placerez les familles et les points de confiance.
+
+```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#eef2f9','primaryBorderColor':'#3b5b8d','primaryTextColor':'#1f3f6b','lineColor':'#3b5b8d','secondaryColor':'#dbe6f5','tertiaryColor':'#fde8e8','fontFamily':'DejaVu Sans'}}}%%
+flowchart LR
+    R["1. Réception — dépôt CSV de chaque partenaire"] --> S["2. Stockage — objet, accès toute l'équipe"]
+    S --> O["3. Orchestration — identifiants écrits dans les définitions de tâches"]
+    O --> T["4. Transformation — scripts, et objets sérialisés rechargés"]
+    T --> U["5. Restitution — web interne, portail public, API"]
+    style R fill:#dbe6f5,stroke:#3b5b8d
+    style U fill:#dbe6f5,stroke:#3b5b8d
+```
 
 Votre mission : **modéliser**, pas corriger.
 
